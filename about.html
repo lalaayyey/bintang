@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+</head>
+<body>
+
+<!-- Navbar-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="background-color:aliceblue;">
+  <div class="container">
+
+     <a class="navbar-brand fw-bold" href="index.html"><i class="bi bi-house fs-3"></i></a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active fw-bold" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const navLinks = document.querySelectorAll(".nav-link");
+    navLinks.forEach(link => {
+      if (link.href === window.location.href) {
+        link.classList.add("active", "fw-bold");
+      }
+    });
+  });
+</script>
+
+<main>
+<!-- ABOUT SECTION -->
+<section class="py-5" style="margin-top: 20px;">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <!-- FOTO -->
+      <div class="col-md-4 text-center mb-4">
+        <img src="/images/foto.jpg" class="img-fluid rounded shadow" alt="Foto Profil">
+      </div>
+
+      <!-- TEKS -->
+      <div class="col-md-8">
+        <h2 class="fw-bold mb-3">About Me</h2>
+        <p>
+          Hi!<strong>Adila Bintang </strong>seorang anak kecil yang tumbuh dewasa, suka kopi, membaca, dan
+           belajar hal baru. Sekarang aku berkuliah di Universitas Andalas Jurusan Informatika. 
+           Saat ini aku sedang belajar membuat website yang semoga hasilnya bagus ya hehe. 
+           Website ini aku buat untuk merekam dan mengabadikan proses yang telah aku lewati — hari ke hari, 
+           bulan ke bulan, tahun ke tahun. Aku belum tahu akan dibawa ke mana perjalanan ini nantinya, 
+           tapi siapa tahu ada hal indah yang menunggu di ujung proses ini. Yuk ikuti kisahku...
+          <br><br>
+          <P>
+
+        <h4 class="mt-4">Mission</h4>
+        <p class="text-center">• Terus mengembangkan diri melalui pembelajaran hal-hal baru.
+          <br>•Menerima kesalahan dan kegagalan sebagai bagian penting dari proses.
+          <br>• Menjadikan setiap pengalaman sebagai pijakan untuk menjadi pribadi yang lebih baik.
+          <br>• Mengabadikan perjalanan hidup agar bisa menjadi refleksi di masa depan.</p>
+
+        <h4>Vision</h4>
+        <p class="text-center">• Terus mengembangkan diri melalui pembelajaran hal-hal baru.<br>• Menerima kesalahan dan kegagalan sebagai bagian penting dari proses.<br>• Menjadikan setiap pengalaman sebagai pijakan untuk menjadi pribadi yang lebih baik.<br>• Mengabadikan perjalanan hidup agar bisa menjadi refleksi di masa depan.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="fw-bold mb-4 text-center">My Journey</h2>
+
+    <div class="accordion" id="aboutAccordion">
+
+ <!-- EDUCATION -->
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#edu">
+      Education
+      </button>
+    </h2>
+    <div id="edu" class="accordion-collapse collapse" data-bs-parent="#aboutAccordion">
+      <div class="accordion-body">
+        <ul>
+          <li>2020–2023 – SMAN Titian Teras H.Abdurrahman Sayoeti Jambi</li>
+          <li>2017–2020 – SMPIT Nurul-ilmi</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#exp">
+      Experience
+      </button>
+    </h2>
+    <div id="exp" class="accordion-collapse collapse" data-bs-parent="#aboutAccordion">
+      <div class="accordion-body">
+        <ul>
+          <li>Pernah bekerja di Cafe Unico</li>
+          <li>Pernah menjadi volunteer di Muaro Jambi</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACHIEVEMENTS -->
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#achieve">
+      Achievements
+      </button>
+    </h2>
+    <div id="achieve" class="accordion-collapse collapse" data-bs-parent="#aboutAccordion">
+      <div class="accordion-body">
+        <ul>
+          <li>SOON</li>
+          <li>SOON</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#skill">
+      Skills
+      </button>
+    </h2>
+    <div id="skill" class="accordion-collapse collapse" data-bs-parent="#aboutAccordion">
+      <div class="accordion-body">
+        • Memiliki kemampuan bekerja dalam tim yang baik<br>• Public speaking dan storytelling yang bagus<br>• Tanggung jawab<br>• Disiplin
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+<main>
+
+
+<!-- FOOTER -->
+<footer class="bg-dark text-white py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <h5>lalaayyey</h5>
+                  <h5><span class="badge bg-secondary">my portfolio</span></h1>
+        <p>Website portfolio pribadi.</p>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="about.html" class="text-white text-decoration-none">About</a></li>
+          <li><a href="portfolio.html" class="text-white text-decoration-none">Portfolio</a></li>
+          <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h5>Follow Me</h5>
+        <a href="https://instagram.com/lalaayyey" class="text-white me-2"><i class="bi bi-instagram"></i></a>
+        <a href="https://github.com/lalaayyey"  class="text-white"><i class="bi bi-github"></i></a>
+      </div>
+    </div>
+    <hr class="bg-white">
+    <p class="mb-0 text-center">© 2025 MyPortfolio. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

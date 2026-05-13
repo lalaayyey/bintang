@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | MyPortfolio</title>
+
+  <!-- BOOTSTRAP CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+
+  <style>
+    .required::after { content: "*"; color: red; margin-left: 2px; }
+    .alert { display: none; }
+    .hero-section {
+      padding: 120px 0 70px;
+      text-align: center;
+      background: #f8f9fa;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+  <div class="container">
+     <a class="navbar-brand fw-bold" href="index.html"> <i class="bi bi-house fs-3"></i></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link active fw-bold" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero-section">
+  <div class="container">
+    <h1 class="fw-bold">Kontak Saya</h1>
+    <p>Silakan hubungi saya melalui form atau informasi berikut</p>
+  </div>
+<style>
+.hero-section {
+      padding: 120px 0;
+      text-align: center;
+      color: white;
+      background: linear-gradient(135deg, #000 20%, #333 100%);
+    }
+
+    .hero-section h1 {
+      font-size: 48px;
+      font-weight: 700;
+    }
+
+    .hero-section p {
+      font-size: 18px;
+      opacity: .8;
+    }
+
+    .portfolio-grid .card {
+      border-radius: 15px;
+      overflow: hidden;
+      transition: .3s;
+    }
+
+    .portfolio-grid .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .modal-body img {
+      width: 100%;
+      max-height: 60vh;
+      object-fit: cover;
+    }
+  </style>
+
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="py-5">
+  <div class="container">
+    <div class="row g-4">
+
+      <!-- FORM -->
+      <div class="col-md-7">
+        <div class="card shadow-sm border-0 rounded-4 p-4">
+
+          <h4 class="fw-bold mb-4">Form Kontak</h4>
+
+          <!-- Alerts -->
+          <div id="successAlert" class="alert alert-success">Pesan berhasil dikirim!</div>
+          <div id="errorAlert" class="alert alert-danger">Terjadi kesalahan saat mengirim pesan.</div>
+          <div id="warningAlert" class="alert alert-warning">Anda harus menyetujui syarat dan ketentuan.</div>
+
+          <form id="contactForm" novalidate>
+
+            <div class="mb-3">
+              <label class="form-label required">Nama</label>
+              <input type="text" class="form-control" id="name" required>
+              <div class="invalid-feedback">Masukkan nama Anda.</div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label required">Email</label>
+              <input type="email" class="form-control" id="email" required>
+              <div class="invalid-feedback">Masukkan email yang valid.</div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label required">Telepon</label>
+              <input type="tel" class="form-control" id="phone" required pattern="[0-9]{10,15}">
+              <div class="invalid-feedback">Masukkan nomor telepon (10–15 digit).</div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label required">Subjek</label>
+              <select class="form-select" id="subject" required>
+                <option value="">Pilih Subjek</option>
+                <option value="general">Pertanyaan Umum</option>
+                <option value="project">Proposal Proyek</option>
+                <option value="other">Lainnya</option>
+              </select>
+              <div class="invalid-feedback">Pilih subjek.</div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label required">Pesan</label>
+              <textarea class="form-control" id="message" rows="5" required></textarea>
+              <div class="invalid-feedback">Masukkan pesan Anda.</div>
+            </div>
+
+            <div class="form-check mb-4">
+              <input type="checkbox" class="form-check-input" id="terms" required>
+              <label class="form-check-label required" for="terms">
+                Saya setuju dengan syarat dan ketentuan
+              </label>
+              <div class="invalid-feedback">Anda harus menyetujui sebelum mengirim.</div>
+            </div>
+
+            <button type="submit" id="submitBtn" class="btn btn-primary rounded-pill px-4" disabled>
+              Kirim Pesan
+            </button>
+
+          </form>
+        </div>
+      </div>
+
+      <!-- CONTACT INFO -->
+      <div class="col-md-5">
+        <div class="card shadow-sm border-0 rounded-4 p-4">
+          <h4 class="fw-bold mb-3">Informasi Kontak</h4>
+
+          <p><strong>Email:</strong> adilabintang9@gmail.com</p>
+          <p><strong>Telepon:</strong> +62 896 0157 0125</p>
+          <p><strong>Alamat:</strong> Padang, Indonesia</p>
+
+          <p><strong>Follow Me:</strong><br>
+            <a href="https://github.com/lalaayyey" target="_blank">GitHub</a> 
+            <a href="https://www.instagram.com/lalaayyey" target="_blank">Instagram</a>
+          </p>
+
+          <div class="mt-3">
+            <!-- GOOGLE MAPS -->
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.310049202528!2d100.45866131475355!3d-0.9145678993297123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b7be9e52a171%3A0x6b9d378650e41f9e!2sUniversitas%20Andalas!5e0!3m2!1sid!2sid!4v1679000000000"
+              width="100%" 
+              height="230" 
+              style="border:0;" 
+              allowfullscreen 
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- BOOTSTRAP JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+(() => {
+  const form = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const terms = document.getElementById('terms');
+
+  const alerts = {
+    success: document.getElementById('successAlert'),
+    error: document.getElementById('errorAlert'),
+    warning: document.getElementById('warningAlert')
+  };
+
+  const hideAlerts = () => {
+    Object.values(alerts).forEach(a => a.style.display = 'none');
+  };
+
+  const updateButton = () => {
+    submitBtn.disabled = !(form.checkValidity() && terms.checked);
+  };
+
+  form.addEventListener('input', updateButton);
+  terms.addEventListener('change', updateButton);
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    hideAlerts();
+    form.classList.add('was-validated');
+
+    if (!terms.checked) {
+      alerts.warning.style.display = 'block';
+      return;
+    }
+
+    if (form.checkValidity()) {
+      alerts.success.style.display = 'block';
+      form.reset();
+      submitBtn.disabled = true;
+      form.classList.remove('was-validated');
+    } else {
+      alerts.error.style.display = 'block';
+    }
+  });
+})();
+</script>
+
+
+</body>
+</html>
+<!-- FOOTER -->
+<footer class="bg-dark text-white py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <h5>lalaayyey</h5>
+                  <h5><span class="badge bg-secondary">my portfolio</span></h1>
+        <p>Website portfolio pribadi.</p>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="about.html" class="text-white text-decoration-none">About</a></li>
+          <li><a href="portfolio.html" class="text-white text-decoration-none">Portfolio</a></li>
+          <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h5>Follow Me</h5>
+        <a href="https://instagram.com/lalaayyey" class="text-white me-2"><i class="bi bi-instagram"></i></a>
+        <a href="https://github.com/lalaayyey"  class="text-white"><i class="bi bi-github"></i></a>
+      </div>
+    </div>
+    <hr class="bg-white">
+    <p class="mb-0 text-center">© 2025 MyPortfolio. All rights reserved.</p>
+  </div>
+</footer>
