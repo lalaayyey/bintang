@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Praktikum 7 Laravel</title>
+
+  <!-- BOOTSTRAP -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- ICON -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <style>
+
+    body{
+      background-color:#f5f7fa;
+    }
+
+    .hero{
+      padding:120px 0 70px;
+      background:linear-gradient(135deg,#000,#444);
+      color:white;
+      text-align:center;
+    }
+
+    .laporan-card{
+      border:none;
+      border-radius:20px;
+    }
+
+    .laporan-img{
+      border-radius:15px;
+      width:100%;
+      margin-top:20px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    pre{
+      background:#212529;
+      color:white;
+      padding:20px;
+      border-radius:10px;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="background-color:aliceblue;">
+  <div class="container">
+
+    <a class="navbar-brand fw-bold" href="index.html">
+      MyPortfolio <i class="bi bi-house fs-3"></i>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+      <ul class="navbar-nav ms-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="portfolio.html">Portfolio</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="laporan.html">Laporan</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="container">
+
+    <h1>Praktikum 7 - Konfigurasi Laravel</h1>
+
+    <p>
+      Mata Kuliah Pemrograman Web
+    </p>
+
+  </div>
+
+</section>
+
+<!-- ISI LAPORAN -->
+<section class="py-5">
+
+  <div class="container">
+
+    <div class="card shadow laporan-card p-4">
+
+      <span class="badge bg-danger mb-3" style="width:fit-content;">
+        Laravel
+      </span>
+
+      <!-- PENDAHULUAN -->
+      <h2 class="fw-bold mb-4">
+        Pendahuluan
+      </h2>
+
+      <p align="justify">
+        Laravel merupakan salah satu framework PHP yang populer dan dikembangkan oleh
+        Taylor Otwell. Laravel adalah framework open source yang digunakan untuk
+        mengembangkan aplikasi berbasis web dengan arsitektur MVC
+        (Model - View - Controller). Framework ini dirancang untuk mempermudah
+        proses pengembangan aplikasi web modern dengan sintaks yang elegan,
+        sederhana, dan mudah dipahami.
+      </p>
+
+      <p align="justify">
+        Laravel menyediakan berbagai fitur yang membantu developer dalam
+        membangun aplikasi web seperti Eloquent ORM, Blade Template Engine,
+        routing, middleware, validasi form, dan Artisan CLI. Dengan berbagai
+        fitur tersebut Laravel menjadi salah satu framework yang banyak
+        digunakan dalam pengembangan aplikasi web modern.
+      </p>
+
+      
+
+      <!-- TUJUAN -->
+      <h2 class="fw-bold mt-4">
+        Tujuan Praktikum
+      </h2>
+
+      <ul>
+        <li>Memahami konsep dasar framework Laravel</li>
+        <li>Melakukan instalasi Laravel dan tools pendukung</li>
+        <li>Membuat project Laravel baru</li>
+        <li>Menjalankan Laravel menggunakan artisan</li>
+        <li>Memahami konsep MVC Laravel</li>
+      </ul>
+
+      <!-- LANGKAH -->
+      <h2 class="fw-bold mt-4">
+        Langkah-Langkah Praktikum
+      </h2>
+
+      <!-- LANGKAH 1 -->
+      <h5 class="mt-3">1. Install XAMPP</h5>
+
+      <p align="justify">
+        XAMPP merupakan software yang digunakan sebagai web server lokal.
+        Di dalam XAMPP sudah tersedia Apache, PHP, dan PhpMyAdmin yang
+        digunakan untuk menjalankan project Laravel pada komputer lokal.
+        Setelah proses instalasi selesai, folder project biasanya berada
+        pada direktori <b>C:\xampp\htdocs</b>.
+      </p>
+
+      <!-- LANGKAH 2 -->
+      <h5 class="mt-4">2. Install Composer</h5>
+
+      <p align="justify">
+        Composer merupakan package manager PHP yang digunakan untuk
+        mengelola dependency atau package yang dibutuhkan Laravel.
+        Composer digunakan saat proses instalasi framework Laravel
+        maupun package tambahan lainnya.
+      </p>
+
+      <img src="images/dwcomposer.png" class="laporan-img">
+
+      <!-- LANGKAH 3 -->
+      <h5 class="mt-4">3. Install NPM</h5>
+
+      <p align="justify">
+        NPM (Node Package Manager) digunakan untuk mengelola package
+        JavaScript pada Laravel. NPM biasanya digunakan untuk menjalankan
+        Vite, Bootstrap, serta dependency frontend lainnya agar tampilan
+        aplikasi Laravel dapat berjalan dengan baik.
+      </p>
+
+<pre>
+npm install
+
+npm run dev
+</pre>
+
+      <img src="images/npm.png" class="laporan-img">
+
+      <!-- LANGKAH 4 -->
+      <h5 class="mt-4">4. Membuat Project Laravel</h5>
+
+      <p align="justify">
+        Setelah Composer berhasil diinstall, langkah selanjutnya yaitu
+        membuat project Laravel baru melalui terminal atau CMD dengan
+        menggunakan perintah berikut.
+      </p>
+
+<pre>
+composer create-project laravel/laravel belajar-laravel --prefer-dist
+</pre>
+
+      <img src="images/create-project.png" class="laporan-img">
+
+      <!-- LANGKAH 5 -->
+      <h5 class="mt-4">5. Menjalankan Laravel</h5>
+
+      <p align="justify">
+        Setelah project berhasil dibuat, masuk ke folder project Laravel
+        kemudian jalankan server bawaan Laravel menggunakan perintah
+        artisan serve agar project dapat diakses melalui browser.
+      </p>
+
+<pre>
+cd belajar-laravel
+
+php artisan serve
+</pre>
+
+      <img src="images/artisan.png" class="laporan-img">
+
+      <!-- LANGKAH 6 -->
+      <h5 class="mt-4">6. Membuka Laravel di Browser</h5>
+
+      <p align="justify">
+        Setelah server Laravel berhasil dijalankan, project dapat diakses
+        melalui browser dengan alamat berikut.
+      </p>
+
+<pre>
+http://127.0.0.1:8000
+</pre>
+
+      <p align="justify">
+        Jika berhasil, maka halaman default Laravel akan tampil pada browser.
+      </p>
+
+      <!-- LANGKAH 7 -->
+      <h5 class="mt-4">7. Konsep MVC Laravel</h5>
+
+      <p align="justify">
+        Laravel menggunakan konsep MVC (Model View Controller). Model
+        digunakan untuk mengelola data dan database, View digunakan
+        untuk membuat tampilan antarmuka aplikasi, sedangkan Controller
+        digunakan untuk menangani request dan response serta menghubungkan
+        Model dengan View.
+      </p>
+
+<pre>
+php artisan make:model NamaModel
+
+php artisan make:controller NamaController
+</pre>
+
+      <p align="justify">
+        Alur kerja MVC pada Laravel yaitu user mengirim request ke
+        Controller, kemudian Controller memproses data melalui Model
+        yang terhubung ke database, lalu hasilnya ditampilkan kembali
+        kepada user melalui View.
+      </p>
+
+      <!-- HASIL -->
+      <h2 class="fw-bold mt-4">
+        Hasil Praktikum
+      </h2>
+
+      <p align="justify">
+        Project Laravel berhasil dibuat dan dijalankan pada browser
+        menggunakan localhost Laravel. Halaman welcome Laravel berhasil
+        tampil menandakan konfigurasi framework berjalan dengan baik.
+      </p>
+      <img src="images/hasil praktikum.png" class="laporan-img">
+
+
+  
+
+      <!-- KESIMPULAN -->
+      <h2 class="fw-bold mt-4">
+        Kesimpulan
+      </h2>
+
+      <p align="justify">
+        Berdasarkan praktikum yang telah dilakukan, dapat disimpulkan bahwa
+        Laravel merupakan framework PHP yang membantu proses pengembangan
+        aplikasi web karena memiliki struktur yang rapi dan fitur yang lengkap.
+        Melalui praktikum ini berhasil dilakukan instalasi Laravel beserta
+        tools pendukung seperti XAMPP, Composer, dan NPM serta berhasil membuat
+        dan menjalankan project Laravel menggunakan perintah artisan serve.
+        Praktikum ini juga memberikan pemahaman dasar mengenai konsep MVC
+        pada framework Laravel.
+      </p>
+
+      <!-- TOMBOL -->
+      <a href="laporan.html" class="btn btn-dark mt-4">
+        <i class="bi bi-arrow-left"></i>
+        Kembali
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- BOOTSTRAP JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laporan Pemrograman Web | MyPortfolio</title>
+
+  <!-- BOOTSTRAP -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- BOOTSTRAP ICON -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <style>
+    body {
+      background-color: #f5f7fa;
+    }
+
+    .hero-section {
+      padding: 120px 0 80px;
+      text-align: center;
+      color: white;
+      background: linear-gradient(135deg, #000 20%, #444 100%);
+    }
+
+    .hero-section h1 {
+      font-size: 48px;
+      font-weight: bold;
+    }
+
+    .card {
+      border-radius: 20px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    footer {
+      margin-top: 80px;
+    }
+
+    .card img {
+      height: 220px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+
+  <div class="container">
+
+    <a class="navbar-brand fw-bold" href="index.html">
+      MyPortfolio <i class="bi bi-house fs-3"></i>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+      <ul class="navbar-nav ms-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="portfolio.html">Portfolio</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active fw-bold" href="laporan.html">
+            Laporan
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+</nav>
+
+<!-- HERO -->
+<section class="hero-section">
+
+  <div class="container">
+
+    <h1>Laporan Pemrograman Web</h1>
+
+    <p>
+      Kumpulan laporan praktikum mata kuliah Pemrograman Web
+    </p>
+
+  </div>
+
+</section>
+
+<!-- DAFTAR LAPORAN -->
+<section class="py-5">
+
+  <div class="container">
+
+    <h2 class="fw-bold mb-4">
+      Daftar Praktikum
+    </h2>
+
+    <div class="row g-4">
+
+      <!-- CARD 1 -->
+      <div class="col-md-4">
+
+        <div class="card shadow-sm border-0 h-100">
+
+          <img src="images/html.jpg" class="card-img-top" alt="HTML">
+
+          <div class="card-body">
+
+            <span class="badge bg-danger mb-2">
+              HTML
+            </span>
+
+            <h5 class="fw-bold">
+              Praktikum 7 - LARAVEL
+            </h5>
+
+            <p class="text-secondary">
+              Mempelajari laravel.
+            </p>
+
+            <a href="laporan7.html" class="btn btn-dark">
+              Baca Laporan
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="col-md-4">
+
+        <div class="card shadow-sm border-0 h-100">
+
+          <img src="images/css.jpg" class="card-img-top" alt="CSS">
+
+          <div class="card-body">
+
+            <span class="badge bg-primary mb-2">
+              CSS
+            </span>
+
+            <h5 class="fw-bold">
+              Praktikum 2 - CSS Dasar
+            </h5>
+
+            <p class="text-secondary">
+              Mendesain tampilan website menggunakan CSS dan Bootstrap.
+            </p>
+
+            <a href="praktikum2.html" class="btn btn-dark">
+              Baca Laporan
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="col-md-4">
+
+        <div class="card shadow-sm border-0 h-100">
+
+          <img src="images/js.jpg" class="card-img-top" alt="JavaScript">
+
+          <div class="card-body">
+
+            <span class="badge bg-warning text-dark mb-2">
+              JAVASCRIPT
+            </span>
+
+            <h5 class="fw-bold">
+              Praktikum 3 - JavaScript
+            </h5>
+
+            <p class="text-secondary">
+              Membuat website interaktif menggunakan JavaScript dasar.
+            </p>
+
+            <a href="praktikum3.html" class="btn btn-dark">
+              Baca Laporan
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-white py-4">
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-4 mb-3">
+
+        <h5>lalaayyey</h5>
+
+        <p>
+          Website portfolio dan laporan praktikum pemrograman web.
+        </p>
+
+      </div>
+
+      <div class="col-md-4 mb-3">
+
+        <h5>Quick Links</h5>
+
+        <ul class="list-unstyled">
+
+          <li>
+            <a href="index.html" class="text-white text-decoration-none">
+              Home
+            </a>
+          </li>
+
+          <li>
+            <a href="about.html" class="text-white text-decoration-none">
+              About
+            </a>
+          </li>
+
+          <li>
+            <a href="portfolio.html" class="text-white text-decoration-none">
+              Portfolio
+            </a>
+          </li>
+
+          <li>
+            <a href="laporan.html" class="text-white text-decoration-none">
+              Laporan
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div class="col-md-4 mb-3">
+
+        <h5>Follow Me</h5>
+
+        <a href="https://instagram.com/lalaayyey" class="text-white me-2">
+          <i class="bi bi-instagram"></i>
+        </a>
+
+        <a href="https://github.com/lalaayyey" class="text-white">
+          <i class="bi bi-github"></i>
+        </a>
+
+      </div>
+
+    </div>
+
+    <hr class="bg-white">
+
+    <p class="mb-0 text-center">
+      © 2026 MyPortfolio. All rights reserved.
+    </p>
+
+  </div>
+
+</footer>
+
+<!-- BOOTSTRAP JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
