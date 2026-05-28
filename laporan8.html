@@ -1,0 +1,415 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Praktikum 8 Laravel CRUD</title>
+
+  <!-- BOOTSTRAP -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- ICON -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <style>
+
+    body{
+      background-color:#f5f7fa;
+    }
+
+    .hero{
+      padding:120px 0 70px;
+      background:linear-gradient(135deg,#000,#444);
+      color:white;
+      text-align:center;
+    }
+
+    .laporan-card{
+      border:none;
+      border-radius:20px;
+    }
+
+    .laporan-img{
+      border-radius:15px;
+      width:100%;
+      margin-top:20px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    pre{
+      background:#212529;
+      color:white;
+      padding:20px;
+      border-radius:10px;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="background-color:aliceblue;">
+  <div class="container">
+
+    <a class="navbar-brand fw-bold" href="index.html">
+      MyPortfolio <i class="bi bi-house fs-3"></i>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+      <ul class="navbar-nav ms-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="portfolio.html">Portfolio</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="laporan.html">Laporan</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="container">
+
+    <h1>Praktikum 8 - Laravel CRUD</h1>
+
+    <p>
+      Migration, Seeding, Routing, Model, Controller, dan View
+    </p>
+
+  </div>
+
+</section>
+
+<!-- ISI LAPORAN -->
+<section class="py-5">
+
+  <div class="container">
+
+    <div class="card shadow laporan-card p-4">
+
+      <span class="badge bg-danger mb-3" style="width:fit-content;">
+        Laravel
+      </span>
+
+      <!-- PENDAHULUAN -->
+      <h2 class="fw-bold mb-4">
+        Pendahuluan
+      </h2>
+
+      <p align="justify">
+        Laravel merupakan framework PHP yang digunakan untuk membangun
+        aplikasi web modern dengan konsep MVC (Model View Controller).
+        Laravel menyediakan berbagai fitur yang mempermudah developer
+        dalam proses pengembangan aplikasi web seperti migration,
+        seeding, routing, model, controller, dan blade template.
+      </p>
+
+      <p align="justify">
+        Pada praktikum ini dilakukan pembuatan aplikasi CRUD sederhana
+        menggunakan Laravel mulai dari konfigurasi database hingga
+        menampilkan data menggunakan view blade.
+      </p>
+
+      <!-- TUJUAN -->
+      <h2 class="fw-bold mt-4">
+        Tujuan Praktikum
+      </h2>
+
+      <ul>
+        <li>Memahami konsep migration Laravel</li>
+        <li>Memahami penggunaan seeding database</li>
+        <li>Memahami routing Laravel</li>
+        <li>Membuat model dan controller</li>
+        <li>Membuat view menggunakan blade template</li>
+        <li>Membuat CRUD sederhana Laravel</li>
+      </ul>
+
+      <!-- LANGKAH -->
+      <h2 class="fw-bold mt-4">
+        Langkah-Langkah Praktikum
+      </h2>
+
+      <!-- LANGKAH 1 -->
+      <h5 class="mt-3">1. Konfigurasi Database</h5>
+
+      <p align="justify">
+        Langkah pertama yaitu melakukan konfigurasi database pada file
+        .env agar Laravel dapat terhubung dengan MySQL.
+      </p>
+
+<pre>
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=praktikum_laravel
+DB_USERNAME=root
+DB_PASSWORD=
+</pre>
+
+      <img src="images/Konfigurasi Database.png" class="laporan-img">
+
+      <!-- LANGKAH 2 -->
+      <h5 class="mt-4">2. Migration</h5>
+
+      <p align="justify">
+        Migration digunakan untuk membuat struktur tabel database
+        menggunakan kode program Laravel.
+      </p>
+
+<pre>
+php artisan make:migration create_products_table
+</pre>
+
+      <p align="justify">
+        Setelah migration dibuat, isi struktur tabel products seperti berikut.
+      </p>
+
+<pre>
+Schema::create('products', function (Blueprint $table) {
+    $table->id();
+    $table->string('name');
+    $table->integer('price');
+    $table->text('description');
+    $table->timestamps();
+});
+</pre>
+
+      <img src="images/Migration.png" class="laporan-img">
+
+      <!-- LANGKAH 3 -->
+      <h5 class="mt-4">3. Menjalankan Migration</h5>
+
+      <p align="justify">
+        Jalankan migration menggunakan artisan agar tabel otomatis
+        dibuat pada database.
+      </p>
+
+<pre>
+php artisan migrate
+</pre>
+
+      <img src="images/Menjalankan Migration.png" class="laporan-img">
+
+      <!-- LANGKAH 4 -->
+      <h5 class="mt-4">4. Seeding Database</h5>
+
+      <p align="justify">
+        Seeding digunakan untuk menambahkan data awal atau data dummy
+        ke database.
+      </p>
+
+<pre>
+php artisan make:seeder ProductSeeder
+</pre>
+
+      <p align="justify">
+        Tambahkan data pada file ProductSeeder.php.
+      </p>
+
+<pre>
+DB::table('products')->insert([
+    [
+        'name' => 'Laptop',
+        'price' => 7000000,
+        'description' => 'Laptop untuk pemrograman'
+    ],
+    [
+        'name' => 'Mouse',
+        'price' => 150000,
+        'description' => 'Mouse wireless'
+    ]
+]);
+</pre>
+
+      <img src="images/Seeding Database.png" class="laporan-img">
+
+      <p align="justify">
+        Setelah data seeder selesai dibuat, jalankan perintah berikut.
+      </p>
+
+<pre>
+php artisan db:seed
+</pre>
+
+      <img src="images/Sedder.png" class="laporan-img">
+
+      <!-- LANGKAH 5 -->
+      <h5 class="mt-4">5. Routing Laravel</h5>
+
+      <p align="justify">
+        Routing digunakan untuk menentukan URL dan halaman yang akan
+        ditampilkan oleh aplikasi Laravel.
+      </p>
+
+<pre>
+Route::resource('products', ProductController::class);
+</pre>
+
+      <!-- LANGKAH 6 -->
+      <h5 class="mt-4">6. Membuat Model</h5>
+
+      <p align="justify">
+        Model digunakan untuk berinteraksi dengan database menggunakan
+        Eloquent ORM Laravel.
+      </p>
+
+<pre>
+php artisan make:model Product
+</pre>
+
+<pre>
+class Product extends Model
+{
+    protected $fillable = [
+        'name',
+        'price',
+        'description'
+    ];
+}
+</pre>
+
+      <!-- LANGKAH 7 -->
+      <h5 class="mt-4">7. Membuat Controller</h5>
+
+      <p align="justify">
+        Controller digunakan untuk mengatur logika aplikasi dan
+        menghubungkan model dengan view.
+      </p>
+
+<pre>
+php artisan make:controller ProductController
+</pre>
+
+<pre>
+class ProductController extends Controller
+{
+    public function index()
+    {
+        $products = Product::all();
+
+        return view('products',
+        compact('products'));
+    }
+}
+</pre>
+
+      <!-- LANGKAH 8 -->
+      <h5 class="mt-4">8. Membuat View Blade</h5>
+
+      <p align="justify">
+        View digunakan untuk menampilkan halaman antarmuka kepada user.
+      </p>
+
+<pre>
+&lt;h1&gt;Daftar Produk&lt;/h1&gt;
+
+&lt;ul&gt;
+@foreach ($products as $product)
+
+&lt;li&gt;
+    {{ $product->name }}
+&lt;/li&gt;
+
+@endforeach
+&lt;/ul&gt;
+</pre>
+
+      <!-- LANGKAH 9 -->
+      <h5 class="mt-4">9. Resource Route</h5>
+
+      <p align="justify">
+        Resource route digunakan untuk mempermudah pembuatan CRUD
+        secara otomatis pada Laravel.
+      </p>
+
+<pre>
+Route::resource('products', ProductController::class);
+</pre>
+
+      <!-- HASIL -->
+      <h2 class="fw-bold mt-4">
+        Hasil Praktikum
+      </h2>
+
+      <p align="justify">
+        Berdasarkan praktikum yang telah dilakukan, aplikasi Laravel
+        berhasil dijalankan dengan baik. Migration berhasil membuat
+        tabel database, seeding berhasil menambahkan data awal,
+        routing berhasil menghubungkan URL, serta model,
+        controller, dan view berhasil digunakan untuk menampilkan
+        data produk.
+      </p>
+
+      <!-- KESIMPULAN -->
+      <h2 class="fw-bold mt-4">
+        Kesimpulan
+      </h2>
+
+      <p align="justify">
+        Berdasarkan praktikum yang telah dilakukan dapat disimpulkan
+        bahwa Laravel mempermudah proses pengembangan aplikasi web
+        menggunakan konsep MVC. Fitur migration, seeding, routing,
+        model, controller, dan blade template membantu developer
+        dalam membuat aplikasi CRUD secara lebih terstruktur,
+        rapi, dan efisien.
+      </p>
+      <!-- LINK GITHUB -->
+<h2 class="fw-bold mt-4">
+  Link Github Project
+</h2>
+
+<p align="justify">
+  Source code project Laravel CRUD dapat diakses melalui link Github berikut:
+</p>
+
+<a href="https://github.com/lalaayyey/bintang" target="_blank" class="btn btn-dark">
+  <i class="bi bi-github"></i>
+  Github Project
+</a>
+
+      <!-- TOMBOL -->
+      <a href="laporan.html" class="btn btn-dark mt-4">
+        <i class="bi bi-arrow-left"></i>
+        Kembali
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- BOOTSTRAP JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+```
