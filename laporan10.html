@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Praktikum 10 - Laravel UI Bootstrap dan Templating</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <style>
+    body {
+      background-color: #f5f7fa;
+    }
+
+    .hero {
+      padding: 120px 0 70px;
+      background: linear-gradient(135deg, #000000, #000000);
+      color: white;
+      text-align: center;
+    }
+
+    .laporan-card {
+      border: none;
+      border-radius: 20px;
+    }
+
+    .laporan-img {
+      border-radius: 15px;
+      width: 100%;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    pre {
+      background: #000000;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="background-color:aliceblue;">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">
+      MyPortfolio <i class="bi bi-house fs-3"></i>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link" href="laporan.html">Laporan</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <h1>Praktikum 10 - Laravel UI Bootstrap dan Templating</h1>
+    <p>
+      Implementasi Scaffolding Autentikasi User Bawaan, Kustomisasi Migration, Seeding, Layouting SB Admin 2, dan Resource Controller CRUD
+    </p>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="card shadow laporan-card p-4">
+      <span class="badge bg-primary mb-3" style="width:fit-content;">Laravel 9</span>
+
+      <h2 class="fw-bold mb-4">Pendahuluan</h2>
+      <p align="justify">
+        Laravel merupakan salah satu framework PHP yang menggunakan arsitektur MVC (Model-View-Controller) untuk mempermudah pengembangan aplikasi web yang terstruktur, rapi, dan memiliki tingkat keamanan yang baik[cite: 4]. Dalam proses pengembangan sistem informasi modern, fitur autentikasi user (Login & Register) serta antarmuka (user interface) yang responsif dan user-friendly merupakan komponen yang sangat krusial[cite: 5]. 
+      </p>
+      <p align="justify">
+        Laravel menyediakan scaffolding autentikasi bawaan menggunakan package <code>laravel/ui</code> yang terintegrasi langsung dengan framework CSS Bootstrap[cite: 6]. Fitur ini sangat mempermudah developer dalam membangun sistem manajemen user awal secara efisien serta mempermudah pengelolaan komponen antarmuka aplikasi[cite: 7].
+      </p>
+
+      <h2 class="fw-bold mt-4">Tujuan Praktikum</h2>
+      <ul>
+        <li>Mahasiswa mampu melakukan instalasi dan inisialisasi project baru menggunakan framework Laravel[cite: 9].</li>
+        <li>Mahasiswa mampu mengonfigurasi koneksi database pada Laravel melalui file lingkungan (.env)[cite: 10].</li>
+        <li>Mahasiswa mampu mengimplementasikan fitur autentikasi bawaan (User Authentication) menggunakan Bootstrap[cite: 11].</li>
+        <li>Mahasiswa mampu memodifikasi (custom) struktur tabel database melalui sistem migration dan melakukan pengisian data awal menggunakan seeder[cite: 12].</li>
+        <li>Mahasiswa mampu mengintegrasikan template eksternal (SB Admin 2) ke dalam sistem layouting Laravel (Blade Templating)[cite: 13].</li>
+        <li>Mahasiswa mampu membangun fungsi CRUD (Create, Read, Update, Delete) secara penuh untuk manajemen data user menggunakan Resource Controller[cite: 14].</li>
+      </ul>
+
+      <h2 class="fw-bold mt-4">Langkah Kerja dan Pembahasan</h2>
+      
+      <h4 class="fw-bold mt-4 text-primary">Tahap 1: Pembuatan Project Laravel</h4>
+      <p align="justify">
+        Langkah pertama dalam praktikum ini adalah membuat workspace baru di dalam direktori <code>htdocs</code> dengan nama project <code>laravel-sisfo</code>[cite: 17]. Proses instalasi dilakukan menggunakan package manager Composer melalui terminal/command prompt dengan menjalankan perintah berikut[cite: 18]:
+      </p>
+<pre>
+composer create-project laravel/laravel=^9.0 laravel-sisfo --prefer-dist
+</pre>
+      <p align="justify">
+        Setelah proses instalasi selesai, masuk ke dalam direktori project lalu jalankan perintah <code>php artisan serve</code> untuk menjalankan server lokal Laravel[cite: 19]. Buka browser dan akses URL <a href="http://127.0.0.1:8000" target="_blank">http://127.0.0.1:8000</a> untuk memastikan project default berhasil berjalan[cite: 19].
+      </p>
+
+      <h4 class="fw-bold mt-4 text-primary">Tahap 2: Konfigurasi Database</h4>
+      <p align="justify">
+        Koneksi database diatur dengan membuka file konfigurasi <code>.env</code> yang terletak pada root folder project[cite: 21]. Ubah parameter database untuk menyesuaikan dengan database yang akan digunakan, dalam hal ini menggunakan database bernama <code>laravel_sisfo</code>[cite: 22]:
+      </p>
+<pre>
+DB_CONNECTION=sqlite
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel_sisfo
+DB_USERNAME=root
+DB_PASSWORD=
+</pre>
+
+      <h4 class="fw-bold mt-4 text-primary">Tahap 3: Implementasi User Authentication (Laravel/UI)</h4>
+      <p align="justify">
+        Fitur autentikasi user pada studi kasus sistem informasi sekolah ini memanfaatkan package scaffolding bawaan <code>laravel/ui</code> dengan langkah-langkah sebagai berikut[cite: 26]:
+      </p>
+      <p align="justify">1. Menginstall package <code>laravel/ui</code> melalui terminal dengan perintah[cite: 27]:</p>
+<pre>
+composer require laravel/ui
+</pre>
+      <p align="justify">2. Melakukan generate scaffolding fitur autentikasi yang terintegrasi dengan CSS Bootstrap menggunakan perintah[cite: 29]:</p>
+<pre>
+php artisan ui bootstrap --auth
+</pre>
+      <p align="justify">3. Menginstall package frontend tambahan dan melakukan compile asset bawaan menggunakan Node Package Manager (NPM) agar halaman login/register ter-generate otomatis[cite: 31]:</p>
+<pre>
+npm install && npm run dev
+</pre>
+      <p align="justify">
+        Proses ini secara otomatis meng-generate controller otentikasi (Auth Controllers) serta file-file view Blade seperti login, register, dan folder passwords[cite: 33].
+      </p>
+      <p align="justify">4. Menjalankan migrasi database awal untuk membuat struktur tabel default autentikasi bawaan Laravel[cite: 34]:</p>
+<pre>
+php artisan migrate
+</pre>
+      <p align="justify"> Melakukan pengujian akses halaman login, register, dan home default pada browser melalui URL project[cite: 36].</p>
+      
+      <img src="images/10.1 (1).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Halaman Login Bawaan)</em></p>
+      
+      <img src="images/10.1 (2).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Halaman Register Bawaan)</em></p>
+      
+      <img src="images/10.1 (3).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Halaman Home Setelah Berhasil Login Bawaan)</em></p>
+
+      <h4 class="fw-bold mt-4 text-primary">Tahap 4: Custom Table Users dan Seeding Data Admin</h4>
+      <p align="justify">
+        Struktur tabel users default perlu ditambahkan beberapa kolom baru seperti username, level, dan status untuk menyesuaikan dengan kebutuhan data Sistem Informasi Sekolah[cite: 41]. Membuat file migrasi tambahan untuk memodifikasi tabel users yang sudah ada dengan perintah[cite: 42]:
+      </p>
+<pre>
+php artisan make:migration costum_table_users
+</pre>
+      <p align="justify">
+        Buka file migrasi <code>costum_table_users.php</code> yang terbentuk, lalu tambahkan kode program pada method <code>up()</code> untuk mendefinisikan kolom baru, serta method <code>down()</code> untuk fungsi <code>dropColumn</code>[cite: 44]:
+      </p>
+<pre>
+public function up()
+{
+    Schema::table('users', function (Blueprint $table) {
+        $table->string("username")->unique();
+        $table->string("level");
+        $table->enum("status", ["ACTIVE", "INACTIVE"]);
+    });
+}
+</pre>
+      <p align="justify">
+        Jalankan perintah <code>php artisan migrate</code> kembali di terminal agar modifikasi kolom tersebut diterapkan, kemudian cek struktur tabelnya[cite: 46].
+      </p>
+      <img src="images/10.1 (4).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Struktur Kolom Tabel Users Sesudah Ditambah)</em></p>
+
+      <p align="justify">Membuat data user admin awal secara otomatis menggunakan fitur seeding dengan perintah[cite: 48]:</p>
+<pre>
+php artisan make:seeder AdminSeeder
+</pre>
+      <p align="justify">
+        Buka file <code>AdminSeeder.php</code> di folder <code>database/seeders/</code> dan definisikan data akun admin default dengan enkripsi password menggunakan <code>\Hash::make('12345678')</code>[cite: 50]. Jalankan proses seeding ke database menggunakan perintah[cite: 51]:
+      </p>
+<pre>
+php artisan db:seed --class AdminSeeder
+</pre>
+
+      <h4 class="fw-bold mt-4 text-primary">Tahap 5: Templating Layout Menggunakan SB Admin 2</h4>
+      <p align="justify">
+        Langkah selanjutnya adalah merombak tampilan dashboard default menggunakan template eksternal Bootstrap bernama SB Admin 2[cite: 54]. Ekstrak file template SB Admin 2 dan salin seluruh folder asset-nya ke dalam direktori <code>public/sbadmin</code> pada project Laravel[cite: 55].
+      </p>
+      <p align="justify">
+        Membuat file master layout global bernama <code>main.blade.php</code> di dalam folder <code>resources/views/layouts/</code>. Struktur master layout ini memanggil bagian sidebar dan topbar secara terpisah menggunakan perintah <code>@include</code> serta mendefinisikan tag <code>@yield</code>[cite: 56, 57]. Memotong bagian kode login bawaan untuk disesuaikan dengan asset template SB Admin[cite: 58].
+      </p>
+
+      <img src="images/10.1 (5).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Kodingan View Login Head)</em></p>
+      <img src="images/10.1 (6).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Kodingan View Login Form)</em></p>
+      <img src="images/10.1 (7).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Kodingan View Login Scripts)</em></p>
+
+      <p align="justify">Jalankan URL login untuk melihat perubahan interface layouting baru[cite: 62].</p>
+      <img src="images/10.1 (8).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Tampilan Baru Interface Halaman Login Biru)</em></p>
+
+      <p align="justify">Mengatur dan membagi susunan file master layout global utama aplikasi[cite: 64].</p>
+      <img src="images/10.1 (9).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Kodingan main.blade.php Bagian Atas)</em></p>
+      <img src="images/10.1 (10).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Kodingan main.blade.php Bagian Bawah)</em></p>
+
+      <p align="justify">
+        Menyesuaikan file halaman <code>resources/views/home.blade.php</code> milik user agar mewarisi layout master yang baru dibuat[cite: 67]:
+      </p>
+<pre>
+@extends('layouts.main')
+@section("judul") Dashboard @endsection
+@section('konten')
+    &lt;p&gt;dashboard&lt;/p&gt;
+@endsection
+</pre>
+      <img src="images/10.1 (11).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Visual Halaman Dashboard Baru SB Admin 2)</em></p>
+
+      <h4 class="fw-bold mt-4 text-primary">Tahap 6: Fitur Manajemen Users (CRUD)</h4>
+      <p align="justify">
+        Sistem manajemen user dibangun secara penuh menggunakan Resource Controller untuk menangani proses Create, Read, Update, dan Delete data[cite: 71].
+      </p>
+      <p align="justify">1. Membuat resource controller baru untuk entitas user melalui perintah terminal[cite: 72]:</p>
+<pre>
+php artisan make:controller UserController -resource
+</pre>
+      <p align="justify">2. Mendaftarkan route resource UserController pada file routing utama <code>routes/web.php</code>[cite: 74]:</p>
+<pre>
+use App\Http\Controllers\UserController;
+Route::resource('users', UserController::class);
+</pre>
+
+      <img src="images/10.1 (12).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Potongan Kodingan File routes/web.php)</em></p>
+      <img src="images/10.1 (13).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Hasil Daftar Endpoint Pemetaan php artisan route:list)</em></p>
+
+      <p align="justify">3. Mengonfigurasi logika penuh di dalam file controller utama untuk mengontrol jalannya data CRUD[cite: 78].</p>
+      <img src="images/10.1 (14).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Source Code UserController.php Method index, create, store)</em></p>
+      <img src="images/10.1 (15).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Source Code UserController.php Method edit, update, destroy)</em></p>
+
+      <p align="justify">
+        4. <strong>CREATE (Tambah User):</strong> Mengatur method <code>create()</code> pada <code>UserController</code> untuk mengembalikan view form tambah data (<code>user.create</code>)[cite: 81]. Form input pada <code>create.blade.php</code> dibuat menggunakan framework Bootstrap dan dilengkapi dengan Select2 multiple-select untuk memilih level user[cite: 82].
+      </p>
+      <img src="images/10.1 (16).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Source Code File user/create.blade.php Bagian Atas)</em></p>
+      <img src="images/10.1 (17).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Source Code File user/create.blade.php Bagian Bawah)</em></p>
+      <img src="images/10.1 (18).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Potongan Kode Method create() di Controller)</em></p>
+      <img src="images/10.1 (19).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Visual Halaman Browser /users/create Form Kosong)</em></p>
+
+      <p align="justify">
+        5. <strong>READ (Tampilkan List):</strong> Mengatur method <code>index()</code> pada controller untuk mengambil keseluruhan data dari database via model <code>User::all()</code> lalu mengirimkannya ke view <code>user/index.blade.php</code>[cite: 87]. Tampilan tabel diintegrasikan dengan library DataTables[cite: 88].
+      </p>
+      <img src="images/10.1 (20).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Potongan Kode Method index() di Controller)</em></p>
+      <img src="images/10.1 (21).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Potongan Kode Tombol Tambah User Berupa Tag Anchor)</em></p>
+      <img src="images/10.1 (22).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Tampilan Tabel List Data User Awal di Browser)</em></p>
+
+      <p align="justify">
+        6. <strong>UPDATE (Edit User):</strong> Tombol edit pada baris tabel mengarahkan endpoint ke route <code>users.edit</code> dengan menyertakan ID user[cite: 92]. Method <code>edit()</code> menangkap ID tersebut, mencari entitas dengan <code>User::findOrFail($id)</code>, dan menampilkannya kembali pada form edit[cite: 93]. Pengiriman data pembaruan menggunakan form method spoofing <code>PUT</code> untuk diproses oleh method <code>update()</code> di controller[cite: 94].
+      </p>
+      <img src="images/10.1 (23).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Source Code user/index.blade.php loop @foreach)</em></p>
+      <img src="images/10.1 (24).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Source Code user/index.blade.php pemanggilan DataTables)</em></p>
+      <img src="images/10.1 (25).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Source Code File user/edit.blade.php Bagian Atas)</em></p>
+      <img src="images/10.1 (26).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Source Code File user/edit.blade.php Bagian Tengah)</em></p>
+      <img src="images/10.1 (27).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Source Code File user/edit.blade.php Bagian Bawah)</em></p>
+      <img src="images/10.1 (28).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Potongan Kode Method update() di Controller)</em></p>
+      <img src="images/10.1 (29).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Visual Proses Mengubah/Mengedit Data Kolom User di Browser)</em></p>
+      <img src="images/10.1 (30).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Visual Munculnya Alert Success Warna Hijau)</em></p>
+
+      <p align="justify">
+        7. <strong>DELETE (Hapus User):</strong> Tombol hapus dibungkus di dalam elemen form bermethod <code>POST</code> dengan perintah spoofing method <code>DELETE</code>[cite: 103]. Tombol dilengkapi JavaScript <code>onsubmit="return confirm(...)"</em></code> untuk memicu pop-up dialog konfirmasi[cite: 104]. Ketika disetujui, data akan dihapus oleh action <code>destroy()</code> di controller menggunakan fungsi <code>$user->delete()</code>[cite: 105].
+      </p>
+      <img src="images/10.1 (31).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Potongan Kode Fungsi Hapus di File Index)</em></p>
+      <img src="images/10.1 (32).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Potongan Kode Method destroy() di Controller)</em></p>
+      <img src="images/10.1 (33).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Visual Tampilan Pop-up Dialog Konfirmasi Hapus Data User)</em></p>
+      <img src="images/10.1 (34).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Visual Tampilan Tabel List Akhir Setelah Baris Terhapus)</em></p>
+
+      <p align="justify">
+        8. <strong>MENAMBAHKAN MENU USERS:</strong> Langkah terakhir adalah mendaftarkan modul menu users ke komponen sidebar agar mempermudah navigasi perpindahan halaman aplikasi[cite: 110].
+      </p>
+      <img src="images/10.1 (35).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Potongan Kode Menu Users pada File sidebar.blade.php)</em></p>
+      <img src="images/10.1 (36).png" class="laporan-img">
+      <p class="text-center text-muted"><em>(Tampilan Visual Menu Navigasi Baru "Users")</em></p>
+
+      <h2 class="fw-bold mt-5">Kesimpulan</h2>
+      <p align="justify">
+        Berdasarkan hasil pelaksanaan praktikum pemrograman web menggunakan Laravel 9 dengan studi kasus Sistem Informasi Sekolah, dapat ditarik beberapa kesimpulan sebagai berikut[cite: 114]:
+      </p>
+      <ol>
+        <li>Fitur User Authentication bawaan framework Laravel terbukti sangat memotong waktu development karena seluruh struktur controller, routing, dan komponen view dasar login/register dapat dibuat secara otomatis dan instan[cite: 115].</li>
+        <li>Fleksibilitas sistem migration pada Laravel mempermudah pengembang dalam melakukan modifikasi atau kustomisasi struktur tabel database tanpa perlu berinteraksi langsung secara manual di DBMS[cite: 116].</li>
+        <li>Penerapan sistem Blade Templating (master layouting) menggunakan perintah <code>@extends</code>, <code>@include</code>, dan <code>@yield</code> menghasilkan pengelolaan interface web yang modular, rapi, dan dinamis saat diintegrasikan dengan template eksternal pihak ketiga[cite: 117].</li>
+        <li>Penggunaan Resource Controller dan Resource Routing pada Laravel menyederhanakan pengelolaan endpoint untuk fungsionalitas CRUD secara penuh, sehingga kode program aplikasi menjadi lebih rapi, konsisten, dan memenuhi standar arsitektur web modern[cite: 117].</li>
+      </ol>
+
+      <a href="laporan.html" class="btn btn-secondary mt-4" style="width: fit-content;">
+        <i class="bi bi-arrow-left"></i> Kembali ke Halaman Utama Laporan
+      </a>
+    </div>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
