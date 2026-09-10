@@ -1,298 +1,1430 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Laporan Pemrograman Web | MyPortfolio</title>
+  <title>Laporan | MyPortfolio</title>
 
-  <!-- BOOTSTRAP -->
+  <!-- BOOTSTRAP CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- BOOTSTRAP ICON -->
+  <link rel="stylesheet" href="css/custom.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
   <style>
     body {
-      background-color: #f5f7fa;
+      background-color: #f8f9fa;
     }
 
     .hero-section {
       padding: 120px 0 80px;
       text-align: center;
       color: white;
-      background: linear-gradient(135deg, #000 20%, #444 100%);
+      background: linear-gradient(135deg, #000 20%, #333 100%);
     }
 
     .hero-section h1 {
       font-size: 48px;
-      font-weight: bold;
+      font-weight: 700;
     }
 
-    .card {
-      border-radius: 20px;
-      overflow: hidden;
-      transition: 0.3s;
+    .hero-section p {
+      font-size: 18px;
+      opacity: .8;
     }
 
-    .card:hover {
+    .laporan-card {
+      border: none;
+      border-radius: 15px;
+      transition: all .3s ease;
+      background: #ffffff;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    }
+
+    .laporan-card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    }
+
+    .laporan-img {
+      border-radius: 12px;
+      width: 100%;
+      max-width: 850px;
+      margin: 15px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      display: block;
+    }
+
+    pre {
+      background: #212529;
+      color: #ffffff;
+      padding: 18px;
+      border-radius: 10px;
+      overflow-x: auto;
+    }
+
+    .nav-pills .nav-link {
+      border-radius: 10px;
+      padding: 8px 20px;
+      color: #212529;
+      font-weight: 600;
+    }
+
+    .nav-pills .nav-link.active {
+      background-color: #212529;
+      color: #ffffff;
     }
 
     footer {
       margin-top: 80px;
-    }
-
-    .card img {
-      height: 220px;
-      object-fit: cover;
     }
   </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
-
-  <div class="container">
-
-    <a class="navbar-brand fw-bold" href="index.html">
-      MyPortfolio <i class="bi bi-house fs-3"></i>
-    </a>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarNav">
-
-      <ul class="navbar-nav ms-auto">
-
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">Home</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="about.html">About</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="portfolio.html">Portfolio</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link active fw-bold" href="laporan.html">
-            Laporan
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact</a>
-        </li>
-
-      </ul>
-
-    </div>
-
-  </div>
-
-</nav>
-
-<!-- HERO -->
-<section class="hero-section">
-
-  <div class="container">
-
-    <h1>Laporan Pemrograman Web</h1>
-
-    <p>
-      Kumpulan laporan praktikum mata kuliah Pemrograman Web
-    </p>
-
-  </div>
-
-</section>
-
-<!-- DAFTAR LAPORAN -->
-<section class="py-5">
-
-  <div class="container">
-
-    <h2 class="fw-bold mb-4">
-      Daftar Praktikum
-    </h2>
-
-    <div class="row g-4">
-
-      <!-- CARD 1 -->
-      <div class="col-md-4">
-
-        <div class="card shadow-sm border-0 h-100">
-
-          <img src="images/html.jpg" class="card-img-top" alt="HTML">
-
-          <div class="card-body">
-
-            <span class="badge bg-danger mb-2">
-              HTML
-            </span>
-
-            <h5 class="fw-bold">
-              Praktikum 7 - LARAVEL
-            </h5>
-
-            <p class="text-secondary">
-              Mempelajari laravel.
-            </p>
-
-            <a href="laporan7.html" class="btn btn-dark">
-              Baca Laporan
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-          <!-- CARD 2 -->
-    <div class="col-md-4">
-
-      <div class="card shadow-sm border-0 h-100">
-
-        <img src="images/laravelcrud.jpg" class="card-img-top" alt="Laravel CRUD">
-
-        <div class="card-body">
-
-          <span class="badge bg-danger mb-2">
-            LARAVEL CRUD
-          </span>
-
-          <h5 class="fw-bold">
-            Praktikum 8 - Laravel CRUD
-          </h5>
-
-          <p class="text-secondary">
-            Migration, Seeding, Routing, Model, Controller, dan View Laravel.
-          </p>
-
-          <a href="laporan8.html" class="btn btn-dark">
-            Baca Laporan
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-      <!-- CARD 3 -->
-<div class="col-md-4">
-
-  <div class="card shadow-sm border-0 h-100">
-
-    <img src="images/authrole.jpg" class="card-img-top" alt="Laravel Auth">
-
-    <div class="card-body">
-
-      <span class="badge bg-primary mb-2">
-        AUTH & ROLE
-      </span>
-
-      <h5 class="fw-bold">
-        Praktikum 9 - Auth & Role Management
-      </h5>
-
-      <a href="laporan9.html" class="btn btn-dark">
-        Baca Laporan
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="background-color:aliceblue;">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">
+        MyPortfolio <i class="bi bi-house fs-3"></i>
       </a>
 
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="portfolio.html">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active fw-bold" href="laporan.html">Laporan</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-  </div>
+  <!-- HERO -->
+  <section class="hero-section">
+    <div class="container">
+      <h1>Laporan Pemrograman & Praktikum</h1>
+      <p>Kumpulan laporan praktikum mata kuliah Pemrograman Web dan Aplikasi Mobile</p>
+    </div>
+  </section>
 
-</div>
-</section>
+  <!-- CATEGORY CARDS SECTION -->
+  <section class="py-5">
+    <div class="container">
 
-<!-- FOOTER -->
-<footer class="bg-dark text-white py-4">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold text-dark">Daftar Laporan</h2>
+        <p class="text-secondary">Pilih laporan di bawah ini untuk menampilkan isinya:</p>
+      </div>
 
-  <div class="container">
+      <div class="row g-4 mb-5">
 
-    <div class="row">
+        <!-- CARD 1: LAPORAN PWEB -->
+        <div class="col-md-6">
+          <div class="card laporan-card p-4 h-100">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <span class="badge bg-dark px-3 py-2 rounded-pill">Web Development</span>
+              <i class="bi bi-globe fs-1 text-dark"></i>
+            </div>
+            <h3 class="fw-bold text-dark mb-2">
+              <i class="bi bi-folder2-open me-2"></i>Laporan PWeb
+            </h3>
+            <p class="text-secondary small mb-4 flex-grow-1">Kumpulan laporan praktikum Pemrograman Web meliputi Konfigurasi Laravel, CRUD, Auth & Role Management, hingga Security.</p>
+            
+            <button class="btn btn-dark w-100 rounded-3 py-2 fw-semibold" onclick="openLaporan('p7')">
+              <i class="bi bi-journal-text me-1"></i> Buka Laporan PWeb
+            </button>
+          </div>
+        </div>
 
-      <div class="col-md-4 mb-3">
+        <!-- CARD 2: APLIKASI MOBILE (MODUL BUTTONS REMOVED AS REQUESTED) -->
+        <div class="col-md-6">
+          <div class="card laporan-card p-4 h-100">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <span class="badge bg-dark px-3 py-2 rounded-pill">Mobile Development</span>
+              <i class="bi bi-phone-vibrate fs-1 text-dark"></i>
+            </div>
+            <h3 class="fw-bold text-dark mb-2">
+              <i class="bi bi-phone me-2"></i>Aplikasi Mobile
+            </h3>
+            <p class="text-secondary small mb-4 flex-grow-1">Kumpulan laporan praktikum dan project pengembangan Aplikasi Mobile (Flutter / Android Studio).</p>
 
-        <h5>lalaayyey</h5>
+            <button class="btn btn-dark w-100 rounded-3 py-2 fw-semibold" onclick="openMobileLaporan()">
+              <i class="bi bi-phone-fill me-1"></i> Buka Laporan Aplikasi Mobile
+            </button>
+          </div>
+        </div>
 
-        <p>
-          Website portfolio dan laporan praktikum pemrograman web.
+      </div>
+
+      <!-- DETAIL REPORT CONTAINER PWEB (HIDDEN BY DEFAULT) -->
+      <div class="card laporan-card p-4 p-md-5 d-none mb-4" id="laporan-detail-card">
+        <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-between pb-3 mb-4 border-bottom gap-3">
+          <div>
+            <h4 class="fw-bold m-0 text-dark" id="detail-title">
+              <i class="bi bi-file-earmark-text me-2"></i> Detail Laporan PWeb
+            </h4>
+          </div>
+
+          <div class="d-flex align-items-center gap-2 flex-wrap">
+            <ul class="nav nav-pills gap-2" id="detail-tabs">
+              <li class="nav-item">
+                <button class="nav-link" id="tab-btn-p7" onclick="openLaporan('p7')">Praktikum 7</button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link" id="tab-btn-p8" onclick="openLaporan('p8')">Praktikum 8</button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link" id="tab-btn-p9" onclick="openLaporan('p9')">Praktikum 9</button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link" id="tab-btn-p10" onclick="openLaporan('p10')">Praktikum 10</button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link btn-outline-secondary border" id="tab-btn-all" onclick="openLaporan('all')">Semua</button>
+              </li>
+            </ul>
+
+            <button class="btn btn-sm btn-outline-danger ms-auto rounded-pill px-3" onclick="closeLaporan()">
+              <i class="bi bi-x-circle me-1"></i> Tutup
+            </button>
+          </div>
+        </div>
+
+        <div id="content-p7" class="laporan-pane d-none">
+<span class="badge bg-danger mb-3" style="width:fit-content;">
+          Laravel
+        </span>
+
+        <!-- PENDAHULUAN -->
+        <h2 class="fw-bold mb-4">
+          Praktikum 7 - Konfigurasi Laravel
+        </h2>
+
+        <h4 class="fw-bold mt-3">Pendahuluan</h4>
+
+        <p align="justify">
+          Laravel merupakan salah satu framework PHP yang populer dan dikembangkan oleh
+          Taylor Otwell. Laravel adalah framework open source yang digunakan untuk
+          mengembangkan aplikasi berbasis web dengan arsitektur MVC
+          (Model - View - Controller). Framework ini dirancang untuk mempermudah
+          proses pengembangan aplikasi web modern dengan sintaks yang elegan,
+          sederhana, dan mudah dipahami.
         </p>
 
-      </div>
+        <p align="justify">
+          Laravel menyediakan berbagai fitur yang membantu developer dalam
+          membangun aplikasi web seperti Eloquent ORM, Blade Template Engine,
+          routing, middleware, validasi form, dan Artisan CLI. Dengan berbagai
+          fitur tersebut Laravel menjadi salah satu framework yang banyak
+          digunakan dalam pengembangan aplikasi web modern.
+        </p>
 
-      <div class="col-md-4 mb-3">
+        <!-- TUJUAN -->
+        <h4 class="fw-bold mt-4">Tujuan Praktikum</h4>
 
-        <h5>Quick Links</h5>
-
-        <ul class="list-unstyled">
-
-          <li>
-            <a href="index.html" class="text-white text-decoration-none">
-              Home
-            </a>
-          </li>
-
-          <li>
-            <a href="about.html" class="text-white text-decoration-none">
-              About
-            </a>
-          </li>
-
-          <li>
-            <a href="portfolio.html" class="text-white text-decoration-none">
-              Portfolio
-            </a>
-          </li>
-
-          <li>
-            <a href="laporan.html" class="text-white text-decoration-none">
-              Laporan
-            </a>
-          </li>
-
+        <ul>
+          <li>Memahami konsep dasar framework Laravel</li>
+          <li>Melakukan instalasi Laravel dan tools pendukung</li>
+          <li>Membuat project Laravel baru</li>
+          <li>Menjalankan Laravel menggunakan artisan</li>
+          <li>Memahami konsep MVC Laravel</li>
         </ul>
 
-      </div>
+        <!-- LANGKAH -->
+        <h4 class="fw-bold mt-4">Langkah-Langkah Praktikum</h4>
 
-      <div class="col-md-4 mb-3">
+        <!-- LANGKAH 1 -->
+        <h5 class="mt-3">1. Install XAMPP</h5>
 
-        <h5>Follow Me</h5>
+        <p align="justify">
+          XAMPP merupakan software yang digunakan sebagai web server lokal.
+          Di dalam XAMPP sudah tersedia Apache, PHP, dan PhpMyAdmin yang
+          digunakan untuk menjalankan project Laravel pada komputer lokal.
+          Setelah proses instalasi selesai, folder project biasanya berada
+          pada direktori <b>C:\xampp\htdocs</b>.
+        </p>
 
-        <a href="https://instagram.com/lalaayyey" class="text-white me-2">
-          <i class="bi bi-instagram"></i>
-        </a>
+        <!-- LANGKAH 2 -->
+        <h5 class="mt-4">2. Install Composer</h5>
 
-        <a href="https://github.com/lalaayyey" class="text-white">
+        <p align="justify">
+          Composer merupakan package manager PHP yang digunakan untuk
+          mengelola dependency atau package yang dibutuhkan Laravel.
+          Composer digunakan saat proses instalasi framework Laravel
+          maupun package tambahan lainnya.
+        </p>
+
+        <img src="images/dwcomposer.png" class="laporan-img">
+
+        <!-- LANGKAH 3 -->
+        <h5 class="mt-4">3. Install NPM</h5>
+
+        <p align="justify">
+          NPM (Node Package Manager) digunakan untuk mengelola package
+          JavaScript pada Laravel. NPM biasanya digunakan untuk menjalankan
+          Vite, Bootstrap, serta dependency frontend lainnya agar tampilan
+          aplikasi Laravel dapat berjalan dengan baik.
+        </p>
+
+<pre>
+npm install
+
+npm run dev
+</pre>
+
+        <img src="images/npm.png" class="laporan-img">
+
+        <!-- LANGKAH 4 -->
+        <h5 class="mt-4">4. Membuat Project Laravel</h5>
+
+        <p align="justify">
+          Setelah Composer berhasil diinstall, langkah selanjutnya yaitu
+          membuat project Laravel baru melalui terminal atau CMD dengan
+          menggunakan perintah berikut.
+        </p>
+
+<pre>
+composer create-project laravel/laravel belajar-laravel --prefer-dist
+</pre>
+
+        <img src="images/create-project.png" class="laporan-img">
+
+        <!-- LANGKAH 5 -->
+        <h5 class="mt-4">5. Menjalankan Laravel</h5>
+
+        <p align="justify">
+          Setelah project berhasil dibuat, masuk ke folder project Laravel
+          kemudian jalankan server bawaan Laravel menggunakan perintah
+          artisan serve agar project dapat diakses melalui browser.
+        </p>
+
+<pre>
+cd belajar-laravel
+
+php artisan serve
+</pre>
+
+        <img src="images/artisan.png" class="laporan-img">
+
+        <!-- LANGKAH 6 -->
+        <h5 class="mt-4">6. Membuka Laravel di Browser</h5>
+
+        <p align="justify">
+          Setelah server Laravel berhasil dijalankan, project dapat diakses
+          melalui browser dengan alamat berikut.
+        </p>
+
+<pre>
+http://127.0.0.1:8000
+</pre>
+
+        <p align="justify">
+          Jika berhasil, maka halaman default Laravel akan tampil pada browser.
+        </p>
+
+        <!-- LANGKAH 7 -->
+        <h5 class="mt-4">7. Konsep MVC Laravel</h5>
+
+        <p align="justify">
+          Laravel menggunakan konsep MVC (Model View Controller). Model
+          digunakan untuk mengelola data dan database, View digunakan
+          untuk membuat tampilan antarmuka aplikasi, sedangkan Controller
+          digunakan untuk menangani request dan response serta menghubungkan
+          Model dengan View.
+        </p>
+
+<pre>
+php artisan make:model NamaModel
+
+php artisan make:controller NamaController
+</pre>
+
+        <p align="justify">
+          Alur kerja MVC pada Laravel yaitu user mengirim request ke
+          Controller, kemudian Controller memproses data melalui Model
+          yang terhubung ke database, lalu hasilnya ditampilkan kembali
+          kepada user melalui View.
+        </p>
+
+        <!-- HASIL -->
+        <h4 class="fw-bold mt-4">Hasil Praktikum</h4>
+
+        <p align="justify">
+          Project Laravel berhasil dibuat dan dijalankan pada browser
+          menggunakan localhost Laravel. Halaman welcome Laravel berhasil
+          tampil menandakan konfigurasi framework berjalan dengan baik.
+        </p>
+        <img src="images/hasil praktikum.png" class="laporan-img">
+
+        <!-- KESIMPULAN -->
+        <h4 class="fw-bold mt-4">Kesimpulan</h4>
+
+        <p align="justify">
+          Berdasarkan praktikum yang telah dilakukan, dapat disimpulkan bahwa
+          Laravel merupakan framework PHP yang membantu proses pengembangan
+          aplikasi web karena memiliki struktur yang rapi dan fitur yang lengkap.
+          Melalui praktikum ini berhasil dilakukan instalasi Laravel beserta
+          tools pendukung seperti XAMPP, Composer, dan NPM serta berhasil membuat
+          dan menjalankan project Laravel menggunakan perintah artisan serve.
+          Praktikum ini juga memberikan pemahaman dasar mengenai konsep MVC
+          pada framework Laravel.
+        </p>
+        </div>
+        <div id="content-p8" class="laporan-pane d-none">
+<span class="badge bg-danger mb-3" style="width:fit-content;">
+          Laravel
+        </span>
+
+        <h2 class="fw-bold mb-4">
+          Praktikum 8 - Laravel CRUD
+        </h2>
+
+        <!-- PENDAHULUAN -->
+        <h4 class="fw-bold mt-3">Pendahuluan</h4>
+
+        <p align="justify">
+          Laravel merupakan framework PHP yang digunakan untuk membangun
+          aplikasi web modern dengan konsep MVC (Model View Controller).
+          Laravel menyediakan berbagai fitur yang mempermudah developer
+          dalam proses pengembangan aplikasi web seperti migration,
+          seeding, routing, model, controller, dan blade template.
+        </p>
+
+        <p align="justify">
+          Pada praktikum ini dilakukan pembuatan aplikasi CRUD sederhana
+          menggunakan Laravel mulai dari konfigurasi database hingga
+          menampilkan data menggunakan view blade.
+        </p>
+
+        <!-- TUJUAN -->
+        <h4 class="fw-bold mt-4">Tujuan Praktikum</h4>
+
+        <ul>
+          <li>Memahami konsep migration Laravel</li>
+          <li>Memahami penggunaan seeding database</li>
+          <li>Memahami routing Laravel</li>
+          <li>Membuat model dan controller</li>
+          <li>Membuat view menggunakan blade template</li>
+          <li>Membuat CRUD sederhana Laravel</li>
+        </ul>
+
+        <!-- LANGKAH -->
+        <h4 class="fw-bold mt-4">Langkah-Langkah Praktikum</h4>
+
+        <!-- LANGKAH 1 -->
+        <h5 class="mt-3">1. Konfigurasi Database</h5>
+
+        <p align="justify">
+          Langkah pertama yaitu melakukan konfigurasi database pada file
+          .env agar Laravel dapat terhubung dengan MySQL.
+        </p>
+
+<pre>
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=praktikum_laravel
+DB_USERNAME=root
+DB_PASSWORD=
+</pre>
+
+        <img src="images/Konfigurasi Database.png" class="laporan-img">
+
+        <!-- LANGKAH 2 -->
+        <h5 class="mt-4">2. Migration</h5>
+
+        <p align="justify">
+          Migration digunakan untuk membuat struktur tabel database
+          menggunakan kode program Laravel.
+        </p>
+
+<pre>
+php artisan make:migration create_products_table
+</pre>
+
+        <p align="justify">
+          Setelah migration dibuat, isi struktur tabel products seperti berikut.
+        </p>
+
+<pre>
+Schema::create('products', function (Blueprint $table) {
+    $table->id();
+    $table->string('name');
+    $table->integer('price');
+    $table->text('description');
+    $table->timestamps();
+});
+</pre>
+
+        <img src="images/Migration.png" class="laporan-img">
+
+        <!-- LANGKAH 3 -->
+        <h5 class="mt-4">3. Menjalankan Migration</h5>
+
+        <p align="justify">
+          Jalankan migration menggunakan artisan agar tabel otomatis
+          dibuat pada database.
+        </p>
+
+<pre>
+php artisan migrate
+</pre>
+
+        <img src="images/Menjalankan Migration.png" class="laporan-img">
+
+        <!-- LANGKAH 4 -->
+        <h5 class="mt-4">4. Seeding Database</h5>
+
+        <p align="justify">
+          Seeding digunakan untuk menambahkan data awal atau data dummy
+          ke database.
+        </p>
+
+<pre>
+php artisan make:seeder ProductSeeder
+</pre>
+
+        <p align="justify">
+          Tambahkan data pada file ProductSeeder.php.
+        </p>
+
+<pre>
+DB::table('products')->insert([
+    [
+        'name' => 'Laptop',
+        'price' => 7000000,
+        'description' => 'Laptop untuk pemrograman'
+    ],
+    [
+        'name' => 'Mouse',
+        'price' => 150000,
+        'description' => 'Mouse wireless'
+    ]
+]);
+</pre>
+
+        <img src="images/Seeding Database.png" class="laporan-img">
+
+        <p align="justify">
+          Setelah data seeder selesai dibuat, jalankan perintah berikut.
+        </p>
+
+<pre>
+php artisan db:seed
+</pre>
+
+        <img src="images/Sedder.png" class="laporan-img">
+
+        <!-- LANGKAH 5 -->
+        <h5 class="mt-4">5. Routing Laravel</h5>
+
+        <p align="justify">
+          Routing digunakan untuk menentukan URL dan halaman yang akan
+          ditampilkan oleh aplikasi Laravel.
+        </p>
+
+<pre>
+Route::resource('products', ProductController::class);
+</pre>
+
+        <!-- LANGKAH 6 -->
+        <h5 class="mt-4">6. Membuat Model</h5>
+
+        <p align="justify">
+          Model digunakan untuk berinteraksi dengan database menggunakan
+          Eloquent ORM Laravel.
+        </p>
+
+<pre>
+php artisan make:model Product
+</pre>
+
+<pre>
+class Product extends Model
+{
+    protected $fillable = [
+        'name',
+        'price',
+        'description'
+    ];
+}
+</pre>
+
+        <!-- LANGKAH 7 -->
+        <h5 class="mt-4">7. Membuat Controller</h5>
+
+        <p align="justify">
+          Controller digunakan untuk mengatur logika aplikasi dan
+          menghubungkan model dengan view.
+        </p>
+
+<pre>
+php artisan make:controller ProductController
+</pre>
+
+<pre>
+class ProductController extends Controller
+{
+    public function index()
+    {
+        $products = Product::all();
+
+        return view('products',
+        compact('products'));
+    }
+}
+</pre>
+
+        <!-- LANGKAH 8 -->
+        <h5 class="mt-4">8. Membuat View Blade</h5>
+
+        <p align="justify">
+          View digunakan untuk menampilkan halaman antarmuka kepada user.
+        </p>
+
+<pre>
+&lt;h1&gt;Daftar Produk&lt;/h1&gt;
+
+&lt;ul&gt;
+@foreach ($products as $product)
+
+&lt;li&gt;
+    {{ $product->name }}
+&lt;/li&gt;
+
+@endforeach
+&lt;/ul&gt;
+</pre>
+
+        <!-- LANGKAH 9 -->
+        <h5 class="mt-4">9. Resource Route</h5>
+
+        <p align="justify">
+          Resource route digunakan untuk mempermudah pembuatan CRUD
+          secara otomatis pada Laravel.
+        </p>
+
+<pre>
+Route::resource('products', ProductController::class);
+</pre>
+
+        <!-- HASIL -->
+        <h4 class="fw-bold mt-4">Hasil Praktikum</h4>
+
+        <p align="justify">
+          Berdasarkan praktikum yang telah dilakukan, aplikasi Laravel
+          berhasil dijalankan dengan baik. Migration berhasil membuat
+          tabel database, seeding berhasil menambahkan data awal,
+          routing berhasil menghubungkan URL, serta model,
+          controller, dan view berhasil digunakan untuk menampilkan
+          data produk.
+        </p>
+
+        <!-- KESIMPULAN -->
+        <h4 class="fw-bold mt-4">Kesimpulan</h4>
+
+        <p align="justify">
+          Berdasarkan praktikum yang telah dilakukan dapat disimpulkan
+          bahwa Laravel mempermudah proses pengembangan aplikasi web
+          menggunakan konsep MVC. Fitur migration, seeding, routing,
+          model, controller, dan blade template membantu developer
+          dalam membuat aplikasi CRUD secara lebih terstruktur,
+          rapi, dan efisien.
+        </p>
+
+        <!-- LINK GITHUB -->
+        <h4 class="fw-bold mt-4">Link Github Project</h4>
+
+        <p align="justify">
+          Source code project Laravel CRUD dapat diakses melalui link Github berikut:
+        </p>
+
+        <a href="https://github.com/lalaayyey/bintang" target="_blank" class="btn btn-dark">
           <i class="bi bi-github"></i>
+          Github Project
         </a>
+        </div>
+        <div id="content-p9" class="laporan-pane d-none">
+<span class="badge bg-danger mb-3" style="width:fit-content;">
+          Laravel
+        </span>
 
+        <h2 class="fw-bold mb-4">
+          Praktikum 9 - Laravel Relationship CRUD
+        </h2>
+
+        <h4 class="fw-bold mt-3">Pendahuluan</h4>
+
+        <p align="justify">
+          Laravel merupakan framework PHP yang digunakan untuk membangun aplikasi web modern dengan konsep MVC (Model View Controller). Laravel menyediakan berbagai fitur yang mempermudah developer dalam proses pengembangan aplikasi web seperti migration, seeding, routing, model, controller, dan blade template.
+        </p>
+
+        <p align="justify">
+          Pada praktikum 9 ini dilakukan pembuatan aplikasi CRUD Mahasiswa menggunakan Laravel mulai dari konfigurasi database hingga menampilkan data relasional antartabel menggunakan view blade.
+        </p>
+
+        <h4 class="fw-bold mt-4">Tujuan Praktikum</h4>
+
+        <ul>
+          <li>Memahami konsep migration Laravel dan Foreign Key constraints.</li>
+          <li>Memahami penggunaan seeding database untuk mengisi data sampel otomatis.</li>
+          <li>Memahami routing resource Laravel.</li>
+          <li>Membuat model dan mendefinisikan Eloquent Relationship (One-to-Many & Many-to-Many).</li>
+          <li>Membuat controller untuk menangani logika sinkronisasi tabel pivot dengan method attach() dan sync().</li>
+          <li>Membuat view dinamis terintegrasi menggunakan blade template dan Bootstrap 5.</li>
+        </ul>
+
+        <h4 class="fw-bold mt-4">Langkah-Langkah Praktikum</h4>
+
+        <h4 class="fw-bold mt-4 text-primary">Tahap 1: Membuat Migration (Struktur Database)</h4>
+        <p align="justify">
+          Migration digunakan untuk membuat tabel-tabel di database lewat kode PHP. Kita akan membuat 4 tabel: majors, students, subjects, dan tabel pivot student_subject.
+        </p>
+
+        <h5 class="mt-3">Step 1.1: Migration Tabel majors</h5>
+        <p align="justify">Buka terminal di folder project Laravel Anda, lalu ketik perintah berikut:</p>
+<pre>
+php artisan make:migration create_majors_table
+</pre>
+        <p align="justify">Buka file migration tersebut di text editor Anda, lalu ubah fungsinya menjadi seperti ini:</p>
+<pre>
+public function up(){
+    Schema::create('majors', function (Blueprint $table) {
+        $table->id(); // Primary Key
+        $table->string('name');
+        $table->timestamps(); // create_at & updated_at
+    });
+}
+</pre>
+        <img src="images/9.1 (1).png" class="laporan-img">
+
+        <h5 class="mt-4">Step 1.2: Migration Tabel students</h5>
+        <p align="justify">Jalankan perintah di terminal:</p>
+<pre>
+php artisan make:migration create_students_table
+</pre>
+        <p align="justify">Buka file migration-nya dan isi dengan kode berikut:</p>
+<pre>
+public function up(){
+    Schema::create('students', function (Blueprint $table) {
+        $table->id();
+        $table->string('nim')->unique(); // Unique Key
+        $table->string('name');
+        $table->text('address');
+        // Foreign Key ke tabel majors.id, jika major dihapus, student ikut terhapus
+        $table->foreignId('major_id')->constrained('majors')->onDelete('cascade');
+        $table->timestamps();
+    });
+}
+</pre>
+        <img src="images/9.1 (2).png" class="laporan-img">
+
+        <h5 class="mt-4">Step 1.3: Migration Tabel subjects</h5>
+        <p align="justify">Jalankan perintah di terminal:</p>
+<pre>
+php artisan make:migration create_subjects_table
+</pre>
+        <p align="justify">Buka file migration-nya dan isi dengan kode berikut:</p>
+<pre>
+public function up(){
+    Schema::create('subjects', function (Blueprint $table) {
+        $table->id();
+        $table->string('name');
+        $table->integer('sks');
+        $table->timestamps();
+    });
+}
+</pre>
+        <img src="images/9.1 (3).png" class="laporan-img">
+
+        <h5 class="mt-4">Step 1.4: Migration Tabel Pivot student_subject</h5>
+        <p align="justify">Tabel ini digunakan untuk menghubungkan relasi Many-to-Many antara Student dan Subject. Jalankan perintah di terminal:</p>
+<pre>
+php artisan make:migration create_student_subject_table
+</pre>
+        <p align="justify">Buka file migration-nya dan pastikan kodenya ditulis di dalam Schema::create dengan benar:</p>
+<pre>
+public function up(){
+    Schema::create('student_subject', function (Blueprint $table) {
+        $table->id();
+        $table->foreignId('student_id')->constrained('students')->onDelete('cascade');
+        $table->foreignId('subject_id')->constrained('subjects')->onDelete('cascade');
+        $table->timestamps();
+
+        // Mencegah duplikasi kombinasi student_id dan subject_id
+        $table->unique(['student_id', 'subject_id']);
+    });
+}
+</pre>
+        <img src="images/9.1 (4).png" class="laporan-img">
+
+        <h5 class="mt-4">Step 1.5: Eksekusi Migration</h5>
+        <p align="justify">Sekarang kita kirim struktur di atas ke dalam database asli. Jalankan:</p>
+<pre>
+php artisan migrate
+</pre>
+        <img src="images/9.1 (5).png" class="laporan-img">
+
+
+        <h4 class="fw-bold mt-5 text-primary">Tahap 2: Membuat Model & Eloquent Relationship</h4>
+        <p align="justify">Model adalah representasi tabel database di dalam kode PHP kita. Di sini kita akan mendefinisikan hubungan antar tabel tersebut.</p>
+
+        <h5 class="mt-3">Step 2.1: Model Major</h5>
+        <p align="justify">Jalankan perintah di terminal:</p>
+<pre>
+php artisan make:model Major
+</pre>
+        <p align="justify">Buka app/Models/Major.php dan sesuaikan kodenya:</p>
+<pre>
+&lt;?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Major extends Model{
+    use HasFactory;
+
+    protected $fillable = ['name'];
+
+    // Relasi: Satu Jurusan punya banyak Mahasiswa (One-to-Many)
+    public function students()
+    {
+        return $this->hasMany(Student::class);
+    }
+}
+</pre>
+        <img src="images/9.1 (6).png" class="laporan-img">
+
+        <h5 class="mt-4">Step 2.2: Model Student</h5>
+        <p align="justify">Jalankan perintah di terminal:</p>
+<pre>
+php artisan make:model Student
+</pre>
+        <p align="justify">Buka app/Models/Student.php dan ubah kodenya:</p>
+<pre>
+&lt;?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Student extends Model{
+    use HasFactory;
+
+    protected $fillable = ['nim', 'name', 'address', 'major_id'];
+
+    // Relasi: Banyak Mahasiswa dimiliki oleh satu Jurusan (Many-to-One / BelongsTo)
+    public function major()
+    {
+        return $this->belongsTo(Major::class);
+    }
+
+    // Relasi: Banyak Mahasiswa mengambil banyak Mata Kuliah (Many-to-Many)
+    public function subjects()
+    {
+        return $this->belongsToMany(Subject::class);
+    }
+}
+</pre>
+        <img src="images/9.1 (7).png" class="laporan-img">
+
+        <h5 class="mt-4">Step 2.3: Model Subject</h5>
+        <p align="justify">Jalankan perintah di terminal:</p>
+<pre>
+php artisan make:model Subject
+</pre>
+        <p align="justify">Buka app/Models/Subject.php dan ganti kodenya:</p>
+<pre>
+&lt;?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Subject extends Model{
+    use HasFactory;
+
+    protected $fillable = ['name', 'sks'];
+
+    // Relasi: Banyak Mata Kuliah diambil oleh banyak Mahasiswa (Many-to-Many)
+    public function students()
+    {
+        return $this->belongsToMany(Student::class);
+    }
+}
+</pre>
+        <img src="images/9.1 (8).png" class="laporan-img">
+
+
+        <h4 class="fw-bold mt-5 text-primary">Tahap 3: Membuat Seeder (Data Sample Otomatis)</h4>
+        <p align="justify">Seeder dipakai untuk mengisi database dengan data dummy agar kita bisa menguji aplikasinya dengan cepat.</p>
+
+        <h5 class="mt-3">Step 3.1: MajorSeeder, SubjectSeeder, dan StudentSeeder</h5>
+        <p align="justify">Jalankan pembuatan seeder di terminal secara bergantian, lalu isi kodenya sesuai panduan relasi akademik.</p>
+<pre>
+php artisan make:seeder MajorSeeder
+php artisan make:seeder SubjectSeeder
+php artisan make:seeder StudentSeeder
+</pre>
+        <img src="images/9.1 (9).png" class="laporan-img">
+
+        <h5 class="mt-4">Step 3.4: Daftarkan dan Jalankan Seeder</h5>
+        <p align="justify">Buka file induk seeder di database/seeders/DatabaseSeeder.php, panggil seeder yang sudah dibuat, lalu eksekusi pengisian data lewat terminal:</p>
+<pre>
+php artisan db:seed
+</pre>
+        <img src="images/9.1 (10).png" class="laporan-img">
+
+
+        <h4 class="fw-bold mt-5 text-primary">Tahap 4: Membuat Controller (Logika Bisnis)</h4>
+        <p align="justify">Controller akan menjembatani antara data dari model untuk dilempar ke halaman web (View). Jalankan perintah di terminal:</p>
+<pre>
+php artisan make:controller StudentController
+</pre>
+        <p align="justify">Buka app/Http/Controllers/StudentController.php dan lengkapi logika CRUD beserta fungsi sinkronisasi relasinya:</p>
+<pre>
+&lt;?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Student;
+use App\Models\Major;
+use App\Models\Subject;
+use Illuminate\Http\Request;
+
+class StudentController extends Controller{
+    public function index()
+    {
+        $students = Student::with(['major', 'subjects'])->get();
+        return view('students.index', compact('students'));
+    }
+
+    public function create()
+    {
+        $majors = Major::all();
+        $subjects = Subject::all();
+        return view('students.create', compact('majors', 'subjects'));
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'nim' => 'required|unique:students',
+            'name' => 'required',
+            'address' => 'required',
+            'major_id' => 'required|exists:majors,id',
+            'subjects' => 'required|array',
+            'subjects.*' => 'exists:subjects,id',
+        ]);
+
+        $student = Student::create($request->only(['nim', 'name', 'address', 'major_id']));
+        $student->subjects()->attach($request->subjects);
+
+        return redirect()->route('students.index')->with('success', 'Student created successfully');
+    }
+
+    public function show($id)
+    {
+        $student = Student::with(['major', 'subjects'])->findOrFail($id);
+        return view('students.show', compact('student'));
+    }
+
+    public function edit($id)
+    {
+        $student = Student::with('subjects')->findOrFail($id);
+        $majors = Major::all();
+        $subjects = Subject::all();
+        return view('students.edit', compact('student', 'majors', 'subjects'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $student = Student::findOrFail($id);
+
+        $request->validate([
+            'nim' => 'required|unique:students,nim,' . $student->id,
+            'name' => 'required',
+            'address' => 'required',
+            'major_id' => 'required|exists:majors,id',
+            'subjects' => 'required|array',
+            'subjects.*' => 'exists:subjects,id',
+        ]);
+
+        $student->update($request->only(['nim', 'name', 'address', 'major_id']));
+        $student->subjects()->sync($request->subjects);
+
+        return redirect()->route('students.index')->with('success', 'Student updated successfully');
+    }
+
+    public function destroy($id)
+    {
+        $student = Student::findOrFail($id);
+        $student->subjects()->detach();
+        $student->delete();
+
+        return redirect()->route('students.index')->with('success', 'Student deleted successfully');
+    }
+}
+</pre>
+        <img src="images/9.1 (11).png" class="laporan-img">
+
+
+        <h4 class="fw-bold mt-5 text-primary">Tahap 5 & 6: Menghubungkan Route dan Membuat Front-End Views</h4>
+        <p align="justify">Mendaftarkan resource route di file routes/web.php dan membangun sistem antarmuka berbasis blade template menggunakan framework Bootstrap 5.</p>
+
+        <h5 class="mt-3">Step 6.1: Layout Utama (resources/views/layouts/app.blade.php)</h5>
+        <img src="images/9.1 (12).png" class="laporan-img">
+
+        <h5 class="mt-4">Step 6.2: Halaman Daftar (resources/views/students/index.blade.php)</h5>
+        <img src="images/9.1 (13).png" class="laporan-img">
+
+        <h5 class="mt-4">Step 6.3: Halaman Tambah (resources/views/students/create.blade.php)</h5>
+        <img src="images/9.1 (14).png" class="laporan-img">
+
+
+        <h4 class="fw-bold mt-5">Hasil Praktikum</h4>
+
+        <p align="justify">
+          Berdasarkan praktikum 9 yang telah dilakukan, aplikasi Laravel berhasil dijalankan dengan baik. Migration berhasil membuat tabel database beserta konstrain relasi kunci tamu (foreign key), seeding berhasil menambahkan data awal, routing berhasil menghubungkan URL, serta model, controller, dan view berhasil digunakan untuk mengolah data hubungan antartabel mahasiswa secara dinamis.
+        </p>
+
+        <h4 class="fw-bold mt-4">Kesimpulan</h4>
+
+        <p align="justify">
+          Berdasarkan praktikum yang telah dilakukan dapat disimpulkan bahwa Laravel mempermudah proses pengembangan aplikasi web menggunakan konsep MVC. Fitur migration, seeding, routing, model, controller, dan blade template membantu developer dalam membuat aplikasi CRUD data relasional (One-to-Many dan Many-to-Many) secara lebih terstruktur, rapi, aman, dan efisien.
+        </p>
+
+        <h4 class="fw-bold mt-4">Link Github Project</h4>
+
+        <p align="justify">
+          Source code project Laravel CRUD dapat diakses melalui link Github berikut:
+        </p>
+
+        <a href="https://github.com/lalaayyey/bintang" target="_blank" class="btn btn-dark">
+          <i class="bi bi-github"></i>
+          Github Project
+        </a>
+        </div>
+        <div id="content-p10" class="laporan-pane d-none">
+<span class="badge bg-primary mb-3" style="width:fit-content;">
+          Laravel 9
+        </span>
+
+        <h2 class="fw-bold mb-4">Praktikum 10 - Laravel UI Bootstrap dan Templating</h2>
+
+        <h4 class="fw-bold mt-3">Pendahuluan</h4>
+        <p align="justify">
+          Laravel merupakan salah satu framework PHP yang menggunakan arsitektur MVC (Model-View-Controller) untuk mempermudah pengembangan aplikasi web yang terstruktur, rapi, dan memiliki tingkat keamanan yang baik. Dalam proses pengembangan sistem informasi modern, fitur autentikasi user (Login & Register) serta antarmuka (user interface) yang responsif dan user-friendly merupakan komponen yang sangat krusial.
+        </p>
+        <p align="justify">
+          Laravel menyediakan scaffolding autentikasi bawaan menggunakan package <code>laravel/ui</code> yang terintegrasi langsung dengan framework CSS Bootstrap. Fitur ini sangat mempermudah developer dalam membangun sistem manajemen user awal secara efisien serta mempermudah pengelolaan komponen antarmuka aplikasi.
+        </p>
+
+        <h4 class="fw-bold mt-4">Tujuan Praktikum</h4>
+        <ul>
+          <li>Mahasiswa mampu melakukan instalasi dan inisialisasi project baru menggunakan framework Laravel.</li>
+          <li>Mahasiswa mampu mengonfigurasi koneksi database pada Laravel melalui file lingkungan (.env).</li>
+          <li>Mahasiswa mampu mengimplementasikan fitur autentikasi bawaan (User Authentication) menggunakan Bootstrap.</li>
+          <li>Mahasiswa mampu memodifikasi (custom) struktur tabel database melalui sistem migration dan melakukan pengisian data awal menggunakan seeder.</li>
+          <li>Mahasiswa mampu mengintegrasikan template eksternal (SB Admin 2) ke dalam sistem layouting Laravel (Blade Templating).</li>
+          <li>Mahasiswa mampu membangun fungsi CRUD (Create, Read, Update, Delete) secara penuh untuk manajemen data user menggunakan Resource Controller.</li>
+        </ul>
+
+        <h4 class="fw-bold mt-4">Langkah Kerja dan Pembahasan</h4>
+
+        <h4 class="fw-bold mt-4 text-primary">Tahap 1: Pembuatan Project Laravel</h4>
+        <p align="justify">
+          Langkah pertama dalam praktikum ini adalah membuat workspace baru di dalam direktori <code>htdocs</code> dengan nama project <code>laravel-sisfo</code>. Proses instalasi dilakukan menggunakan package manager Composer melalui terminal/command prompt dengan menjalankan perintah berikut:
+        </p>
+<pre>
+composer create-project laravel/laravel=^9.0 laravel-sisfo --prefer-dist
+</pre>
+        <p align="justify">
+          Setelah proses instalasi selesai, masuk ke dalam direktori project lalu jalankan perintah <code>php artisan serve</code> untuk menjalankan server lokal Laravel. Buka browser dan akses URL <a href="http://127.0.0.1:8000" target="_blank">http://127.0.0.1:8000</a> untuk memastikan project default berhasil berjalan.
+        </p>
+
+        <h4 class="fw-bold mt-4 text-primary">Tahap 2: Konfigurasi Database</h4>
+        <p align="justify">
+          Koneksi database diatur dengan membuka file konfigurasi <code>.env</code> yang terletak pada root folder project. Ubah parameter database untuk menyesuaikan dengan database yang akan digunakan, dalam hal ini menggunakan database bernama <code>laravel_sisfo</code>:
+        </p>
+<pre>
+DB_CONNECTION=sqlite
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel_sisfo
+DB_USERNAME=root
+DB_PASSWORD=
+</pre>
+
+        <h4 class="fw-bold mt-4 text-primary">Tahap 3: Implementasi User Authentication (Laravel/UI)</h4>
+        <p align="justify">
+          Fitur autentikasi user pada studi kasus sistem informasi sekolah ini memanfaatkan package scaffolding bawaan <code>laravel/ui</code> dengan langkah-langkah sebagai berikut:
+        </p>
+        <p align="justify">1. Menginstall package <code>laravel/ui</code> melalui terminal dengan perintah:</p>
+<pre>
+composer require laravel/ui
+</pre>
+        <p align="justify">2. Melakukan generate scaffolding fitur autentikasi yang terintegrasi dengan CSS Bootstrap menggunakan perintah:</p>
+<pre>
+php artisan ui bootstrap --auth
+</pre>
+        <p align="justify">3. Menginstall package frontend tambahan dan melakukan compile asset bawaan menggunakan Node Package Manager (NPM) agar halaman login/register ter-generate otomatis:</p>
+<pre>
+npm install && npm run dev
+</pre>
+        <p align="justify">
+          Proses ini secara otomatis meng-generate controller otentikasi (Auth Controllers) serta file-file view Blade seperti login, register, dan folder passwords.
+        </p>
+        <p align="justify">4. Menjalankan migrasi database awal untuk membuat struktur tabel default autentikasi bawaan Laravel:</p>
+<pre>
+php artisan migrate
+</pre>
+        <p align="justify">Melakukan pengujian akses halaman login, register, dan home default pada browser melalui URL project.</p>
+
+        <img src="images/10.1 (1).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Halaman Login Bawaan)</em></p>
+
+        <img src="images/10.1 (2).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Halaman Register Bawaan)</em></p>
+
+        <img src="images/10.1 (3).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Halaman Home Setelah Berhasil Login Bawaan)</em></p>
+
+        <h4 class="fw-bold mt-4 text-primary">Tahap 4: Custom Table Users dan Seeding Data Admin</h4>
+        <p align="justify">
+          Struktur tabel users default perlu ditambahkan beberapa kolom baru seperti username, level, dan status untuk menyesuaikan dengan kebutuhan data Sistem Informasi Sekolah. Membuat file migrasi tambahan untuk memodifikasi tabel users yang sudah ada dengan perintah:
+        </p>
+<pre>
+php artisan make:migration costum_table_users
+</pre>
+        <p align="justify">
+          Buka file migrasi <code>costum_table_users.php</code> yang terbentuk, lalu tambahkan kode program pada method <code>up()</code> untuk mendefinisikan kolom baru, serta method <code>down()</code> untuk fungsi <code>dropColumn</code>:
+        </p>
+<pre>
+public function up()
+{
+    Schema::table('users', function (Blueprint $table) {
+        $table->string("username")->unique();
+        $table->string("level");
+        $table->enum("status", ["ACTIVE", "INACTIVE"]);
+    });
+}
+</pre>
+        <p align="justify">
+          Jalankan perintah <code>php artisan migrate</code> kembali di terminal agar modifikasi kolom tersebut diterapkan, kemudian cek struktur tabelnya.
+        </p>
+        <img src="images/10.1 (4).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Struktur Kolom Tabel Users Sesudah Ditambah)</em></p>
+
+        <p align="justify">Membuat data user admin awal secara otomatis menggunakan fitur seeding dengan perintah:</p>
+<pre>
+php artisan make:seeder AdminSeeder
+</pre>
+        <p align="justify">
+          Buka file <code>AdminSeeder.php</code> di folder <code>database/seeders/</code> dan definisikan data akun admin default dengan enkripsi password menggunakan <code>\Hash::make('12345678')</code>. Jalankan proses seeding ke database menggunakan perintah:
+        </p>
+<pre>
+php artisan db:seed --class AdminSeeder
+</pre>
+
+        <h4 class="fw-bold mt-4 text-primary">Tahap 5: Templating Layout Menggunakan SB Admin 2</h4>
+        <p align="justify">
+          Langkah selanjutnya adalah merombak tampilan dashboard default menggunakan template eksternal Bootstrap bernama SB Admin 2. Ekstrak file template SB Admin 2 dan salin seluruh folder asset-nya ke dalam direktori <code>public/sbadmin</code> pada project Laravel.
+        </p>
+        <p align="justify">
+          Membuat file master layout global bernama <code>main.blade.php</code> di dalam folder <code>resources/views/layouts/</code>. Struktur master layout ini memanggil bagian sidebar dan topbar secara terpisah menggunakan perintah <code>@include</code> serta mendefinisikan tag <code>@yield</code>. Memotong bagian kode login bawaan untuk disesuaikan dengan asset template SB Admin.
+        </p>
+
+        <img src="images/10.1 (5).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Kodingan View Login Head)</em></p>
+        <img src="images/10.1 (6).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Kodingan View Login Form)</em></p>
+        <img src="images/10.1 (7).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Kodingan View Login Scripts)</em></p>
+
+        <p align="justify">Jalankan URL login untuk melihat perubahan interface layouting baru.</p>
+        <img src="images/10.1 (8).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Tampilan Baru Interface Halaman Login Biru)</em></p>
+
+        <p align="justify">Mengatur dan membagi susunan file master layout global utama aplikasi.</p>
+        <img src="images/10.1 (9).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Kodingan main.blade.php Bagian Atas)</em></p>
+        <img src="images/10.1 (10).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Kodingan main.blade.php Bagian Bawah)</em></p>
+
+        <p align="justify">
+          Menyesuaikan file halaman <code>resources/views/home.blade.php</code> milik user agar mewarisi layout master yang baru dibuat:
+        </p>
+<pre>
+@extends('layouts.main')
+@section("judul") Dashboard @endsection
+@section('konten')
+    &lt;p&gt;dashboard&lt;/p&gt;
+@endsection
+</pre>
+        <img src="images/10.1 (11).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Visual Halaman Dashboard Baru SB Admin 2)</em></p>
+
+        <h4 class="fw-bold mt-4 text-primary">Tahap 6: Fitur Manajemen Users (CRUD)</h4>
+        <p align="justify">
+          Sistem manajemen user dibangun secara penuh menggunakan Resource Controller untuk menangani proses Create, Read, Update, dan Delete data.
+        </p>
+        <p align="justify">1. Membuat resource controller baru untuk entitas user melalui perintah terminal:</p>
+<pre>
+php artisan make:controller UserController -resource
+</pre>
+        <p align="justify">2. Mendaftarkan route resource UserController pada file routing utama <code>routes/web.php</code>:</p>
+<pre>
+use App\Http\Controllers\UserController;
+Route::resource('users', UserController::class);
+</pre>
+
+        <img src="images/10.1 (12).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Potongan Kodingan File routes/web.php)</em></p>
+        <img src="images/10.1 (13).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Hasil Daftar Endpoint Pemetaan php artisan route:list)</em></p>
+
+        <p align="justify">3. Mengonfigurasi logika penuh di dalam file controller utama untuk mengontrol jalannya data CRUD.</p>
+        <img src="images/10.1 (14).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Source Code UserController.php Method index, create, store)</em></p>
+        <img src="images/10.1 (15).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Source Code UserController.php Method edit, update, destroy)</em></p>
+
+        <p align="justify">
+          4. <strong>CREATE (Tambah User):</strong> Mengatur method <code>create()</code> pada <code>UserController</code> untuk mengembalikan view form tambah data (<code>user.create</code>). Form input pada <code>create.blade.php</code> dibuat menggunakan framework Bootstrap dan dilengkapi dengan Select2 multiple-select untuk memilih level user.
+        </p>
+        <img src="images/10.1 (16).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Source Code File user/create.blade.php Bagian Atas)</em></p>
+        <img src="images/10.1 (17).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Source Code File user/create.blade.php Bagian Bawah)</em></p>
+        <img src="images/10.1 (18).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Potongan Kode Method create() di Controller)</em></p>
+        <img src="images/10.1 (19).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Visual Halaman Browser /users/create Form Kosong)</em></p>
+
+        <p align="justify">
+          5. <strong>READ (Tampilkan List):</strong> Mengatur method <code>index()</code> pada controller untuk mengambil keseluruhan data dari database via model <code>User::all()</code> lalu mengirimkannya ke view <code>user/index.blade.php</code>. Tampilan tabel diintegrasikan dengan library DataTables.
+        </p>
+        <img src="images/10.1 (20).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Potongan Kode Method index() di Controller)</em></p>
+        <img src="images/10.1 (21).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Potongan Kode Tombol Tambah User Berupa Tag Anchor)</em></p>
+        <img src="images/10.1 (22).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Tampilan Tabel List Data User Awal di Browser)</em></p>
+
+        <p align="justify">
+          6. <strong>UPDATE (Edit User):</strong> Tombol edit pada baris tabel mengarahkan endpoint ke route <code>users.edit</code> dengan menyertakan ID user. Method <code>edit()</code> menangkap ID tersebut, mencari entitas dengan <code>User::findOrFail($id)</code>, dan menampilkannya kembali pada form edit. Pengiriman data pembaruan menggunakan form method spoofing <code>PUT</code> untuk diproses oleh method <code>update()</code> di controller.
+        </p>
+        <img src="images/10.1 (23).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Source Code user/index.blade.php loop @foreach)</em></p>
+        <img src="images/10.1 (24).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Source Code user/index.blade.php pemanggilan DataTables)</em></p>
+        <img src="images/10.1 (25).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Source Code File user/edit.blade.php Bagian Atas)</em></p>
+        <img src="images/10.1 (26).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Source Code File user/edit.blade.php Bagian Tengah)</em></p>
+        <img src="images/10.1 (27).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Source Code File user/edit.blade.php Bagian Bawah)</em></p>
+        <img src="images/10.1 (28).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Potongan Kode Method update() di Controller)</em></p>
+        <img src="images/10.1 (29).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Visual Proses Mengubah/Mengedit Data Kolom User di Browser)</em></p>
+        <img src="images/10.1 (30).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Visual Munculnya Alert Success Warna Hijau)</em></p>
+
+        <p align="justify">
+          7. <strong>DELETE (Hapus User):</strong> Tombol hapus dibungkus di dalam elemen form bermethod <code>POST</code> dengan perintah spoofing method <code>DELETE</code>. Tombol dilengkapi JavaScript <code>onsubmit="return confirm(...)"</code> untuk memicu pop-up dialog konfirmasi. Ketika disetujui, data akan dihapus oleh action <code>destroy()</code> di controller menggunakan fungsi <code>$user->delete()</code>.
+        </p>
+        <img src="images/10.1 (31).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Potongan Kode Fungsi Hapus di File Index)</em></p>
+        <img src="images/10.1 (32).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Potongan Kode Method destroy() di Controller)</em></p>
+        <img src="images/10.1 (33).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Visual Tampilan Pop-up Dialog Konfirmasi Hapus Data User)</em></p>
+        <img src="images/10.1 (34).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Visual Tampilan Tabel List Akhir Setelah Baris Terhapus)</em></p>
+
+        <p align="justify">
+          8. <strong>MENAMBAHKAN MENU USERS:</strong> Langkah terakhir adalah mendaftarkan modul menu users ke komponen sidebar agar mempermudah navigasi perpindahan halaman aplikasi.
+        </p>
+        <img src="images/10.1 (35).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Potongan Kode Menu Users pada File sidebar.blade.php)</em></p>
+        <img src="images/10.1 (36).png" class="laporan-img">
+        <p class="text-center text-muted"><em>(Tampilan Visual Menu Navigasi Baru "Users")</em></p>
+
+        <h4 class="fw-bold mt-5">Kesimpulan</h4>
+        <p align="justify">
+          Berdasarkan hasil pelaksanaan praktikum pemrograman web menggunakan Laravel 9 dengan studi kasus Sistem Informasi Sekolah, dapat ditarik beberapa kesimpulan sebagai berikut:
+        </p>
+        <ol>
+          <li>Fitur User Authentication bawaan framework Laravel terbukti sangat memotong waktu development karena seluruh struktur controller, routing, dan komponen view dasar login/register dapat dibuat secara otomatis dan instan.</li>
+          <li>Fleksibilitas sistem migration pada Laravel mempermudah pengembang dalam melakukan modifikasi atau kustomisasi struktur tabel database tanpa perlu berinteraksi langsung secara manual di DBMS.</li>
+          <li>Penerapan sistem Blade Templating (master layouting) menggunakan perintah <code>@extends</code>, <code>@include</code>, dan <code>@yield</code> menghasilkan pengelolaan interface web yang modular, rapi, dan dinamis saat diintegrasikan dengan template eksternal pihak ketiga.</li>
+          <li>Penggunaan Resource Controller dan Resource Routing pada Laravel menyederhanakan pengelolaan endpoint untuk fungsionalitas CRUD secara penuh, sehingga kode program aplikasi menjadi lebih rapi, konsisten, dan memenuhi standar arsitektur web modern.</li>
+        </ol>
+        </div>
       </div>
 
+      <!-- DETAIL REPORT CONTAINER APLIKASI MOBILE (HIDDEN BY DEFAULT) -->
+      <div class="card laporan-card p-4 p-md-5 d-none mb-4" id="mobile-detail-card">
+        <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-between pb-3 mb-4 border-bottom gap-3">
+          <div>
+            <h4 class="fw-bold m-0 text-dark" id="mobile-detail-title">
+              <i class="bi bi-phone me-2"></i> Laporan Aplikasi Mobile
+            </h4>
+          </div>
+
+          <button class="btn btn-sm btn-outline-danger ms-auto rounded-pill px-3" onclick="closeMobileLaporan()">
+            <i class="bi bi-x-circle me-1"></i> Tutup
+          </button>
+        </div>
+
+        <div id="content-mobile-main" class="laporan-pane">
+
+          <span class="badge bg-dark mb-3 fs-6 px-3 py-2" style="width:fit-content;">Flutter / Mobile App</span>
+          <h2 class="fw-bold mb-3">Laporan Praktikum: Form Pendaftaran Flutter</h2>
+          
+          <h4 class="fw-bold mt-4">Deskripsi Singkat</h4>
+          <p align="justify">
+            Tugas ini membahas cara membuat form pendaftaran sederhana di Flutter dengan empat kolom input: 
+            <b>Nama</b>, <b>Email</b>, <b>Password</b>, dan <b>Confirm Password</b>, serta satu tombol <b>Submit</b>. 
+            Fokus utamanya adalah menerapkan validasi input langsung di layar dan memisahkannya ke dalam struktur file yang rapi.
+          </p>
+
+          <h4 class="fw-bold mt-4">Ketentuan Input & Validasi</h4>
+          <ul>
+            <li><b>Nama:</b> Tidak boleh kosong.</li>
+            <li><b>Email:</b> Wajib diisi dan harus menggunakan format yang benar (mengandung <code>@</code>).</li>
+            <li><b>Password:</b> Tidak boleh kosong.</li>
+            <li><b>Confirm Password:</b> Harus sama dengan isi kolom Password.</li>
+            <li><b>Tombol Submit:</b> Saat diklik, sistem akan mengecek semua inputan. Jika semua sudah sesuai, pesan konfirmasi (<code>SnackBar</code>) akan muncul di layar.</li>
+          </ul>
+
+          <h4 class="fw-bold mt-4">Struktur File</h4>
+          <p align="justify">Kode dibagi menjadi dua file Dart sesuai instruksi:</p>
+          <ul>
+            <li><code>main.dart</code> — Sebagai file utama untuk menjalankan aplikasi dan mengatur tema.</li>
+            <li><code>user_registration_form.dart</code> — Berisi tampilan form, controller, dan fungsi validasinya.</li>
+          </ul>
+
+          <h4 class="fw-bold mt-4">Cara Kerja Form</h4>
+          <ol>
+            <li>Pengguna mengisi kolom nama, email, password, dan konfirmasi password.</li>
+            <li>Pengguna menekan tombol <b>Submit</b>.</li>
+            <li>Sistem mengecek isi setiap kolom:
+              <ul>
+                <li>Jika ada isi yang salah atau kosong, teks peringatan akan muncul di bawah kolom tersebut.</li>
+                <li>Jika semua sudah benar, sistem akan menampilkan notifikasi <code>SnackBar</code> sebagai tanda berhasil.</li>
+              </ul>
+            </li>
+          </ol>
+
+          <h4 class="fw-bold mt-4">Kode Program</h4>
+
+          <h6 class="fw-bold text-dark mt-3"><i class="bi bi-file-code me-2"></i>1. main.dart</h6>
+          <img src="images/main_dart_code.png" class="laporan-img mb-4" alt="Kode Program main.dart">
+
+          <h6 class="fw-bold text-dark mt-4"><i class="bi bi-file-code me-2"></i>2. user_registration_form.dart</h6>
+          <img src="images/carbon_flutter_code.png" class="laporan-img mb-4" alt="Kode Program user_registration_form.dart">
+
+          <h4 class="fw-bold mt-4">Hasil Pengujian</h4>
+          <p class="text-muted small mb-2">Tampilan notifikasi SnackBar saat data berhasil diisi dan disubmit:</p>
+          <img src="images/flutter_form_hasil.png" class="laporan-img" alt="Hasil Pengujian Form Pendaftaran Flutter">
+
+        </div>
+      </div>
     </div>
+  </section>
 
-    <hr class="bg-white">
+  <!-- FOOTER -->
+  <footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+      <p class="mb-0">&copy; 2026 MyPortfolio. All rights reserved.</p>
+    </div>
+  </footer>
 
-    <p class="mb-0 text-center">
-      © 2026 MyPortfolio. All rights reserved.
-    </p>
+  <!-- BOOTSTRAP JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  </div>
+  <!-- SCRIPT SHOW / HIDE LAPORAN -->
+  <script>
+    function openLaporan(tabId) {
+      closeMobileLaporan();
 
-</footer>
+      const detailCard = document.getElementById('laporan-detail-card');
+      detailCard.classList.remove('d-none');
 
-<!-- BOOTSTRAP JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+      const tabs = ['p7', 'p8', 'p9', 'p10'];
 
+      if (tabId === 'all') {
+        tabs.forEach(id => {
+          document.getElementById('content-' + id).classList.remove('d-none');
+        });
+        document.getElementById('detail-title').innerHTML = '<i class="bi bi-file-earmark-text me-2"></i> Semua Laporan PWeb (7 - 10)';
+      } else {
+        tabs.forEach(id => {
+          const pane = document.getElementById('content-' + id);
+          if (id === tabId) {
+            pane.classList.remove('d-none');
+          } else {
+            pane.classList.add('d-none');
+          }
+        });
+
+        const names = {
+          'p7': 'Praktikum 7 - Konfigurasi Laravel',
+          'p8': 'Praktikum 8 - Laravel CRUD',
+          'p9': 'Praktikum 9 - Auth & Role Management',
+          'p10': 'Praktikum 10 - Web Security & Optimization'
+        };
+        document.getElementById('detail-title').innerHTML = '<i class="bi bi-file-earmark-text me-2"></i> ' + names[tabId];
+      }
+
+      document.querySelectorAll('#detail-tabs .nav-link').forEach(btn => btn.classList.remove('active'));
+      const activeBtn = document.getElementById('tab-btn-' + tabId);
+      if (activeBtn) activeBtn.classList.add('active');
+
+      detailCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function closeLaporan() {
+      document.getElementById('laporan-detail-card').classList.add('d-none');
+    }
+
+    function openMobileLaporan() {
+      closeLaporan();
+
+      const mobileCard = document.getElementById('mobile-detail-card');
+      mobileCard.classList.remove('d-none');
+
+      mobileCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function closeMobileLaporan() {
+      document.getElementById('mobile-detail-card').classList.add('d-none');
+    }
+  </script>
 </body>
+
 </html>

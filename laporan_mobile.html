@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laporan Aplikasi Mobile | MyPortfolio</title>
+
+  <!-- BOOTSTRAP CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .hero-section {
+      padding: 120px 0 80px;
+      text-align: center;
+      color: white;
+      background: linear-gradient(135deg, #000 20%, #333 100%);
+    }
+
+    .hero-section h1 {
+      font-size: 48px;
+      font-weight: 700;
+    }
+
+    .hero-section p {
+      font-size: 18px;
+      opacity: .8;
+    }
+
+    .laporan-card {
+      border: none;
+      border-radius: 15px;
+      transition: all .3s ease;
+      background: #ffffff;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    }
+
+    .laporan-img {
+      border-radius: 12px;
+      width: 100%;
+      max-width: 850px;
+      margin: 15px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      display: block;
+    }
+
+    pre {
+      background: #212529;
+      color: #ffffff;
+      padding: 18px;
+      border-radius: 10px;
+      overflow-x: auto;
+    }
+
+    footer {
+      margin-top: 80px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="background-color:aliceblue;">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">
+        MyPortfolio <i class="bi bi-house fs-3"></i>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link active fw-bold" href="laporan.html">Laporan</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-section">
+    <div class="container">
+      <h1>Laporan Aplikasi Mobile</h1>
+      <p>Dokumentasi & Laporan Praktikum Pengembangan Aplikasi Mobile (Flutter)</p>
+    </div>
+  </section>
+
+  <section class="py-5">
+    <div class="container">
+
+      <div class="card laporan-card p-4 p-md-5 mb-4">
+
+          <span class="badge bg-dark mb-3 fs-6 px-3 py-2" style="width:fit-content;">Flutter / Mobile App</span>
+          <h2 class="fw-bold mb-3">Laporan Praktikum: Form Pendaftaran Flutter</h2>
+          
+          <h4 class="fw-bold mt-4">Deskripsi Singkat</h4>
+          <p align="justify">
+            Tugas ini membahas cara membuat form pendaftaran sederhana di Flutter dengan empat kolom input: 
+            <b>Nama</b>, <b>Email</b>, <b>Password</b>, dan <b>Confirm Password</b>, serta satu tombol <b>Submit</b>. 
+            Fokus utamanya adalah menerapkan validasi input langsung di layar dan memisahkannya ke dalam struktur file yang rapi.
+          </p>
+
+          <h4 class="fw-bold mt-4">Ketentuan Input & Validasi</h4>
+          <ul>
+            <li><b>Nama:</b> Tidak boleh kosong.</li>
+            <li><b>Email:</b> Wajib diisi dan harus menggunakan format yang benar (mengandung <code>@</code>).</li>
+            <li><b>Password:</b> Tidak boleh kosong.</li>
+            <li><b>Confirm Password:</b> Harus sama dengan isi kolom Password.</li>
+            <li><b>Tombol Submit:</b> Saat diklik, sistem akan mengecek semua inputan. Jika semua sudah sesuai, pesan konfirmasi (<code>SnackBar</code>) akan muncul di layar.</li>
+          </ul>
+
+          <h4 class="fw-bold mt-4">Struktur File</h4>
+          <p align="justify">Kode dibagi menjadi dua file Dart sesuai instruksi:</p>
+          <ul>
+            <li><code>main.dart</code> — Sebagai file utama untuk menjalankan aplikasi dan mengatur tema.</li>
+            <li><code>user_registration_form.dart</code> — Berisi tampilan form, controller, dan fungsi validasinya.</li>
+          </ul>
+
+          <h4 class="fw-bold mt-4">Cara Kerja Form</h4>
+          <ol>
+            <li>Pengguna mengisi kolom nama, email, password, dan konfirmasi password.</li>
+            <li>Pengguna menekan tombol <b>Submit</b>.</li>
+            <li>Sistem mengecek isi setiap kolom:
+              <ul>
+                <li>Jika ada isi yang salah atau kosong, teks peringatan akan muncul di bawah kolom tersebut.</li>
+                <li>Jika semua sudah benar, sistem akan menampilkan notifikasi <code>SnackBar</code> sebagai tanda berhasil.</li>
+              </ul>
+            </li>
+          </ol>
+
+          <h4 class="fw-bold mt-4">Kode Program</h4>
+
+          <h6 class="fw-bold text-dark mt-3"><i class="bi bi-file-code me-2"></i>1. main.dart</h6>
+          <img src="images/main_dart_code.png" class="laporan-img mb-4" alt="Kode Program main.dart">
+
+          <h6 class="fw-bold text-dark mt-4"><i class="bi bi-file-code me-2"></i>2. user_registration_form.dart</h6>
+          <img src="images/carbon_flutter_code.png" class="laporan-img mb-4" alt="Kode Program user_registration_form.dart">
+
+          <h4 class="fw-bold mt-4">Hasil Pengujian</h4>
+          <p class="text-muted small mb-2">Tampilan notifikasi SnackBar saat data berhasil diisi dan disubmit:</p>
+          <img src="images/flutter_form_hasil.png" class="laporan-img" alt="Hasil Pengujian Form Pendaftaran Flutter">
+
+      </div>
+
+      <div class="text-center mt-4">
+        <a href="laporan.html" class="btn btn-dark rounded-3 px-4 py-2">
+          <i class="bi bi-arrow-left me-2"></i> Kembali ke Halaman Laporan
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+      <p class="mb-0">&copy; 2026 MyPortfolio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
