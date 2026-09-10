@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Laporan Aplikasi Mobile | MyPortfolio</title>
+  <title>Laporan Praktikum Aplikasi Mobile - Praktikum 1 | MyPortfolio</title>
 
   <!-- BOOTSTRAP CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -24,7 +24,7 @@
     }
 
     .hero-section h1 {
-      font-size: 48px;
+      font-size: 40px;
       font-weight: 700;
     }
 
@@ -56,6 +56,16 @@
       padding: 18px;
       border-radius: 10px;
       overflow-x: auto;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .section-title {
+      border-left: 5px solid #ffc107;
+      padding-left: 12px;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      font-weight: 700;
     }
 
     footer {
@@ -92,8 +102,9 @@
   <!-- HERO -->
   <section class="hero-section">
     <div class="container">
-      <h1>Laporan Aplikasi Mobile</h1>
-      <p>Dokumentasi & Laporan Praktikum Pengembangan Aplikasi Mobile (Flutter)</p>
+      <h1>LAPORAN PRAKTIKUM APLIKASI MOBILE</h1>
+      <p class="mb-1"><strong>PRAKTIKUM 1: Input Widgets dan Basic Form pada Flutter</strong></p>
+      <p class="small text-warning">NIM: 2411533019 - Adila Bintang Fauzi</p>
     </div>
   </section>
 
@@ -102,55 +113,261 @@
 
       <div class="card laporan-card p-4 p-md-5 mb-4">
 
-          <span class="badge bg-dark mb-3 fs-6 px-3 py-2" style="width:fit-content;">Flutter / Mobile App</span>
-          <h2 class="fw-bold mb-3">Laporan Praktikum: Form Pendaftaran Flutter</h2>
-          
-          <h4 class="fw-bold mt-4">Deskripsi Singkat</h4>
-          <p align="justify">
-            Tugas ini membahas cara membuat form pendaftaran sederhana di Flutter dengan empat kolom input: 
-            <b>Nama</b>, <b>Email</b>, <b>Password</b>, dan <b>Confirm Password</b>, serta satu tombol <b>Submit</b>. 
-            Fokus utamanya adalah menerapkan validasi input langsung di layar dan memisahkannya ke dalam struktur file yang rapi.
-          </p>
+        <span class="badge bg-dark mb-3 fs-6 px-3 py-2" style="width:fit-content;">Flutter / Mobile App</span>
 
-          <h4 class="fw-bold mt-4">Ketentuan Input & Validasi</h4>
-          <ul>
-            <li><b>Nama:</b> Tidak boleh kosong.</li>
-            <li><b>Email:</b> Wajib diisi dan harus menggunakan format yang benar (mengandung <code>@</code>).</li>
-            <li><b>Password:</b> Tidak boleh kosong.</li>
-            <li><b>Confirm Password:</b> Harus sama dengan isi kolom Password.</li>
-            <li><b>Tombol Submit:</b> Saat diklik, sistem akan mengecek semua inputan. Jika semua sudah sesuai, pesan konfirmasi (<code>SnackBar</code>) akan muncul di layar.</li>
-          </ul>
+        <!-- 1. PENDAHULUAN -->
+        <h3 class="section-title">1. Pendahuluan</h3>
+        <p align="justify">
+          Pengembangan aplikasi mobile modern menuntut pengelolaan interaksi pengguna yang responsif, terstruktur, dan tervalidasi dengan baik. Pada framework Flutter, penanganan input dari pengguna dilakukan melalui komponen formulir dasar (Basic Form) dan Input Widgets, seperti <code>TextField</code>, <code>TextFormField</code>, <code>CheckBox</code>, <code>Switch</code>, <code>Dropdown</code>, <code>Radio</code>, <code>DatePicker</code>, hingga komponen antarmuka dialog pendukung seperti <code>BottomSheet</code> dan <code>SnackBar</code>. Komponen-komponen ini berfungsi menangkap data, menampilkan field input, memvalidasi format data secara akurat, serta mengambil nilai inputan untuk diproses pada tingkat logika aplikasi.
+        </p>
+        <p align="justify">
+          Dalam praktik pengembangannya, Flutter menyediakan dua komponen utama untuk menangani input teks, yaitu <code>TextField</code> dan <code>TextFormField</code>. <code>TextField</code> digunakan untuk penangkapan teks sederhana secara langsung dari keyboard dengan pengelolaan state mandiri via <code>TextEditingController</code>, di mana validasi dan pesan kesalahan harus ditangani secara manual. Sebaliknya, <code>TextFormField</code> merupakan widget pembungkus <code>TextField</code> yang terintegrasi langsung dengan logika Form. Komponen ini dilengkapi dengan properti bawaan <code>validator</code> untuk memeriksa aturan input secara otomatis dan menampilkan pesan kesalahan di bawah field jika data tidak sesuai, serta dapat dikontrol secara terpusat menggunakan <code>FormState</code>.
+        </p>
+        <p align="justify">
+          Pengelolaan formulir yang efisien di Flutter ditopang oleh beberapa komponen kunci. <code>TextEditingController</code> digunakan untuk mengontrol dan membaca teks pada input field, yang mana wajib dibersihkan melalui metode <code>dispose()</code> untuk mencegah kebocoran memori (memory leak). Untuk mengidentifikasi dan mengakses status dari Form dari luar widget, digunakan <code>GlobalKey&lt;FormState&gt;</code>. Status ini menyediakan fungsi <code>validate()</code> yang mengeksekusi seluruh validator <code>TextFormField</code> di dalam Form secara kolektif—menghasilkan nilai <code>true</code> jika seluruh data valid atau <code>false</code> jika terdapat kesalahan. Selain itu, pembaruan antarmuka saat terjadi perubahan state ditangani oleh metode <code>setState()</code>, sedangkan optimasi memori dan performa reloading aplikasi dicapai dengan menerapkan kata kunci <code>const</code> pada widget konstan saat kompilasi.
+        </p>
 
-          <h4 class="fw-bold mt-4">Struktur File</h4>
-          <p align="justify">Kode dibagi menjadi dua file Dart sesuai instruksi:</p>
-          <ul>
-            <li><code>main.dart</code> — Sebagai file utama untuk menjalankan aplikasi dan mengatur tema.</li>
-            <li><code>user_registration_form.dart</code> — Berisi tampilan form, controller, dan fungsi validasinya.</li>
-          </ul>
+        <!-- 2. TUJUAN PRAKTIKUM -->
+        <h3 class="section-title">2. Tujuan Praktikum</h3>
+        <ul>
+          <li>Membuat dan mengonfigurasi berbagai jenis Input Widgets pada Flutter.</li>
+          <li>Mengontrol dan membaca nilai input pengguna menggunakan <code>TextEditingController</code>.</li>
+          <li>Menerapkan mekanisme validasi data menggunakan <code>TextFormField</code>, <code>FormState</code>, dan <code>GlobalKey</code>.</li>
+          <li>Memahami pengelolaan siklus hidup widget, pelepasan memori (metode <code>dispose()</code>), serta peremajaan antarmuka menggunakan <code>setState()</code>.</li>
+        </ul>
 
-          <h4 class="fw-bold mt-4">Cara Kerja Form</h4>
-          <ol>
-            <li>Pengguna mengisi kolom nama, email, password, dan konfirmasi password.</li>
-            <li>Pengguna menekan tombol <b>Submit</b>.</li>
-            <li>Sistem mengecek isi setiap kolom:
-              <ul>
-                <li>Jika ada isi yang salah atau kosong, teks peringatan akan muncul di bawah kolom tersebut.</li>
-                <li>Jika semua sudah benar, sistem akan menampilkan notifikasi <code>SnackBar</code> sebagai tanda berhasil.</li>
-              </ul>
-            </li>
-          </ol>
+        <!-- 3. LANGKAH-LANGKAH PRAKTIKUM -->
+        <h3 class="section-title">3. Langkah-Langkah Praktikum</h3>
 
-          <h4 class="fw-bold mt-4">Kode Program</h4>
+        <h5 class="fw-bold text-dark mt-4">3.1 Implementation Basic Form dengan TextField</h5>
+        <p align="justify">
+          Berikut merupakan kode program pembuatan form dasar menggunakan <code>TextField</code> untuk mengambil input nama dan menampilkannya pada <code>SnackBar</code>:
+        </p>
+        <pre><code>// NIM: 2411533019 - Adila Bintang Fauzi
+import 'package:flutter/material.dart';
 
-          <h6 class="fw-bold text-dark mt-3"><i class="bi bi-file-code me-2"></i>1. main.dart</h6>
-          <img src="images/main_dart_code.png" class="laporan-img mb-4" alt="Kode Program main.dart">
+void main() => runApp(const MyApp());
 
-          <h6 class="fw-bold text-dark mt-4"><i class="bi bi-file-code me-2"></i>2. user_registration_form.dart</h6>
-          <img src="images/carbon_flutter_code.png" class="laporan-img mb-4" alt="Kode Program user_registration_form.dart">
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
-          <h4 class="fw-bold mt-4">Hasil Pengujian</h4>
-          <p class="text-muted small mb-2">Tampilan notifikasi SnackBar saat data berhasil diisi dan disubmit:</p>
-          <img src="images/flutter_form_hasil.png" class="laporan-img" alt="Hasil Pengujian Form Pendaftaran Flutter">
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text('Basic Form')),
+        body: const MyForm(),
+      ),
+    );
+  }
+}
+
+class MyForm extends StatefulWidget {
+  const MyForm({super.key});
+
+  @override
+  State&lt;MyForm&gt; createState() =&gt; _MyFormState();
+}
+
+class _MyFormState extends State&lt;MyForm&gt; {
+  final TextEditingController _textEditingController = TextEditingController();
+
+  @override
+  void dispose() {
+    _textEditingController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text('Masukkan nama anda :'),
+          const SizedBox(height: 10),
+          TextField(
+            controller: _textEditingController,
+            keyboardType: TextInputType.text,
+            decoration: const InputDecoration(
+              labelText: 'Nama Lengkap',
+              hintText: 'Misalnya masnoer',
+              border: OutlineInputBorder(),
+              prefixIcon: Icon(Icons.person),
+            ),
+            onChanged: (text) {
+              print('Sedang mengetik teks: $text');
+            },
+          ),
+          const SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: () {
+              String inputText = _textEditingController.text;
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text('Nama anda adalah: $inputText')),
+              );
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.amber,
+              foregroundColor: Colors.black,
+            ),
+            child: const Text('Tampilkan nama'),
+          ),
+        ],
+      ),
+    );
+  }
+}</code></pre>
+
+        <h5 class="fw-bold text-dark mt-4">3.2 Implementasi Form Validasi dengan TextFormField</h5>
+        <p align="justify">
+          Berikut merupakan kode program terstruktur menggunakan <code>Form</code>, <code>GlobalKey&lt;FormState&gt;</code>, serta validasi untuk input Nama dan Email:
+        </p>
+        <pre><code>// NIM: 2411533019 - Adila Bintang Fauzi
+import 'package:flutter/material.dart';
+
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text("Basic Form TextFormField")),
+        body: const MyFormText(),
+      ),
+    );
+  }
+}
+
+class MyFormText extends StatefulWidget {
+  const MyFormText({super.key});
+
+  @override
+  State&lt;MyFormText&gt; createState() =&gt; _MyFormTextState();
+}
+
+class _MyFormTextState extends State&lt;MyFormText&gt; {
+  final _formKey = GlobalKey&lt;FormState&gt;();
+  final _nameController = TextEditingController();
+  final _emailController = TextEditingController();
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _emailController.dispose();
+    super.dispose();
+  }
+
+  void _submitForm() {
+    if (_formKey.currentState!.validate()) {
+      String name = _nameController.text;
+      String email = _emailController.text;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Validasi $name, $email Berhasil')),
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: _formKey,
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 10),
+            TextFormField(
+              controller: _nameController,
+              decoration: const InputDecoration(
+                labelText: "Nama",
+                border: OutlineInputBorder(),
+              ),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Masukkan nama anda';
+                }
+                return null;
+              },
+            ),
+            const SizedBox(height: 10),
+            TextFormField(
+              controller: _emailController,
+              decoration: const InputDecoration(
+                labelText: "Email",
+                border: OutlineInputBorder(),
+              ),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Masukkan email anda';
+                }
+                if (!value.contains('@')) {
+                  return 'Email tidak valid';
+                }
+                return null;
+              },
+            ),
+            const SizedBox(height: 10),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: _submitForm,
+                child: const Text('Submit'),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}</code></pre>
+
+        <!-- 4. TUGAS DAN PENUGASAN PRAKTIKUM -->
+        <h3 class="section-title">4. Tugas dan Penugasan Praktikum</h3>
+        <p align="justify">
+          <strong>Tugas Kelas B: Form Pendaftaran Pengguna</strong><br>
+          Membuat form pendaftaran pengguna yang terdiri dari 4 field: <b>Nama</b>, <b>Email</b>, <b>Password</b>, dan <b>Confirm Password</b> dengan kriteria:
+        </p>
+        <ul>
+          <li>Memisahkan berkas proyek menjadi <code>main.dart</code> dan <code>user_registration_form.dart</code>.</li>
+          <li>Aturan validasi: Nama, Email, Password, dan Confirm Password wajib diisi. Email wajib memiliki karakter '<code>@</code>', serta Password dan Confirm Password harus cocok/sama.</li>
+          <li>Menggunakan <code>StatefulWidget</code> dan pemanggilan fungsi <code>_submitForm()</code> saat tombol submit ditekan.</li>
+        </ul>
+
+        <h6 class="fw-bold text-dark mt-4"><i class="bi bi-file-code me-2"></i>Kode Program main.dart</h6>
+        <img src="images/main_dart_code.png" class="laporan-img mb-4" alt="Kode Program main.dart">
+
+        <h6 class="fw-bold text-dark mt-4"><i class="bi bi-file-code me-2"></i>Kode Program user_registration_form.dart</h6>
+        <img src="images/carbon_flutter_code.png" class="laporan-img mb-4" alt="Kode Program user_registration_form.dart">
+
+        <h5 class="fw-bold text-dark mt-4">Hasil Akhir</h5>
+        <p class="text-muted small mb-2">Tampilan antarmuka Form Pendaftaran Pengguna beserta notifikasi SnackBar saat validasi berhasil:</p>
+        <img src="images/flutter_form_hasil.png" class="laporan-img mb-4" alt="Hasil Akhir Form Pendaftaran Flutter">
+
+        <!-- 5. KESIMPULAN -->
+        <h3 class="section-title">5. Kesimpulan</h3>
+        <p align="justify">
+          Berdasarkan hasil praktikum yang telah dilakukan, dapat ditarik beberapa kesimpulan penting sebagai berikut:
+        </p>
+        <ol>
+          <li class="mb-2">
+            <strong>Penggunaan Input Widgets:</strong> Komponen <code>TextField</code> sangat cocok digunakan untuk input sederhana tanpa aturan validasi kompleks, sedangkan <code>TextFormField</code> lebih direkomendasikan untuk pengembangan form interaktif yang membutuhkan pengujian atribut data secara terstruktur.
+          </li>
+          <li class="mb-2">
+            <strong>Manajemen State dan GlobalKey:</strong> Penggunaan <code>GlobalKey&lt;FormState&gt;</code> terbukti mempermudah akses status Form secara kolektif, sehingga pemanggilan fungsi <code>validate()</code> dapat mengeksekusi seluruh fungsi validator di setiap input field secara simultan dan efisien.
+          </li>
+          <li class="mb-2">
+            <strong>Manajemen Memori:</strong> Setiap penggunaan <code>TextEditingController</code> harus diiringi dengan pemanggilan metode <code>dispose()</code> pada lifecycle <code>StatefulWidget</code> untuk melepaskan resource yang digunakan dan menghindari kebocoran memori (<em>memory leak</em>).
+          </li>
+          <li class="mb-2">
+            <strong>Struktur Kode Modular:</strong> Pemisahan file program menjadi berkas terpisah (seperti <code>main.dart</code> dan <code>user_registration_form.dart</code>) meningkatkan kerapian struktur kode (<em>clean code</em>), keterbacaan (<em>readability</em>), serta mempermudah pemeliharaan dan pengembangan aplikasi Flutter di masa mendatang.
+          </li>
+        </ol>
 
       </div>
 
@@ -172,4 +389,5 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
