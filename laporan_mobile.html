@@ -141,191 +141,23 @@
 
         <h5 class="fw-bold text-dark mt-4">3.1 Implementation Basic Form dengan TextField</h5>
         <p align="justify">
-          Berikut merupakan kode program pembuatan form dasar menggunakan <code>TextField</code> untuk mengambil input nama dan menampilkannya pada <code>SnackBar</code>:
+          Berikut merupakan kode program dan hasil pengujian pembuatan form dasar menggunakan <code>TextField</code> untuk mengambil input nama dan menampilkannya pada <code>SnackBar</code>:
         </p>
-        <pre><code>// NIM: 2411533019 - Adila Bintang Fauzi
-import 'package:flutter/material.dart';
-
-void main() => runApp(const MyApp());
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: const Text('Basic Form')),
-        body: const MyForm(),
-      ),
-    );
-  }
-}
-
-class MyForm extends StatefulWidget {
-  const MyForm({super.key});
-
-  @override
-  State&lt;MyForm&gt; createState() =&gt; _MyFormState();
-}
-
-class _MyFormState extends State&lt;MyForm&gt; {
-  final TextEditingController _textEditingController = TextEditingController();
-
-  @override
-  void dispose() {
-    _textEditingController.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(20.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text('Masukkan nama anda :'),
-          const SizedBox(height: 10),
-          TextField(
-            controller: _textEditingController,
-            keyboardType: TextInputType.text,
-            decoration: const InputDecoration(
-              labelText: 'Nama Lengkap',
-              hintText: 'Misalnya masnoer',
-              border: OutlineInputBorder(),
-              prefixIcon: Icon(Icons.person),
-            ),
-            onChanged: (text) {
-              print('Sedang mengetik teks: $text');
-            },
-          ),
-          const SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              String inputText = _textEditingController.text;
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('Nama anda adalah: $inputText')),
-              );
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.amber,
-              foregroundColor: Colors.black,
-            ),
-            child: const Text('Tampilkan nama'),
-          ),
-        ],
-      ),
-    );
-  }
-}</code></pre>
+        <h6 class="fw-bold text-dark mt-3"><i class="bi bi-file-code me-2"></i>Kode Program form_textfield.dart</h6>
+        <img src="images/111.png" class="laporan-img mb-3" alt="Kode Program form_textfield.dart">
+        <h6 class="fw-bold text-dark mt-3"><i class="bi bi-display me-2"></i>Hasil Running Basic Form TextField</h6>
+        <img src="images/112.png" class="laporan-img mb-4" alt="Hasil Running Basic Form TextField">
 
         <h5 class="fw-bold text-dark mt-4">3.2 Implementasi Form Validasi dengan TextFormField</h5>
         <p align="justify">
-          Berikut merupakan kode program terstruktur menggunakan <code>Form</code>, <code>GlobalKey&lt;FormState&gt;</code>, serta validasi untuk input Nama dan Email:
+          Berikut merupakan kode program terstruktur menggunakan <code>Form</code>, <code>GlobalKey&lt;FormState&gt;</code>, serta validasi untuk input Nama dan Email beserta hasil pengujiannya:
         </p>
-        <pre><code>// NIM: 2411533019 - Adila Bintang Fauzi
-import 'package:flutter/material.dart';
-
-void main() => runApp(const MyApp());
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: const Text("Basic Form TextFormField")),
-        body: const MyFormText(),
-      ),
-    );
-  }
-}
-
-class MyFormText extends StatefulWidget {
-  const MyFormText({super.key});
-
-  @override
-  State&lt;MyFormText&gt; createState() =&gt; _MyFormTextState();
-}
-
-class _MyFormTextState extends State&lt;MyFormText&gt; {
-  final _formKey = GlobalKey&lt;FormState&gt;();
-  final _nameController = TextEditingController();
-  final _emailController = TextEditingController();
-
-  @override
-  void dispose() {
-    _nameController.dispose();
-    _emailController.dispose();
-    super.dispose();
-  }
-
-  void _submitForm() {
-    if (_formKey.currentState!.validate()) {
-      String name = _nameController.text;
-      String email = _emailController.text;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Validasi $name, $email Berhasil')),
-      );
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 10),
-            TextFormField(
-              controller: _nameController,
-              decoration: const InputDecoration(
-                labelText: "Nama",
-                border: OutlineInputBorder(),
-              ),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Masukkan nama anda';
-                }
-                return null;
-              },
-            ),
-            const SizedBox(height: 10),
-            TextFormField(
-              controller: _emailController,
-              decoration: const InputDecoration(
-                labelText: "Email",
-                border: OutlineInputBorder(),
-              ),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Masukkan email anda';
-                }
-                if (!value.contains('@')) {
-                  return 'Email tidak valid';
-                }
-                return null;
-              },
-            ),
-            const SizedBox(height: 10),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: _submitForm,
-                child: const Text('Submit'),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}</code></pre>
+        <h6 class="fw-bold text-dark mt-3"><i class="bi bi-file-code me-2"></i>Kode Program form-textformfield.dart</h6>
+        <img src="images/121.png" class="laporan-img mb-3" alt="Kode Program form-textformfield.dart">
+        <h6 class="fw-bold text-dark mt-3"><i class="bi bi-display me-2"></i>Tampilan Form TextFormField</h6>
+        <img src="images/122.png" class="laporan-img mb-3" alt="Tampilan Form TextFormField">
+        <h6 class="fw-bold text-dark mt-3"><i class="bi bi-check-circle me-2"></i>Hasil Validasi TextFormField Berhasil</h6>
+        <img src="images/123.png" class="laporan-img mb-4" alt="Hasil Validasi TextFormField Berhasil">
 
         <!-- 4. TUGAS DAN PENUGASAN PRAKTIKUM -->
         <h3 class="section-title">4. Tugas dan Penugasan Praktikum</h3>
@@ -339,15 +171,18 @@ class _MyFormTextState extends State&lt;MyFormText&gt; {
           <li>Menggunakan <code>StatefulWidget</code> dan pemanggilan fungsi <code>_submitForm()</code> saat tombol submit ditekan.</li>
         </ul>
 
-        <h6 class="fw-bold text-dark mt-4"><i class="bi bi-file-code me-2"></i>Kode Program main.dart</h6>
-        <img src="images/main_dart_code.png" class="laporan-img mb-4" alt="Kode Program main.dart">
+        <h6 class="fw-bold text-dark mt-4"><i class="bi bi-file-code me-2"></i>1. Kode Program main.dart</h6>
+        <img src="images/131.png" class="laporan-img mb-4" alt="Kode Program main.dart">
 
-        <h6 class="fw-bold text-dark mt-4"><i class="bi bi-file-code me-2"></i>Kode Program user_registration_form.dart</h6>
-        <img src="images/carbon_flutter_code.png" class="laporan-img mb-4" alt="Kode Program user_registration_form.dart">
+        <h6 class="fw-bold text-dark mt-4"><i class="bi bi-file-code me-2"></i>2. Kode Program user_registration_form.dart (Bagian 1)</h6>
+        <img src="images/132.png" class="laporan-img mb-4" alt="Kode Program user_registration_form.dart Bagian 1">
+
+        <h6 class="fw-bold text-dark mt-4"><i class="bi bi-file-code me-2"></i>3. Kode Program user_registration_form.dart (Bagian 2)</h6>
+        <img src="images/133.png" class="laporan-img mb-4" alt="Kode Program user_registration_form.dart Bagian 2">
 
         <h5 class="fw-bold text-dark mt-4">Hasil Akhir</h5>
         <p class="text-muted small mb-2">Tampilan antarmuka Form Pendaftaran Pengguna beserta notifikasi SnackBar saat validasi berhasil:</p>
-        <img src="images/flutter_form_hasil.png" class="laporan-img mb-4" alt="Hasil Akhir Form Pendaftaran Flutter">
+        <img src="images/134.png" class="laporan-img mb-4" alt="Hasil Akhir Form Pendaftaran Flutter">
 
         <!-- 5. KESIMPULAN -->
         <h3 class="section-title">5. Kesimpulan</h3>
