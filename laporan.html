@@ -1305,44 +1305,56 @@ Route::resource('users', UserController::class);
           <span class="badge bg-dark mb-3 fs-6 px-3 py-2" style="width:fit-content;">Flutter / Mobile App</span>
           <h2 class="fw-bold mb-3">Laporan Praktikum: Form Pendaftaran Flutter</h2>
           
-          <h4 class="fw-bold mt-4">Deskripsi Singkat</h4>
+          <h4 class="fw-bold mt-4">1. Pendahuluan</h4>
           <p align="justify">
-            Tugas ini membahas cara membuat form pendaftaran sederhana di Flutter dengan empat kolom input: 
-            <b>Nama</b>, <b>Email</b>, <b>Password</b>, dan <b>Confirm Password</b>, serta satu tombol <b>Submit</b>. 
-            Fokus utamanya adalah menerapkan validasi input langsung di layar dan memisahkannya ke dalam struktur file yang rapi.
+            Pengembangan aplikasi mobile modern menuntut pengelolaan interaksi pengguna yang responsif, terstruktur, dan tervalidasi dengan baik. Pada framework Flutter, penanganan input dari pengguna dilakukan melalui komponen formulir dasar (Basic Form) dan Input Widgets, seperti <code>TextField</code>, <code>TextFormField</code>, <code>CheckBox</code>, <code>Switch</code>, <code>Dropdown</code>, <code>Radio</code>, <code>DatePicker</code>, hingga komponen antarmuka dialog pendukung seperti <code>BottomSheet</code> dan <code>SnackBar</code>. Komponen-komponen ini berfungsi menangkap data, menampilkan field input, memvalidasi format data secara akurat, serta mengambil nilai inputan untuk diproses pada tingkat logika aplikasi.
+          </p>
+          <p align="justify">
+            Dalam praktik pengembangannya, Flutter menyediakan dua komponen utama untuk menangani input teks, yaitu <code>TextField</code> dan <code>TextFormField</code>. <code>TextField</code> digunakan untuk penangkapan teks sederhana secara langsung dari keyboard dengan pengelolaan state mandiri via <code>TextEditingController</code>, di mana validasi dan pesan kesalahan harus ditangani secara manual. Sebaliknya, <code>TextFormField</code> merupakan widget pembungkus <code>TextField</code> yang terintegrasi langsung dengan logika Form. Komponen ini dilengkapi dengan properti bawaan <code>validator</code> untuk memeriksa aturan input secara otomatis dan menampilkan pesan kesalahan di bawah field jika data tidak sesuai, serta dapat dikontrol secara terpusat menggunakan <code>FormState</code>.
           </p>
 
-          <h4 class="fw-bold mt-4">Ketentuan Input & Validasi</h4>
+          <h4 class="fw-bold mt-4">2. Tujuan Praktikum</h4>
           <ul>
-            <li><b>Nama:</b> Tidak boleh kosong.</li>
-            <li><b>Email:</b> Wajib diisi dan harus menggunakan format yang benar (mengandung <code>@</code>).</li>
-            <li><b>Password:</b> Tidak boleh kosong.</li>
-            <li><b>Confirm Password:</b> Harus sama dengan isi kolom Password.</li>
-            <li><b>Tombol Submit:</b> Saat diklik, sistem akan mengecek semua inputan. Jika semua sudah sesuai, pesan konfirmasi (<code>SnackBar</code>) akan muncul di layar.</li>
+            <li>Membuat dan mengonfigurasi berbagai jenis Input Widgets pada Flutter.</li>
+            <li>Mengontrol dan membaca nilai input pengguna menggunakan <code>TextEditingController</code>.</li>
+            <li>Menerapkan mekanisme validasi data menggunakan <code>TextFormField</code>, <code>FormState</code>, dan <code>GlobalKey</code>.</li>
+            <li>Memahami pengelolaan siklus hidup widget, pelepasan memori (metode <code>dispose()</code>), serta peremajaan antarmuka menggunakan <code>setState()</code>.</li>
           </ul>
 
-          <h4 class="fw-bold mt-4">Struktur File</h4>
-          <p align="justify">Kode dibagi menjadi dua file Dart sesuai instruksi:</p>
+          <h4 class="fw-bold mt-4">3. Langkah-Langkah Praktikum</h4>
+
+          <h5 class="fw-bold text-dark mt-3">3.1 Implementation Basic Form dengan TextField</h5>
+          <p align="justify">
+            Berikut merupakan kode program pembuatan form dasar menggunakan <code>TextField</code> untuk mengambil input nama dan menampilkannya pada <code>SnackBar</code>:
+          </p>
+          <h6 class="fw-bold text-dark mt-3"><i class="bi bi-file-code me-2"></i>Kode Program form_textfield.dart</h6>
+          <img src="images/111.png" class="laporan-img mb-3" alt="Kode Program form_textfield.dart">
+          <h6 class="fw-bold text-dark mt-3"><i class="bi bi-display me-2"></i>Hasil Running Basic Form TextField</h6>
+          <img src="images/112.png" class="laporan-img mb-4" alt="Hasil Running Basic Form TextField">
+
+          <h5 class="fw-bold text-dark mt-4">3.2 Implementasi Form Validasi dengan TextFormField</h5>
+          <p align="justify">
+            Berikut merupakan kode program terstruktur menggunakan <code>Form</code>, <code>GlobalKey&lt;FormState&gt;</code>, serta validasi untuk input Nama dan Email beserta hasil pengujiannya:
+          </p>
+          <h6 class="fw-bold text-dark mt-3"><i class="bi bi-file-code me-2"></i>Kode Program form-textformfield.dart</h6>
+          <img src="images/121.png" class="laporan-img mb-3" alt="Kode Program form-textformfield.dart">
+          <h6 class="fw-bold text-dark mt-3"><i class="bi bi-display me-2"></i>Tampilan Form TextFormField</h6>
+          <img src="images/122.png" class="laporan-img mb-3" alt="Tampilan Form TextFormField">
+          <h6 class="fw-bold text-dark mt-3"><i class="bi bi-check-circle me-2"></i>Hasil Validasi TextFormField Berhasil</h6>
+          <img src="images/123.png" class="laporan-img mb-4" alt="Hasil Validasi TextFormField Berhasil">
+
+          <h4 class="fw-bold mt-4">4. Tugas dan Penugasan Praktikum</h4>
+          <p align="justify">
+            <strong>Tugas Kelas B: Form Pendaftaran Pengguna</strong><br>
+            Membuat form pendaftaran pengguna yang terdiri dari 4 field: <b>Nama</b>, <b>Email</b>, <b>Password</b>, dan <b>Confirm Password</b> dengan kriteria:
+          </p>
           <ul>
-            <li><code>main.dart</code> — Sebagai file utama untuk menjalankan aplikasi dan mengatur tema.</li>
-            <li><code>user_registration_form.dart</code> — Berisi tampilan form, controller, dan fungsi validasinya.</li>
+            <li>Memisahkan berkas proyek menjadi <code>main.dart</code> dan <code>user_registration_form.dart</code>.</li>
+            <li>Aturan validasi: Nama, Email, Password, dan Confirm Password wajib diisi. Email wajib memiliki karakter '<code>@</code>', serta Password dan Confirm Password harus cocok/sama.</li>
+            <li>Menggunakan <code>StatefulWidget</code> dan pemanggilan fungsi <code>_submitForm()</code> saat tombol submit ditekan.</li>
           </ul>
 
-          <h4 class="fw-bold mt-4">Cara Kerja Form</h4>
-          <ol>
-            <li>Pengguna mengisi kolom nama, email, password, dan konfirmasi password.</li>
-            <li>Pengguna menekan tombol <b>Submit</b>.</li>
-            <li>Sistem mengecek isi setiap kolom:
-              <ul>
-                <li>Jika ada isi yang salah atau kosong, teks peringatan akan muncul di bawah kolom tersebut.</li>
-                <li>Jika semua sudah benar, sistem akan menampilkan notifikasi <code>SnackBar</code> sebagai tanda berhasil.</li>
-              </ul>
-            </li>
-          </ol>
-
-          <h4 class="fw-bold mt-4">Kode Program</h4>
-
-          <h6 class="fw-bold text-dark mt-3"><i class="bi bi-file-code me-2"></i>1. main.dart</h6>
+          <h6 class="fw-bold text-dark mt-4"><i class="bi bi-file-code me-2"></i>1. main.dart</h6>
           <img src="images/131.png" class="laporan-img mb-4" alt="Kode Program main.dart">
 
           <h6 class="fw-bold text-dark mt-4"><i class="bi bi-file-code me-2"></i>2. user_registration_form.dart (Bagian 1)</h6>
@@ -1353,7 +1365,15 @@ Route::resource('users', UserController::class);
 
           <h4 class="fw-bold mt-4">Hasil Pengujian</h4>
           <p class="text-muted small mb-2">Tampilan notifikasi SnackBar saat data berhasil diisi dan disubmit:</p>
-          <img src="images/134.png" class="laporan-img" alt="Hasil Pengujian Form Pendaftaran Flutter">
+          <img src="images/134.png" class="laporan-img mb-4" alt="Hasil Pengujian Form Pendaftaran Flutter">
+
+          <h4 class="fw-bold mt-4">5. Kesimpulan</h4>
+          <ol>
+            <li class="mb-2"><strong>Diferensiasi TextField dan TextFormField:</strong> <code>TextField</code> tepat untuk penangkapan teks sederhana tanpa aturan validasi, sedangkan <code>TextFormField</code> dirancang terintegrasi dengan widget <code>Form</code> untuk validasi deklaratif yang rapi.</li>
+            <li class="mb-2"><strong>Manajemen Form dengan GlobalKey:</strong> <code>GlobalKey&lt;FormState&gt;</code> memusatkan validasi formulir, di mana satu pemanggilan <code>validate()</code> mengeksekusi semua validator secara serentak.</li>
+            <li class="mb-2"><strong>Pembersihan Memori (dispose):</strong> Setiap instance <code>TextEditingController</code> wajib dibersihkan di method <code>dispose()</code> untuk mencegah memory leak.</li>
+            <li class="mb-2"><strong>Struktur Modular:</strong> Pemisahan file ke <code>main.dart</code> dan <code>user_registration_form.dart</code> mewujudkan kode yang terstruktur (clean code) dan memudahkan pemeliharaan sistem.</li>
+          </ol>
 
         </div>
       </div>
