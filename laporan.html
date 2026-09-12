@@ -165,9 +165,14 @@
             </h3>
             <p class="text-secondary small mb-4 flex-grow-1">Kumpulan laporan praktikum dan project pengembangan Aplikasi Mobile (Flutter / Android Studio).</p>
 
-            <button class="btn btn-dark w-100 rounded-3 py-2 fw-semibold" onclick="openMobileLaporan()">
-              <i class="bi bi-phone-fill me-1"></i> Buka Laporan Aplikasi Mobile
-            </button>
+            <div class="d-flex gap-2">
+              <button class="btn btn-dark flex-grow-1 rounded-3 py-2 fw-semibold" onclick="openMobileLaporan()">
+                <i class="bi bi-phone-fill me-1"></i> Buka Laporan Aplikasi Mobile
+              </button>
+              <a href="https://github.com/lalaayyey/AplikasiMobile" target="_blank" class="btn btn-outline-dark rounded-3 py-2 px-3 fw-semibold" title="Buka Repository GitHub">
+                <i class="bi bi-github"></i>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -1295,9 +1300,14 @@ Route::resource('users', UserController::class);
             </h4>
           </div>
 
-          <button class="btn btn-sm btn-outline-danger ms-auto rounded-pill px-3" onclick="closeMobileLaporan()">
-            <i class="bi bi-x-circle me-1"></i> Tutup
-          </button>
+          <div class="d-flex gap-2 ms-auto align-items-center">
+            <a href="https://github.com/lalaayyey/AplikasiMobile" target="_blank" class="btn btn-sm btn-dark rounded-pill px-3">
+              <i class="bi bi-github me-1"></i> Repo GitHub
+            </a>
+            <button class="btn btn-sm btn-outline-danger rounded-pill px-3" onclick="closeMobileLaporan()">
+              <i class="bi bi-x-circle me-1"></i> Tutup
+            </button>
+          </div>
         </div>
 
         <div id="content-mobile-main" class="laporan-pane">
@@ -1374,6 +1384,15 @@ Route::resource('users', UserController::class);
             <li class="mb-2"><strong>Pembersihan Memori (dispose):</strong> Setiap instance <code>TextEditingController</code> wajib dibersihkan di method <code>dispose()</code> untuk mencegah memory leak.</li>
             <li class="mb-2"><strong>Struktur Modular:</strong> Pemisahan file ke <code>main.dart</code> dan <code>user_registration_form.dart</code> mewujudkan kode yang terstruktur (clean code) dan memudahkan pemeliharaan sistem.</li>
           </ol>
+
+          <div class="d-flex flex-wrap gap-2 mt-4 pt-3 border-top justify-content-between align-items-center">
+            <a href="laporan_mobile.html" class="btn btn-outline-dark" style="width: fit-content;">
+              <i class="bi bi-box-arrow-up-right me-1"></i> Buka Halaman Penuh
+            </a>
+            <a href="https://github.com/lalaayyey/AplikasiMobile" target="_blank" class="btn btn-dark" style="width: fit-content;">
+              <i class="bi bi-github me-1"></i> Lihat Repository GitHub (AplikasiMobile)
+            </a>
+          </div>
 
         </div>
       </div>
