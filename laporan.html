@@ -1296,24 +1296,34 @@ Route::resource('users', UserController::class);
         <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-between pb-3 mb-4 border-bottom gap-3">
           <div>
             <h4 class="fw-bold m-0 text-dark" id="mobile-detail-title">
-              <i class="bi bi-phone me-2"></i> Laporan Aplikasi Mobile
+              <i class="bi bi-phone me-2"></i> Detail Laporan Aplikasi Mobile
             </h4>
           </div>
 
-          <div class="d-flex gap-2 ms-auto align-items-center">
-            <a href="https://github.com/lalaayyey/AplikasiMobile" target="_blank" class="btn btn-sm btn-dark rounded-pill px-3">
-              <i class="bi bi-github me-1"></i> Repo GitHub
-            </a>
-            <button class="btn btn-sm btn-outline-danger rounded-pill px-3" onclick="closeMobileLaporan()">
+          <div class="d-flex align-items-center gap-2 flex-wrap">
+            <ul class="nav nav-pills gap-2" id="mobile-detail-tabs">
+              <li class="nav-item">
+                <button class="nav-link" id="tab-btn-m1" onclick="openMobileLaporan('m1')">Praktikum 1</button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link" id="tab-btn-m2" onclick="openMobileLaporan('m2')">Praktikum 2</button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link btn-outline-secondary border" id="tab-btn-m-all" onclick="openMobileLaporan('all')">Semua</button>
+              </li>
+            </ul>
+
+            <button class="btn btn-sm btn-outline-danger ms-auto rounded-pill px-3" onclick="closeMobileLaporan()">
               <i class="bi bi-x-circle me-1"></i> Tutup
             </button>
           </div>
         </div>
 
-        <div id="content-mobile-main" class="laporan-pane">
+        <!-- CONTENT PRAKTIKUM 1 (MOBILE) -->
+        <div id="content-m1" class="laporan-pane d-none">
 
           <span class="badge bg-dark mb-3 fs-6 px-3 py-2" style="width:fit-content;">Flutter / Mobile App</span>
-          <h2 class="fw-bold mb-3">Laporan Praktikum: Form Pendaftaran Flutter</h2>
+          <h2 class="fw-bold mb-3">Praktikum 1 - Input Widgets dan Basic Form</h2>
           
           <h4 class="fw-bold mt-4">1. Pendahuluan</h4>
           <p align="justify">
@@ -1355,7 +1365,7 @@ Route::resource('users', UserController::class);
 
           <h4 class="fw-bold mt-4">4. Tugas dan Penugasan Praktikum</h4>
           <p align="justify">
-            <strong>Tugas Kelas B: Form Pendaftaran Pengguna</strong><br>
+            <strong>Tugas: Form Pendaftaran Pengguna</strong><br>
             Membuat form pendaftaran pengguna yang terdiri dari 4 field: <b>Nama</b>, <b>Email</b>, <b>Password</b>, dan <b>Confirm Password</b> dengan kriteria:
           </p>
           <ul>
@@ -1395,6 +1405,108 @@ Route::resource('users', UserController::class);
           </div>
 
         </div>
+
+        <!-- CONTENT PRAKTIKUM 2 (MOBILE) -->
+        <div id="content-m2" class="laporan-pane d-none">
+
+          <span class="badge bg-primary mb-3 fs-6 px-3 py-2" style="width:fit-content;">Flutter / Mobile App</span>
+          <h2 class="fw-bold mb-3">Praktikum 2 - Pengenalan Widgets & Layouting</h2>
+
+          <!-- MODUL 1 -->
+          <h3 class="fw-bold mt-4 mb-3 border-bottom pb-2">
+            Modul 1: Pengenalan Widgets (Stateless, Stateful, & Manajemen State Dasar)
+          </h3>
+
+          <h5 class="fw-bold mt-3">1. Pendahuluan</h5>
+          <p align="justify">
+            Pengembangan antarmuka pada framework Flutter dibangun berbasis hirarki komponen yang disebut <em>Widget</em>. Untuk mengelola bagaimana komponen antarmuka merespons perubahan data dan interaksi pengguna, Flutter membedakan komponennya menjadi dua jenis utama, yaitu <code>StatelessWidget</code> dan <code>StatefulWidget</code>.
+          </p>
+          <p align="justify">
+            <code>StatelessWidget</code> digunakan untuk elemen antarmuka yang bersifat statis, di mana tampilannya tidak pernah berubah setelah di-render pertama kali di layar. Di sisi lain, <code>StatefulWidget</code> digunakan untuk elemen antarmuka dinamis yang perlu diperbarui sebagai respons terhadap interaksi pengguna dengan memicu metode <code>setState()</code>.
+          </p>
+
+          <h5 class="fw-bold mt-4">2. Tujuan Praktikum</h5>
+          <ol>
+            <li>Memahami kerangka dasar dan struktur hierarki aplikasi Flutter menggunakan <code>MaterialApp</code> dan <code>Scaffold</code>.</li>
+            <li>Membedakan penggunaan serta skenario penerapannya antara <code>StatelessWidget</code> dan <code>StatefulWidget</code>.</li>
+            <li>Menerapkan pengelolaan state dasar menggunakan fungsi <code>setState()</code> untuk antarmuka yang interaktif.</li>
+          </ol>
+
+          <h5 class="fw-bold mt-4">3. Langkah-Langkah Praktikum</h5>
+          <p align="justify">
+            Membangun antarmuka dasar yang menggabungkan <code>GreetingWidget</code> (<code>StatelessWidget</code>) dan <code>BalanceCardWidget</code> (<code>StatefulWidget</code>) untuk menyembunyikan/menampilkan saldo:
+          </p>
+          <h6 class="fw-bold mt-3">Kode Program <code>main.dart</code> (Praktikum 1):</h6>
+          <img src="images/code_modul1_langkah.png" class="laporan-img mb-3" alt="Kode Program main.dart (Praktikum 1)">
+          <h6 class="fw-bold mt-3">Hasil Running Praktikum 1 (Langkah Awal):</h6>
+          <img src="images/modul1_langkah.png" class="laporan-img mb-3" alt="Hasil Running Praktikum 1 (Langkah Awal)">
+
+          <h5 class="fw-bold mt-4">4. Tugas dan Penugasan Praktikum</h5>
+          <p align="justify">
+            1. Mengubah warna latar kartu saldo dari <code>Colors.blueAccent</code> menjadi hijau emerald (<code>Colors.teal</code>).<br>
+            2. Menambahkan teks statis <code>"No. Rekening: 1234-5678"</code> di bawah nominal saldo.
+          </p>
+          <h6 class="fw-bold mt-3">Kode Program Terintegrasi <code>main.dart</code> (Tugas Modul 1):</h6>
+          <img src="images/code_modul1_tugas.png" class="laporan-img mb-3" alt="Kode Program Terintegrasi main.dart (Tugas Modul 1)">
+          <h6 class="fw-bold mt-3">Hasil Pengujian Tugas Modul 1:</h6>
+          <img src="images/modul1_tugas.png" class="laporan-img mb-3" alt="Hasil Pengujian Tugas Modul 1">
+
+          <!-- MODUL 2 -->
+          <h3 class="fw-bold mt-5 mb-3 border-bottom pb-2">
+            Modul 2: Layouting & Styling (Row, Column, Container, dan ListTile)
+          </h3>
+
+          <h5 class="fw-bold mt-3">1. Pendahuluan</h5>
+          <p align="justify">
+            Pengaturan tata letak secara horizontal dan vertikal dicapai melalui widget <code>Row</code> dan <code>Column</code>. Untuk menampilkan daftar data secara linier dan terstruktur digunakan komponen <code>ListTile</code> dengan <code>leading</code>, <code>title</code>, <code>subtitle</code>, dan <code>trailing</code>. Selain itu digunakan <code>Container</code> untuk margin/padding/dekorasi, serta <code>SingleChildScrollView</code> untuk mencegah galat overflow.
+          </p>
+
+          <h5 class="fw-bold mt-4">2. Tujuan Praktikum</h5>
+          <ol>
+            <li>Menerapkan widget <code>Row</code> untuk menyusun deretan tombol aksi secara horizontal.</li>
+            <li>Menerapkan widget <code>Column</code> untuk menyusun daftar riwayat transaksi secara vertikal.</li>
+            <li>Mengatur properti padding, margin, dan dekorasi menggunakan <code>Container</code>.</li>
+            <li>Mengimplementasikan widget <code>ListTile</code> untuk menyusun daftar informasi rapi.</li>
+            <li>Mencegah layout overflow dengan menerapkan <code>SingleChildScrollView</code>.</li>
+          </ol>
+
+          <h5 class="fw-bold mt-4">3. Langkah-Langkah Praktikum</h5>
+          <p align="justify">
+            Mengintegrasikan widget <code>ActionButtonsWidget</code> (<code>Row</code>) dan <code>RecentTransactionsWidget</code> (<code>Column</code> + <code>ListTile</code>) ke dalam layar dashboard vertikal:
+          </p>
+          <h6 class="fw-bold mt-3">Kode Program <code>lib/main.dart</code> (Praktikum 2):</h6>
+          <img src="images/code_modul2_langkah.png" class="laporan-img mb-3" alt="Kode Program lib/main.dart (Praktikum 2)">
+          <h6 class="fw-bold mt-3">Hasil Running Praktikum 2 (Langkah Awal):</h6>
+          <img src="images/modul2_langkah.png" class="laporan-img mb-3" alt="Hasil Running Praktikum 2 (Langkah Awal)">
+
+          <h5 class="fw-bold mt-4">4. Tugas dan Penugasan Praktikum</h5>
+          <p align="justify">
+            1. Styling trailing text: Pengeluaran bertanda minus merah (<code>Colors.red</code>), pemasukan bertanda plus hijau (<code>Colors.green</code>).<br>
+            2. Menambahkan 2 item transaksi baru fiktif ("Cashback Belanja" dan "Tiket Bioskop").
+          </p>
+          <h6 class="fw-bold mt-3">Kode Program <code>RecentTransactionsWidget</code> (Tugas Modul 2):</h6>
+          <img src="images/code_modul2_tugas.png" class="laporan-img mb-3" alt="Kode Program RecentTransactionsWidget (Tugas Modul 2)">
+          <h6 class="fw-bold mt-3">Hasil Pengujian Tugas Modul 2:</h6>
+          <img src="images/modul2_tugas.png" class="laporan-img mb-3" alt="Hasil Pengujian Tugas Modul 2">
+
+          <h5 class="fw-bold mt-4">5. Kesimpulan</h5>
+          <ol>
+            <li><code>Row</code> dan <code>Column</code> efektif mengatur tata letak horizontal dan vertikal secara dinamis.</li>
+            <li>Widget <code>ListTile</code> mempermudah pembuatan baris daftar secara instan dan rapi.</li>
+            <li><code>SingleChildScrollView</code> penting mencegah error bottom overflow saat konten melebihi ukuran layar device.</li>
+          </ol>
+
+          <div class="d-flex flex-wrap gap-2 mt-4 pt-3 border-top justify-content-between align-items-center">
+            <a href="laporan_appsmobile2.html" class="btn btn-outline-dark" style="width: fit-content;">
+              <i class="bi bi-box-arrow-up-right me-1"></i> Buka Halaman Penuh
+            </a>
+            <a href="https://github.com/lalaayyey/AplikasiMobile" target="_blank" class="btn btn-dark" style="width: fit-content;">
+              <i class="bi bi-github me-1"></i> Lihat Repository GitHub (AplikasiMobile)
+            </a>
+          </div>
+
+        </div>
+
       </div>
     </div>
   </section>
@@ -1454,11 +1566,40 @@ Route::resource('users', UserController::class);
       document.getElementById('laporan-detail-card').classList.add('d-none');
     }
 
-    function openMobileLaporan() {
+    function openMobileLaporan(tabId) {
       closeLaporan();
 
       const mobileCard = document.getElementById('mobile-detail-card');
       mobileCard.classList.remove('d-none');
+
+      const tabs = ['m1', 'm2'];
+      const targetTab = tabId || 'm1';
+
+      if (targetTab === 'all') {
+        tabs.forEach(id => {
+          document.getElementById('content-' + id).classList.remove('d-none');
+        });
+        document.getElementById('mobile-detail-title').innerHTML = '<i class="bi bi-phone me-2"></i> Semua Laporan Aplikasi Mobile';
+      } else {
+        tabs.forEach(id => {
+          const pane = document.getElementById('content-' + id);
+          if (id === targetTab) {
+            pane.classList.remove('d-none');
+          } else {
+            pane.classList.add('d-none');
+          }
+        });
+
+        const names = {
+          'm1': 'Praktikum 1 - Input Widgets dan Basic Form',
+          'm2': 'Praktikum 2 - Pengenalan Widgets & Layouting'
+        };
+        document.getElementById('mobile-detail-title').innerHTML = '<i class="bi bi-phone me-2"></i> ' + names[targetTab];
+      }
+
+      document.querySelectorAll('#mobile-detail-tabs .nav-link').forEach(btn => btn.classList.remove('active'));
+      const activeBtn = document.getElementById('tab-btn-' + (targetTab === 'all' ? 'm-all' : targetTab));
+      if (activeBtn) activeBtn.classList.add('active');
 
       mobileCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
