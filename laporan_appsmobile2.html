@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,266 +14,315 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
   <style>
-
-    body{
-      background-color:#f5f7fa;
+    body {
+      background-color: #f5f7fa;
     }
 
-    .hero{
-      padding:120px 0 70px;
-      background:linear-gradient(135deg,#000,#444);
-      color:white;
-      text-align:center;
+    .hero {
+      padding: 120px 0 70px;
+      background: linear-gradient(135deg, #000, #444);
+      color: white;
+      text-align: center;
     }
 
-    .laporan-card{
-      border:none;
-      border-radius:20px;
+    .laporan-card {
+      border: none;
+      border-radius: 20px;
     }
 
-    .laporan-img{
-      border-radius:15px;
-      width:100%;
-      margin-top:20px;
-      margin-bottom:20px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    .laporan-img {
+      border-radius: 15px;
+      width: 100%;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
-    pre{
-      background:#212529;
-      color:white;
-      padding:20px;
-      border-radius:10px;
-      overflow-x:auto;
+    pre {
+      background: #212529;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      overflow-x: auto;
     }
-
   </style>
 
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="background-color:aliceblue;">
-  <div class="container">
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="background-color:aliceblue;">
+    <div class="container">
 
-    <a class="navbar-brand fw-bold" href="index.html">
-      MyPortfolio <i class="bi bi-house fs-3"></i>
-    </a>
+      <a class="navbar-brand fw-bold" href="index.html">
+        MyPortfolio <i class="bi bi-house fs-3"></i>
+      </a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="collapse navbar-collapse" id="navbarNav">
 
-      <ul class="navbar-nav ms-auto">
+        <ul class="navbar-nav ms-auto">
 
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">Home</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="about.html">About</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="portfolio.html">Portfolio</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="portfolio.html">Portfolio</a>
+          </li>
 
-        <li class="nav-item">
-          <a class="nav-link active fw-bold" href="laporan.html">Laporan</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link active fw-bold" href="laporan.html">Laporan</a>
+          </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
 
-      </ul>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="container">
+
+      <h1>Praktikum 2 - Pengenalan Widgets & Layouting</h1>
+      <p>Laporan Praktikum Aplikasi Mobile - Modul 1 & Modul 2</p>
 
     </div>
-  </div>
-</nav>
 
-<!-- HERO -->
-<section class="hero">
+  </section>
 
-  <div class="container">
+  <!-- KONTEN -->
+  <section class="py-5">
 
-    <h1>Praktikum 2 - Pengenalan Widgets & Layouting</h1>
-    <p>Laporan Praktikum Aplikasi Mobile - Modul 1 & Modul 2</p>
+    <div class="container">
 
-  </div>
+      <div class="card laporan-card p-4 p-md-5 shadow-sm">
 
-</section>
+        <span class="badge bg-primary mb-3" style="width:fit-content;">
+          Flutter / Mobile App
+        </span>
 
-<!-- KONTEN -->
-<section class="py-5">
+        <!-- ==================== LAPORAN 1 ==================== -->
+        <h2 class="fw-bold mb-4">
+          LAPORAN 1: Pengenalan Widgets (Stateless, Stateful, & Manajemen State Dasar)
+        </h2>
 
-  <div class="container">
+        <!-- PENDAHULUAN -->
+        <h4 class="fw-bold mt-4">1. Pendahuluan</h4>
 
-    <div class="card laporan-card p-4 p-md-5 shadow-sm">
+        <p align="justify">
+          Pengembangan antarmuka pada framework Flutter dibangun berbasis hirarki komponen yang disebut <em>Widget</em>.
+          Untuk mengelola bagaimana komponen antarmuka merespons perubahan data dan interaksi pengguna, Flutter
+          membedakan komponennya menjadi dua jenis utama, yaitu <code>StatelessWidget</code> dan
+          <code>StatefulWidget</code>.
+        </p>
 
-      <span class="badge bg-primary mb-3" style="width:fit-content;">
-        Flutter / Mobile App
-      </span>
+        <p align="justify">
+          <code>StatelessWidget</code> digunakan untuk elemen antarmuka yang bersifat statis, di mana tampilannya tidak
+          pernah berubah setelah di-render pertama kali di layar. Penggunaan widget ini lebih ringan dan cepat karena
+          tidak menyimpan data internal (<em>State</em>) yang berubah. Di sisi lain, <code>StatefulWidget</code>
+          digunakan untuk elemen antarmuka dinamis yang perlu diperbarui secara kustom sebagai respons terhadap
+          interaksi pengguna (seperti menekan tombol atau <em>toggle</em> tombol visibility). Pembaruan antarmuka pada
+          <code>StatefulWidget</code> dilakukan dengan memicu metode <code>setState()</code>, yang memberi tahu
+          framework untuk merender ulang (<em>rebuild</em>) komponen tersebut dengan nilai data (<em>State</em>)
+          terbaru.
+        </p>
 
-      <!-- ==================== LAPORAN 1 ==================== -->
-      <h2 class="fw-bold mb-4">
-        LAPORAN 1: Pengenalan Widgets (Stateless, Stateful, & Manajemen State Dasar)
-      </h2>
+        <!-- TUJUAN -->
+        <h4 class="fw-bold mt-4">2. Tujuan Praktikum</h4>
 
-      <!-- PENDAHULUAN -->
-      <h4 class="fw-bold mt-4">1. Pendahuluan</h4>
+        <ol>
+          <li>Memahami kerangka dasar dan struktur hierarki aplikasi Flutter menggunakan <code>MaterialApp</code> dan
+            <code>Scaffold</code>.</li>
+          <li>Membedakan penggunaan serta skenario penerapannya antara <code>StatelessWidget</code> dan
+            <code>StatefulWidget</code>.</li>
+          <li>Menerapkan pengelolaan state dasar menggunakan fungsi <code>setState()</code> untuk membangun antarmuka
+            pengguna yang interaktif.</li>
+        </ol>
 
-      <p align="justify">
-        Pengembangan antarmuka pada framework Flutter dibangun berbasis hirarki komponen yang disebut <em>Widget</em>. Untuk mengelola bagaimana komponen antarmuka merespons perubahan data dan interaksi pengguna, Flutter membedakan komponennya menjadi dua jenis utama, yaitu <code>StatelessWidget</code> dan <code>StatefulWidget</code>.
-      </p>
+        <!-- LANGKAH-LANGKAH -->
+        <h4 class="fw-bold mt-4">3. Langkah-Langkah Praktikum</h4>
 
-      <p align="justify">
-        <code>StatelessWidget</code> digunakan untuk elemen antarmuka yang bersifat statis, di mana tampilannya tidak pernah berubah setelah di-render pertama kali di layar. Penggunaan widget ini lebih ringan dan cepat karena tidak menyimpan data internal (<em>State</em>) yang berubah. Di sisi lain, <code>StatefulWidget</code> digunakan untuk elemen antarmuka dinamis yang perlu diperbarui secara kustom sebagai respons terhadap interaksi pengguna (seperti menekan tombol atau <em>toggle</em> tombol visibility). Pembaruan antarmuka pada <code>StatefulWidget</code> dilakukan dengan memicu metode <code>setState()</code>, yang memberi tahu framework untuk merender ulang (<em>rebuild</em>) komponen tersebut dengan nilai data (<em>State</em>) terbaru.
-      </p>
+        <h5 class="fw-bold mt-3">3.1 Implementasi Dasar App dengan StatelessWidget dan StatefulWidget</h5>
 
-      <!-- TUJUAN -->
-      <h4 class="fw-bold mt-4">2. Tujuan Praktikum</h4>
+        <p align="justify">
+          Membangun antarmuka dasar yang menggabungkan <code>GreetingWidget</code> (<code>StatelessWidget</code>) untuk
+          menyapa pengguna dan <code>BalanceCardWidget</code> (<code>StatefulWidget</code>) yang merespons ketukan
+          tombol mata untuk menyembunyikan/menampilkan nominal saldo.
+        </p>
 
-      <ol>
-        <li>Memahami kerangka dasar dan struktur hierarki aplikasi Flutter menggunakan <code>MaterialApp</code> dan <code>Scaffold</code>.</li>
-        <li>Membedakan penggunaan serta skenario penerapannya antara <code>StatelessWidget</code> dan <code>StatefulWidget</code>.</li>
-        <li>Menerapkan pengelolaan state dasar menggunakan fungsi <code>setState()</code> untuk membangun antarmuka pengguna yang interaktif.</li>
-      </ol>
+        <h5 class="fw-bold mt-3">Kode Program <code>main.dart</code> (Praktikum 1):</h5>
+        <img src="images/code_modul1_langkah.png" class="laporan-img" alt="Kode Program main.dart (Praktikum 1)">
 
-      <!-- LANGKAH-LANGKAH -->
-      <h4 class="fw-bold mt-4">3. Langkah-Langkah Praktikum</h4>
+        <h5 class="fw-bold mt-4">Hasil Running Praktikum 1 (Langkah Awal):</h5>
+        <img src="images/modul1_langkah.png" class="laporan-img" alt="Hasil Running Praktikum 1 (Langkah Awal)">
 
-      <h5 class="fw-bold mt-3">3.1 Implementasi Dasar App dengan StatelessWidget dan StatefulWidget</h5>
+        <!-- TUGAS DAN PENUGASAN -->
+        <h4 class="fw-bold mt-5">4. Tugas dan Penugasan Praktikum</h4>
 
-      <p align="justify">
-        Membangun antarmuka dasar yang menggabungkan <code>GreetingWidget</code> (<code>StatelessWidget</code>) untuk menyapa pengguna dan <code>BalanceCardWidget</code> (<code>StatefulWidget</code>) yang merespons ketukan tombol mata untuk menyembunyikan/menampilkan nominal saldo.
-      </p>
+        <p align="justify">
+          Modifikasi komponen <code>BalanceCardWidget</code> sesuai dengan ketentuan berikut:
+        </p>
 
-      <h5 class="fw-bold mt-3">Kode Program <code>main.dart</code> (Praktikum 1):</h5>
-      <img src="images/code_modul1_langkah.png" class="laporan-img" alt="Kode Program main.dart (Praktikum 1)">
+        <ol>
+          <li><strong>Styling Tema</strong>: Mengubah warna latar kartu saldo dari <code>Colors.blueAccent</code>
+            menjadi hijau <em>emerald</em> (<code>Colors.teal</code>).</li>
+          <li><strong>Modifikasi UI</strong>: Menambahkan teks statis <code>"No. Rekening: 1234-5678"</code> di bawah
+            informasi nominal saldo.</li>
+        </ol>
 
-      <h5 class="fw-bold mt-4">Hasil Running Praktikum 1 (Langkah Awal):</h5>
-      <img src="images/modul1_langkah.png" class="laporan-img" alt="Hasil Running Praktikum 1 (Langkah Awal)">
+        <h5 class="fw-bold mt-3">Kode Program Terintegrasi <code>main.dart</code> (Setelah Penyelesaian Tugas Modul 1):
+        </h5>
+        <img src="images/code_modul1_tugas.png" class="laporan-img"
+          alt="Kode Program Terintegrasi main.dart (Tugas Modul 1)">
 
-      <!-- TUGAS DAN PENUGASAN -->
-      <h4 class="fw-bold mt-5">4. Tugas dan Penugasan Praktikum</h4>
+        <h5 class="fw-bold mt-4">Hasil Pengujian Tugas Modul 1:</h5>
+        <img src="images/modul1_tugas.png" class="laporan-img" alt="Hasil Pengujian Tugas Modul 1">
 
-      <p align="justify">
-        Modifikasi komponen <code>BalanceCardWidget</code> sesuai dengan ketentuan berikut:
-      </p>
+        <!-- KESIMPULAN -->
+        <h4 class="fw-bold mt-5">5. Kesimpulan</h4>
 
-      <ol>
-        <li><strong>Styling Tema</strong>: Mengubah warna latar kartu saldo dari <code>Colors.blueAccent</code> menjadi hijau <em>emerald</em> (<code>Colors.teal</code>).</li>
-        <li><strong>Modifikasi UI</strong>: Menambahkan teks statis <code>"No. Rekening: 1234-5678"</code> di bawah informasi nominal saldo.</li>
-      </ol>
+        <ol>
+          <li><strong>Diferensiasi Stateless dan Stateful Widget</strong>: <code>StatelessWidget</code> tepat digunakan
+            untuk elemen UI statis yang tidak berubah. Sebaliknya, <code>StatefulWidget</code> digunakan untuk komponen
+            interaktif yang mempertahankan <em>state</em>.</li>
+          <li><strong>Manajemen State dengan <code>setState()</code></strong>: Pemanggilan <code>setState()</code>
+            memberi instruksi kepada Flutter untuk merender ulang antarmuka saat variabel <em>state</em> (seperti
+            <code>_isBalanceVisible</code>) berubah nilainya.</li>
+          <li><strong>Pemanfaatan Structure Layout Dasar</strong>: Penggabungan <code>Row</code>, <code>Column</code>,
+            <code>Card</code>, dan <code>Scaffold</code> memberikan kerangka dasar yang kuat dalam menyusun
+            <em>layout</em> halaman aplikasi <em>mobile</em> secara rapi.</li>
+        </ol>
 
-      <h5 class="fw-bold mt-3">Kode Program Terintegrasi <code>main.dart</code> (Setelah Penyelesaian Tugas Modul 1):</h5>
-      <img src="images/code_modul1_tugas.png" class="laporan-img" alt="Kode Program Terintegrasi main.dart (Tugas Modul 1)">
+        <hr class="my-5">
 
-      <h5 class="fw-bold mt-4">Hasil Pengujian Tugas Modul 1:</h5>
-      <img src="images/modul1_tugas.png" class="laporan-img" alt="Hasil Pengujian Tugas Modul 1">
+        <!-- ==================== LAPORAN 2 ==================== -->
+        <h2 class="fw-bold mb-4">
+          LAPORAN 2: Layouting & Styling (Row, Column, Container, dan ListTile)
+        </h2>
 
-      <!-- KESIMPULAN -->
-      <h4 class="fw-bold mt-5">5. Kesimpulan</h4>
+        <!-- PENDAHULUAN -->
+        <h4 class="fw-bold mt-4">1. Pendahuluan</h4>
 
-      <ol>
-        <li><strong>Diferensiasi Stateless dan Stateful Widget</strong>: <code>StatelessWidget</code> tepat digunakan untuk elemen UI statis yang tidak berubah. Sebaliknya, <code>StatefulWidget</code> digunakan untuk komponen interaktif yang mempertahankan <em>state</em>.</li>
-        <li><strong>Manajemen State dengan <code>setState()</code></strong>: Pemanggilan <code>setState()</code> memberi instruksi kepada Flutter untuk merender ulang antarmuka saat variabel <em>state</em> (seperti <code>_isBalanceVisible</code>) berubah nilainya.</li>
-        <li><strong>Pemanfaatan Structure Layout Dasar</strong>: Penggabungan <code>Row</code>, <code>Column</code>, <code>Card</code>, dan <code>Scaffold</code> memberikan kerangka dasar yang kuat dalam menyusun <em>layout</em> halaman aplikasi <em>mobile</em> secara rapi.</li>
-      </ol>
+        <p align="justify">
+          Perancangan tata letak (<em>layouting</em>) dan gaya antarmuka (<em>styling</em>) merupakan aspek fundamental
+          dalam menyusun aplikasi mobile yang rapi dan serasi. Pada framework Flutter, pengaturan tata letak secara
+          horizontal dan vertikal dicapai melalui widget <code>Row</code> dan <code>Column</code>.
+        </p>
 
-      <hr class="my-5">
+        <p align="justify">
+          Untuk menampilkan daftar data secara linier dan terstruktur, Flutter menyediakan komponen
+          <code>ListTile</code>, yaitu widget bawaan Material Design yang mendukung penataan baris daftar secara cepat
+          melalui properti <code>leading</code>, <code>title</code>, <code>subtitle</code>, dan <code>trailing</code>.
+          Selain itu, widget pembungkus <code>Container</code> memungkinkan pengaturan <em>padding</em>,
+          <em>margin</em>, serta <em>decoration</em> latar belakang. Dalam kasus daftar komponen yang memanjang melebihi
+          dimensi viewport layar, penggunaan <code>SingleChildScrollView</code> mutlak diperlukan untuk mencegah
+          timbulnya galat <em>unbounded pixel overflow</em>.
+        </p>
 
-      <!-- ==================== LAPORAN 2 ==================== -->
-      <h2 class="fw-bold mb-4">
-        LAPORAN 2: Layouting & Styling (Row, Column, Container, dan ListTile)
-      </h2>
+        <!-- TUJUAN -->
+        <h4 class="fw-bold mt-4">2. Tujuan Praktikum</h4>
 
-      <!-- PENDAHULUAN -->
-      <h4 class="fw-bold mt-4">1. Pendahuluan</h4>
+        <ol>
+          <li>Menerapkan widget <code>Row</code> untuk menyusun deretan tombol aksi secara horizontal.</li>
+          <li>Menerapkan widget <code>Column</code> untuk menyusun daftar riwayat transaksi secara vertikal.</li>
+          <li>Mengatur properti <em>padding</em>, <em>margin</em>, dan dekorasi latar belakang menggunakan
+            <code>Container</code>.</li>
+          <li>Mengimplementasikan widget <code>ListTile</code> untuk menyusun daftar informasi secara rapi dan
+            profesional.</li>
+          <li>Mencegah <em>layout overflow</em> dengan menerapkan widget <code>SingleChildScrollView</code> pada halaman
+            <em>dashboard</em>.</li>
+        </ol>
 
-      <p align="justify">
-        Perancangan tata letak (<em>layouting</em>) dan gaya antarmuka (<em>styling</em>) merupakan aspek fundamental dalam menyusun aplikasi mobile yang rapi dan serasi. Pada framework Flutter, pengaturan tata letak secara horizontal dan vertikal dicapai melalui widget <code>Row</code> dan <code>Column</code>.
-      </p>
+        <!-- LANGKAH-LANGKAH -->
+        <h4 class="fw-bold mt-4">3. Langkah-Langkah Praktikum</h4>
 
-      <p align="justify">
-        Untuk menampilkan daftar data secara linier dan terstruktur, Flutter menyediakan komponen <code>ListTile</code>, yaitu widget bawaan Material Design yang mendukung penataan baris daftar secara cepat melalui properti <code>leading</code>, <code>title</code>, <code>subtitle</code>, dan <code>trailing</code>. Selain itu, widget pembungkus <code>Container</code> memungkinkan pengaturan <em>padding</em>, <em>margin</em>, serta <em>decoration</em> latar belakang. Dalam kasus daftar komponen yang memanjang melebihi dimensi viewport layar, penggunaan <code>SingleChildScrollView</code> mutlak diperlukan untuk mencegah timbulnya galat <em>unbounded pixel overflow</em>.
-      </p>
+        <h5 class="fw-bold mt-3">3.1 Integrasi Component Dashboard dan Transaksi Terakhir</h5>
 
-      <!-- TUJUAN -->
-      <h4 class="fw-bold mt-4">2. Tujuan Praktikum</h4>
+        <p align="justify">
+          Mengintegrasikan widget <code>ActionButtonsWidget</code> (<code>Row</code>) untuk tombol aksi serta
+          <code>RecentTransactionsWidget</code> (<code>Column</code> + <code>ListTile</code>) ke dalam layar dashboard
+          berskala vertikal yang dapat di-scroll menggunakan <code>SingleChildScrollView</code>.
+        </p>
 
-      <ol>
-        <li>Menerapkan widget <code>Row</code> untuk menyusun deretan tombol aksi secara horizontal.</li>
-        <li>Menerapkan widget <code>Column</code> untuk menyusun daftar riwayat transaksi secara vertikal.</li>
-        <li>Mengatur properti <em>padding</em>, <em>margin</em>, dan dekorasi latar belakang menggunakan <code>Container</code>.</li>
-        <li>Mengimplementasikan widget <code>ListTile</code> untuk menyusun daftar informasi secara rapi dan profesional.</li>
-        <li>Mencegah <em>layout overflow</em> dengan menerapkan widget <code>SingleChildScrollView</code> pada halaman <em>dashboard</em>.</li>
-      </ol>
+        <h5 class="fw-bold mt-3">Kode Program <code>lib/main.dart</code> (Praktikum 2):</h5>
+        <img src="images/code_modul2_langkah.png" class="laporan-img" alt="Kode Program lib/main.dart (Praktikum 2)">
 
-      <!-- LANGKAH-LANGKAH -->
-      <h4 class="fw-bold mt-4">3. Langkah-Langkah Praktikum</h4>
+        <h5 class="fw-bold mt-4">Hasil Running Praktikum 2 (Langkah Awal):</h5>
+        <img src="images/modul2_langkah.png" class="laporan-img" alt="Hasil Running Praktikum 2 (Langkah Awal)">
 
-      <h5 class="fw-bold mt-3">3.1 Integrasi Component Dashboard dan Transaksi Terakhir</h5>
+        <!-- TUGAS DAN PENUGASAN -->
+        <h4 class="fw-bold mt-5">4. Tugas dan Penugasan Praktikum</h4>
 
-      <p align="justify">
-        Mengintegrasikan widget <code>ActionButtonsWidget</code> (<code>Row</code>) untuk tombol aksi serta <code>RecentTransactionsWidget</code> (<code>Column</code> + <code>ListTile</code>) ke dalam layar dashboard berskala vertikal yang dapat di-scroll menggunakan <code>SingleChildScrollView</code>.
-      </p>
+        <p align="justify">
+          Latihan perbaikan dan penambahan fitur pada Modul 2 meliputi:
+        </p>
 
-      <h5 class="fw-bold mt-3">Kode Program <code>lib/main.dart</code> (Praktikum 2):</h5>
-      <img src="images/code_modul2_langkah.png" class="laporan-img" alt="Kode Program lib/main.dart (Praktikum 2)">
+        <ol>
+          <li><strong>Styling Trailing Text</strong>: Memastikan warna teks <em>trailing</em> pengeluaran bertanda minus
+            menggunakan warna <strong>Merah</strong> (<code>Colors.red</code>), sedangkan pemasukan bertanda plus
+            menggunakan warna <strong>Hijau</strong> (<code>Colors.green</code>).</li>
+          <li><strong>Tambah Data</strong>: Menambahkan 2 item transaksi fiktif baru ke dalam widget
+            <code>RecentTransactionsWidget</code>.</li>
+        </ol>
 
-      <h5 class="fw-bold mt-4">Hasil Running Praktikum 2 (Langkah Awal):</h5>
-      <img src="images/modul2_langkah.png" class="laporan-img" alt="Hasil Running Praktikum 2 (Langkah Awal)">
+        <h5 class="fw-bold mt-3">Kode Program <code>RecentTransactionsWidget</code> (Setelah Penambahan Tugas Modul 2):
+        </h5>
+        <img src="images/code_modul2_tugas.png" class="laporan-img"
+          alt="Kode Program RecentTransactionsWidget (Setelah Penambahan Tugas Modul 2)">
 
-      <!-- TUGAS DAN PENUGASAN -->
-      <h4 class="fw-bold mt-5">4. Tugas dan Penugasan Praktikum</h4>
+        <h5 class="fw-bold mt-4">Hasil Pengujian Tugas Modul 2:</h5>
+        <img src="images/modul2_tugas.png" class="laporan-img" alt="Hasil Pengujian Tugas Modul 2">
 
-      <p align="justify">
-        Latihan perbaikan dan penambahan fitur pada Modul 2 meliputi:
-      </p>
+        <!-- KESIMPULAN -->
+        <h4 class="fw-bold mt-5">5. Kesimpulan</h4>
 
-      <ol>
-        <li><strong>Styling Trailing Text</strong>: Memastikan warna teks <em>trailing</em> pengeluaran bertanda minus menggunakan warna <strong>Merah</strong> (<code>Colors.red</code>), sedangkan pemasukan bertanda plus menggunakan warna <strong>Hijau</strong> (<code>Colors.green</code>).</li>
-        <li><strong>Tambah Data</strong>: Menambahkan 2 item transaksi fiktif baru ke dalam widget <code>RecentTransactionsWidget</code>.</li>
-      </ol>
+        <ol>
+          <li><strong>Penggunaan <code>Row</code> dan <code>Column</code></strong>: <code>Row</code> efektif digunakan
+            untuk mengatur item secara berjejer menyamping, sedangkan <code>Column</code> digunakan untuk menyusun item
+            secara bertumpuk dari atas ke bawah.</li>
+          <li><strong>Efisiensi Struktur dengan <code>ListTile</code></strong>: Widget <code>ListTile</code> mempermudah
+            pembuatan baris daftar secara instan tanpa perlu menyusun ikon, judul, subjudul, dan teks status dari awal
+            menggunakan <code>Row</code> manual.</li>
+          <li><strong>Pencegahan Error Overflow</strong>: Penggunaan <code>SingleChildScrollView</code> sebagai
+            pembungkus utama komponen layar sangat penting untuk menjaga aplikasi tetap nyaman di-scroll vertikal saat
+            konten melebihi ukuran layar <em>device</em>.</li>
+        </ol>
 
-      <h5 class="fw-bold mt-3">Kode Program <code>RecentTransactionsWidget</code> (Setelah Penambahan Tugas Modul 2):</h5>
-      <img src="images/code_modul2_tugas.png" class="laporan-img" alt="Kode Program RecentTransactionsWidget (Setelah Penambahan Tugas Modul 2)">
+        <!-- TOMBOL KEMBALI -->
+        <div class="d-flex gap-2 mt-5">
+          <a href="laporan.html" class="btn btn-dark" style="width: fit-content;">
+            <i class="bi bi-arrow-left"></i> Kembali
+          </a>
+          <a href="https://github.com/lalaayyey/AplikasiMobile" target="_blank" class="btn btn-outline-dark"
+            style="width: fit-content;">
+            <i class="bi bi-github me-1"></i> Repository GitHub
+          </a>
+        </div>
 
-      <h5 class="fw-bold mt-4">Hasil Pengujian Tugas Modul 2:</h5>
-      <img src="images/modul2_tugas.png" class="laporan-img" alt="Hasil Pengujian Tugas Modul 2">
-
-      <!-- KESIMPULAN -->
-      <h4 class="fw-bold mt-5">5. Kesimpulan</h4>
-
-      <ol>
-        <li><strong>Penggunaan <code>Row</code> dan <code>Column</code></strong>: <code>Row</code> efektif digunakan untuk mengatur item secara berjejer menyamping, sedangkan <code>Column</code> digunakan untuk menyusun item secara bertumpuk dari atas ke bawah.</li>
-        <li><strong>Efisiensi Struktur dengan <code>ListTile</code></strong>: Widget <code>ListTile</code> mempermudah pembuatan baris daftar secara instan tanpa perlu menyusun ikon, judul, subjudul, dan teks status dari awal menggunakan <code>Row</code> manual.</li>
-        <li><strong>Pencegahan Error Overflow</strong>: Penggunaan <code>SingleChildScrollView</code> sebagai pembungkus utama komponen layar sangat penting untuk menjaga aplikasi tetap nyaman di-scroll vertikal saat konten melebihi ukuran layar <em>device</em>.</li>
-      </ol>
-
-      <!-- TOMBOL KEMBALI -->
-      <div class="d-flex gap-2 mt-5">
-        <a href="laporan.html" class="btn btn-dark" style="width: fit-content;">
-          <i class="bi bi-arrow-left"></i> Kembali
-        </a>
-        <a href="https://github.com/lalaayyey/AplikasiMobile" target="_blank" class="btn btn-outline-dark" style="width: fit-content;">
-          <i class="bi bi-github me-1"></i> Repository GitHub
-        </a>
       </div>
 
     </div>
 
-  </div>
+  </section>
 
-</section>
-
-<!-- BOOTSTRAP JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- BOOTSTRAP JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>
