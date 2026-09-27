@@ -1396,6 +1396,9 @@ Route::resource('users', UserController::class);
                 <button class="nav-link" id="tab-btn-m2" onclick="openMobileLaporan('m2')">Praktikum 2</button>
               </li>
               <li class="nav-item">
+                <button class="nav-link" id="tab-btn-m3" onclick="openMobileLaporan('m3')">Praktikum 3</button>
+              </li>
+              <li class="nav-item">
                 <button class="nav-link btn-outline-secondary border" id="tab-btn-m-all"
                   onclick="openMobileLaporan('all')">Semua</button>
               </li>
@@ -1654,6 +1657,63 @@ Route::resource('users', UserController::class);
 
         </div>
 
+        <!-- CONTENT PRAKTIKUM 3 (MOBILE) -->
+        <div id="content-m3" class="laporan-pane d-none">
+
+          <span class="badge bg-primary mb-3 fs-6 px-3 py-2" style="width:fit-content; background-color: #6f42c1 !important;">Flutter / Mobile App</span>
+          <h2 class="fw-bold mb-3">Praktikum 3 - Input Widgets & Forms (Menangkap Data, Dropdown, dan Validasi)</h2>
+
+          <h5 class="fw-bold mt-4">1. Pendahuluan & Teori</h5>
+          <p align="justify">
+            Pengelolaan input formulir pada Flutter dibangun menggunakan <code>Form</code>, <code>GlobalKey&lt;FormState&gt;</code>, <code>TextFormField</code>, dan <code>TextEditingController</code>. Validasi input ditangani oleh fungsi <code>validator</code> (mengembalikan <code>null</code> jika valid atau pesan <code>String</code> error merah jika tidak valid). Selain itu, Flutter menyediakan <code>DropdownButtonFormField</code> untuk pilihan kategori statis serta dialog <code>showDatePicker</code> untuk input tanggal interaktif.
+          </p>
+
+          <h5 class="fw-bold mt-4">2. Tujuan Praktikum</h5>
+          <ol>
+            <li>Menangkap dan mengelola input teks dari pengguna menggunakan <code>TextEditingController</code>.</li>
+            <li>Menerapkan widget <code>DropdownButtonFormField</code> statis untuk kategori data.</li>
+            <li>Menerapkan mekanisme validasi input untuk mencegah data kosong atau kesalahan format nilai (angka bulat).</li>
+            <li>Mengintegrasikan dialog pemilih tanggal interaktif menggunakan fungsi <code>showDatePicker</code>.</li>
+          </ol>
+
+          <h5 class="fw-bold mt-4">3. Langkah-Langkah & Hasil Form Awal</h5>
+          <p align="justify">
+            Membuat <code>add_transaction_screen.dart</code> dengan <code>StatefulWidget</code>, <code>GlobalKey&lt;FormState&gt;</code>, controller judul & nominal, serta Dropdown kategori:
+          </p>
+          <h6 class="fw-bold mt-3">Hasil Running Langkah Awal Formulir Transaksi:</h6>
+          <img src="images/modul3_form_awal.png" class="laporan-img mb-3" alt="Hasil Running Langkah Awal Formulir Transaksi">
+          <h6 class="fw-bold mt-3">Pengujian Dropdown Kategori Terbuka:</h6>
+          <img src="images/modul3_dropdown.png" class="laporan-img mb-3" alt="Pengujian Dropdown Kategori Terbuka">
+
+          <h5 class="fw-bold mt-4">4. Tugas & Penugasan Praktikum (Input Tanggal & Validasi)</h5>
+          <p align="justify">
+            Menambahkan kolom input tanggal transaksi (<code>DD/MM/YYYY</code>) sebelum tombol Simpan menggunakan <code>TextFormField</code> dengan <code>readOnly: true</code>, interaksi dialog <code>showDatePicker</code>, serta validasi wajib diisi:
+          </p>
+          <h6 class="fw-bold mt-3">Pengujian Fitur Dialog showDatePicker:</h6>
+          <img src="images/modul3_datepicker.png" class="laporan-img mb-3" alt="Pengujian Fitur showDatePicker">
+          <h6 class="fw-bold mt-3">Pengujian Formulir Berhasil Terisi Lengkap:</h6>
+          <img src="images/modul3_tugas_terisi.png" class="laporan-img mb-3" alt="Pengujian Formulir Terisi Lengkap">
+          <h6 class="fw-bold mt-3">Pengujian Validasi Form Error (Field Kosong):</h6>
+          <img src="images/modul3_validasi_error.png" class="laporan-img mb-3" alt="Pengujian Validasi Form Error">
+
+          <h5 class="fw-bold mt-4">5. Kesimpulan</h5>
+          <ol>
+            <li><code>GlobalKey&lt;FormState&gt;</code> memusatkan validasi formulir dan memicu pengecekan kolektif secara simultan.</li>
+            <li>Fungsi <code>validator</code> efektif menyaring integritas data (mencegah field kosong dan memastikan format numerik valid).</li>
+            <li>Dialog <code>showDatePicker</code> dan <code>DropdownButtonFormField</code> meningkatkan pengalaman pengguna (UX) secara optimal.</li>
+          </ol>
+
+          <div class="d-flex flex-wrap gap-2 mt-4 pt-3 border-top justify-content-between align-items-center">
+            <a href="laporan_appsmobile3.html" class="btn btn-outline-dark" style="width: fit-content;">
+              <i class="bi bi-box-arrow-up-right me-1"></i> Buka Halaman Penuh Modul 3
+            </a>
+            <a href="https://github.com/lalaayyey/AplikasiMobile" target="_blank" class="btn btn-dark" style="width: fit-content;">
+              <i class="bi bi-github me-1"></i> Lihat Repository GitHub (AplikasiMobile)
+            </a>
+          </div>
+
+        </div>
+
       </div>
     </div>
   </section>
@@ -1719,7 +1779,7 @@ Route::resource('users', UserController::class);
       const mobileCard = document.getElementById('mobile-detail-card');
       mobileCard.classList.remove('d-none');
 
-      const tabs = ['m1', 'm2'];
+      const tabs = ['m1', 'm2', 'm3'];
       const targetTab = tabId || 'm1';
 
       if (targetTab === 'all') {
@@ -1739,7 +1799,8 @@ Route::resource('users', UserController::class);
 
         const names = {
           'm1': 'Praktikum 1 - Input Widgets dan Basic Form',
-          'm2': 'Praktikum 2 - Pengenalan Widgets & Layouting'
+          'm2': 'Praktikum 2 - Pengenalan Widgets & Layouting',
+          'm3': 'Praktikum 3 - Input Widgets & Forms (Menangkap Data, Dropdown, dan Validasi)'
         };
         document.getElementById('mobile-detail-title').innerHTML = '<i class="bi bi-phone me-2"></i> ' + names[targetTab];
       }
