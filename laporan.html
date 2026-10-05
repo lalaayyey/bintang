@@ -1399,6 +1399,9 @@ Route::resource('users', UserController::class);
                 <button class="nav-link" id="tab-btn-m3" onclick="openMobileLaporan('m3')">Praktikum 3</button>
               </li>
               <li class="nav-item">
+                <button class="nav-link" id="tab-btn-m4" onclick="openMobileLaporan('m4')">Praktikum 4</button>
+              </li>
+              <li class="nav-item">
                 <button class="nav-link btn-outline-secondary border" id="tab-btn-m-all"
                   onclick="openMobileLaporan('all')">Semua</button>
               </li>
@@ -1714,6 +1717,66 @@ Route::resource('users', UserController::class);
 
         </div>
 
+        <!-- CONTENT PRAKTIKUM 4 (MOBILE) -->
+        <div id="content-m4" class="laporan-pane d-none">
+
+          <span class="badge bg-dark mb-3 fs-6 px-3 py-2" style="width:fit-content; background-color: #ffc107 !important; color: #000 !important;">Flutter / Mobile App</span>
+          <h2 class="fw-bold mb-3">Praktikum 4 - Navigasi &amp; Passing Data (Navigator, Konsep Stack, dan Constructor)</h2>
+
+          <h5 class="fw-bold mt-4">1. Pendahuluan &amp; Dasar Teori</h5>
+          <p align="justify">
+            Navigasi pada Flutter dikelola menggunakan struktur tumpukan (<em>stack</em>) melalui kelas <code>Navigator</code>. Method <code>Navigator.push()</code> digunakan untuk menumpuk rute halaman baru ke atas layar, sedangkan <code>Navigator.pop()</code> digunakan untuk menutup halaman aktif dan kembali ke halaman sebelumnya. Pengiriman data (<em>passing data</em>) antar layar dilakukan menggunakan parameter pada <code>Constructor</code> kelas target.
+          </p>
+
+          <h5 class="fw-bold mt-4">2. Tujuan Praktikum</h5>
+          <ol>
+            <li>Menerapkan <code>Navigator.push</code> untuk berpindah antar layar aplikasi.</li>
+            <li>Menggunakan <code>Navigator.pop</code> untuk menutup layar dan kembali ke halaman sebelumnya setelah form disimpan.</li>
+            <li>Mengirimkan data dinamis antar layar melalui parameter <code>Constructor</code>.</li>
+            <li>Mengintegrasikan dialog pemilih tanggal <code>showDatePicker</code> dan validasi form transaksi.</li>
+          </ol>
+
+          <h5 class="fw-bold mt-4">3. Hasil Praktikum &amp; Screenshot</h5>
+          <div class="row g-3 my-2">
+            <div class="col-md-6">
+              <h6 class="fw-bold mt-2">1. Dialog DatePicker (Pemilihan Tanggal):</h6>
+              <img src="images/foto 4/foto 4.jpeg" class="laporan-img mb-3" alt="Dialog DatePicker">
+            </div>
+            <div class="col-md-6">
+              <h6 class="fw-bold mt-2">2. Validasi Tanggal Wajib Diisi:</h6>
+              <img src="images/foto 4/foto 3.jpeg" class="laporan-img mb-3" alt="Validasi Error Tanggal">
+            </div>
+          </div>
+
+          <div class="row g-3 my-2">
+            <div class="col-md-6">
+              <h6 class="fw-bold mt-2">3. Form Catat Transaksi Terisi:</h6>
+              <img src="images/foto 4/foto 2.jpeg" class="laporan-img mb-3" alt="Form Catat Transaksi Terisi">
+            </div>
+            <div class="col-md-6">
+              <h6 class="fw-bold mt-2">4. Halaman Detail Transaksi (Passing Data):</h6>
+              <img src="images/foto 4/foto 1.jpeg" class="laporan-img mb-3" alt="Detail Transaksi Passing Data">
+            </div>
+          </div>
+
+          <h5 class="fw-bold mt-4">4. Kesimpulan</h5>
+          <ol>
+            <li>Manajemen halaman dengan <code>Navigator.push</code> dan <code>Navigator.pop</code> memudahkan alur navigasi aplikasi multi-layar.</li>
+            <li>Pengiriman data melalui parameter <em>constructor</em> menjamin transfer data antar layar secara aman dan terstruktur.</li>
+            <li>Komponen <code>showDatePicker</code> dan validasi form melengkapi pengalaman pencatatan transaksi pengguna secara interaktif.</li>
+          </ol>
+
+          <div class="d-flex flex-wrap gap-2 mt-4 pt-3 border-top justify-content-between align-items-center">
+            <a href="laporan_appsmobile4.html" class="btn btn-outline-dark" style="width: fit-content;">
+              <i class="bi bi-box-arrow-up-right me-1"></i> Buka Halaman Penuh Modul 4
+            </a>
+            <a href="https://github.com/lalaayyey/AplikasiMobile" target="_blank" class="btn btn-dark" style="width: fit-content;">
+              <i class="bi bi-github me-1"></i> Lihat Repository GitHub (AplikasiMobile)
+            </a>
+          </div>
+
+        </div>
+
       </div>
     </div>
   </section>
@@ -1779,7 +1842,7 @@ Route::resource('users', UserController::class);
       const mobileCard = document.getElementById('mobile-detail-card');
       mobileCard.classList.remove('d-none');
 
-      const tabs = ['m1', 'm2', 'm3'];
+      const tabs = ['m1', 'm2', 'm3', 'm4'];
       const targetTab = tabId || 'm1';
 
       if (targetTab === 'all') {
@@ -1800,7 +1863,8 @@ Route::resource('users', UserController::class);
         const names = {
           'm1': 'Praktikum 1 - Input Widgets dan Basic Form',
           'm2': 'Praktikum 2 - Pengenalan Widgets & Layouting',
-          'm3': 'Praktikum 3 - Input Widgets & Forms (Menangkap Data, Dropdown, dan Validasi)'
+          'm3': 'Praktikum 3 - Input Widgets & Forms (Menangkap Data, Dropdown, dan Validasi)',
+          'm4': 'Praktikum 4 - Navigasi & Passing Data (Navigator, Konsep Stack, dan Constructor)'
         };
         document.getElementById('mobile-detail-title').innerHTML = '<i class="bi bi-phone me-2"></i> ' + names[targetTab];
       }
