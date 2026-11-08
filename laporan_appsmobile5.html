@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laporan Praktikum Aplikasi Mobile - Praktikum 5 | MyPortfolio</title>
+
+  <!-- BOOTSTRAP CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .hero-section {
+      padding: 120px 0 80px;
+      text-align: center;
+      color: white;
+      background: linear-gradient(135deg, #000 20%, #333 100%);
+    }
+
+    .hero-section h1 {
+      font-size: 40px;
+      font-weight: 700;
+    }
+
+    .hero-section p {
+      font-size: 18px;
+      opacity: .8;
+    }
+
+    .laporan-card {
+      border: none;
+      border-radius: 15px;
+      transition: all .3s ease;
+      background: #ffffff;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    }
+
+    .laporan-img {
+      border-radius: 12px;
+      width: 100%;
+      max-width: 850px;
+      margin: 15px auto;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      display: block;
+    }
+
+    pre {
+      background: #212529;
+      color: #ffffff;
+      padding: 18px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .section-title {
+      border-left: 5px solid #ffc107;
+      padding-left: 12px;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    footer {
+      margin-top: 80px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">
+        MyPortfolio <i class="bi bi-house fs-3"></i>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link active fw-bold" href="laporan.html">Laporan</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-section">
+    <div class="container">
+      <h1>LAPORAN PRAKTIKUM APLIKASI MOBILE</h1>
+      <p class="mb-1"><strong>MODUL V: E-Wallet &amp; Expense Tracker</strong></p>
+      <p class="small text-warning">NIM: 2411533019 - Adila Bintang Fauzi</p>
+    </div>
+  </section>
+
+  <section class="py-5">
+    <div class="container">
+
+      <div class="card laporan-card p-4 p-md-5 mb-4">
+
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+          <span class="badge bg-dark fs-6 px-3 py-2">Flutter / Mobile App</span>
+          <div class="d-flex gap-2">
+            <a href="https://drive.google.com/drive/folders/1VNv9vy74wGrKbV227kSCV0qe1khlnez9?hl=ID" target="_blank"
+              class="btn btn-danger rounded-pill px-3 py-1">
+              <i class="bi bi-play-circle-fill me-1"></i> Video Demonstrasi
+            </a>
+            <a href="https://github.com/lalaayyey/PraktikumAplikasiMobile/tree/main" target="_blank"
+              class="btn btn-dark rounded-pill px-3 py-1">
+              <i class="bi bi-github me-1"></i> Repository GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- BAB I. PENDAHULUAN -->
+        <h3 class="section-title">BAB I. PENDAHULUAN</h3>
+
+        <h5 class="fw-bold text-dark mt-4">1.1 Latar Belakang</h5>
+        <p align="justify">
+          Perkembangan teknologi mobile memungkinkan berbagai aktivitas sehari-hari dilakukan melalui perangkat smartphone, termasuk pengelolaan keuangan pribadi. Pencatatan pemasukan dan pengeluaran secara manual memiliki risiko kesalahan pencatatan serta menyulitkan pengguna dalam memantau kondisi keuangan secara berkala.
+        </p>
+        <p align="justify">
+          Berdasarkan permasalahan tersebut, dikembangkan aplikasi E-Wallet &amp; Expense Tracker yang bertujuan membantu pengguna mencatat transaksi keuangan, memantau saldo, dan melihat riwayat transaksi melalui antarmuka yang mudah digunakan.
+        </p>
+        <p align="justify">
+          Aplikasi ini dikembangkan menggunakan Flutter sebagai framework antarmuka dan SQLite sebagai basis data lokal. Selain itu, validasi input diterapkan untuk mengurangi risiko masuknya data kosong, salah format, atau tidak sesuai ketentuan ke dalam sistem.
+        </p>
+
+        <h5 class="fw-bold text-dark mt-4">1.2 Tujuan</h5>
+        <p>Tujuan pengembangan aplikasi ini adalah:</p>
+        <ol>
+          <li>Menerapkan pengembangan aplikasi mobile menggunakan Flutter.</li>
+          <li>Mengimplementasikan penyimpanan data lokal menggunakan SQLite.</li>
+          <li>Mengembangkan fitur registrasi dan login pengguna.</li>
+          <li>Mengimplementasikan pencatatan pemasukan dan pengeluaran.</li>
+          <li>Menampilkan saldo serta riwayat transaksi berdasarkan data yang tersimpan.</li>
+          <li>Menerapkan validasi input untuk menjaga konsistensi data.</li>
+          <li>Mengembangkan antarmuka yang mudah dipahami dan digunakan.</li>
+        </ol>
+
+        <h5 class="fw-bold text-dark mt-4">1.3 Teknologi yang Digunakan</h5>
+        <ul>
+          <li><strong>Flutter:</strong> Framework untuk membangun antarmuka aplikasi mobile.</li>
+          <li><strong>Dart:</strong> Bahasa pemrograman yang digunakan dalam pengembangan aplikasi Flutter.</li>
+          <li><strong>SQLite:</strong> Basis data relasional lokal untuk menyimpan data.</li>
+          <li><strong>sqflite:</strong> Package Flutter yang menyediakan akses ke SQLite.</li>
+          <li><strong>VS Code:</strong> Editor kode untuk pengembangan dan pengujian aplikasi.</li>
+        </ul>
+
+        <!-- BAB II. IMPLEMENTASI PROGRAM -->
+        <h3 class="section-title">BAB II. IMPLEMENTASI PROGRAM</h3>
+
+        <h5 class="fw-bold text-dark mt-4">2.1 Perancangan Basis Data</h5>
+        <p align="justify">
+          Basis data digunakan untuk menyimpan informasi yang diperlukan oleh aplikasi. Salah satu tabel utama yang digunakan adalah tabel transaksi.
+        </p>
+        <p class="text-secondary mb-2">Contoh struktur tabel transaksi:</p>
+        <pre><code>await db.execute('''
+  CREATE TABLE transactions (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL,
+    amount REAL NOT NULL,
+    category TEXT NOT NULL,
+    type TEXT NOT NULL,
+    date TEXT NOT NULL
+  )
+''');</code></pre>
+        <p class="fw-bold mb-2">Penjelasan kode:</p>
+        <ul>
+          <li><code>id</code> merupakan identitas unik setiap transaksi dan bertambah secara otomatis.</li>
+          <li><code>title</code> menyimpan nama atau deskripsi transaksi.</li>
+          <li><code>amount</code> menyimpan nominal transaksi.</li>
+          <li><code>category</code> menyimpan kategori transaksi.</li>
+          <li><code>type</code> membedakan transaksi pemasukan dan pengeluaran.</li>
+          <li><code>date</code> menyimpan tanggal transaksi.</li>
+        </ul>
+        <p align="justify">
+          Klausa <code>NOT NULL</code> digunakan untuk mencegah kolom terkait menyimpan nilai <code>NULL</code>. Namun, klausa ini tidak otomatis menolak teks kosong atau nominal nol. Oleh karena itu, validasi tambahan tetap diperlukan.
+        </p>
+        <p align="justify">
+          <strong>Hasil yang diharapkan:</strong> tabel transaksi dapat digunakan sebagai tempat penyimpanan catatan keuangan yang kemudian dibaca oleh halaman Dashboard dan Riwayat.
+        </p>
+        <p class="text-muted small">
+          <em>*Catatan: struktur tabel harus disesuaikan dengan database yang benar-benar digunakan pada project.*</em>
+        </p>
+
+        <h5 class="fw-bold text-dark mt-4">2.2 Implementasi Registrasi dan Login</h5>
+        <p align="justify">
+          Fitur registrasi digunakan untuk menerima informasi pengguna baru, sedangkan fitur login digunakan untuk memverifikasi identitas pengguna sebelum mengakses halaman utama. Salah satu bagian penting dalam proses registrasi adalah validasi input.
+        </p>
+        <p class="text-secondary mb-2">Contoh kode validasi:</p>
+        <pre><code>String? validateRegistration({
+  required String email,
+  required String password,
+  required String confirmPassword,
+}) {
+  if (email.trim().isEmpty ||
+      !email.contains('@')) {
+    return 'Email tidak valid.';
+  }
+
+  if (password.isEmpty) {
+    return 'Password wajib diisi.';
+  }
+
+  if (password != confirmPassword) {
+    return 'Konfirmasi password tidak sesuai.';
+  }
+
+  return null;
+}</code></pre>
+        <p class="fw-bold mb-2">Penjelasan kode:</p>
+        <ol>
+          <li>Sistem memeriksa apakah email kosong atau tidak mengandung karakter <code>@</code>.</li>
+          <li>Sistem memastikan password telah diisi.</li>
+          <li>Sistem membandingkan password dengan konfirmasi password.</li>
+          <li>Jika ditemukan kesalahan, fungsi mengembalikan pesan kesalahan.</li>
+          <li>Jika seluruh pemeriksaan dasar berhasil, fungsi mengembalikan <code>null</code>.</li>
+        </ol>
+        <p align="justify">
+          Validasi tersebut merupakan pemeriksaan awal di sisi aplikasi. Validasi email masih sederhana dan dapat diperketat sesuai kebutuhan. Setelah data dinyatakan valid, aplikasi dapat melanjutkan proses registrasi dan menyimpan data akun melalui mekanisme autentikasi yang digunakan.
+        </p>
+        <p align="justify">
+          Untuk keamanan, password tidak seharusnya disimpan sebagai teks biasa. Penyimpanan akun perlu menggunakan mekanisme hashing yang sesuai dan proses autentikasi yang benar.
+        </p>
+
+        <h5 class="fw-bold text-dark mt-4">2.3 Implementasi Dashboard</h5>
+        <p align="justify">
+          Dashboard merupakan halaman utama yang menampilkan ringkasan kondisi keuangan pengguna, meliputi saldo, total pemasukan, dan total pengeluaran.
+        </p>
+        <p class="text-secondary mb-2">Perhitungan saldo secara konseptual dapat dilakukan menggunakan fungsi berikut:</p>
+        <pre><code>double calculateBalance({
+  required double income,
+  required double expense,
+}) {
+  return income - expense;
+}</code></pre>
+        <p class="text-secondary mb-2">Contoh penggunaan:</p>
+        <pre><code>final balance = calculateBalance(
+  income: 5000000,
+  expense: 50000,
+);</code></pre>
+        <p align="justify">
+          Hasil perhitungan adalah <strong>Rp4.950.000</strong>, dengan asumsi saldo awal nol dan tidak terdapat transaksi lain.
+        </p>
+        <p class="fw-bold mb-2">Penjelasan kode:</p>
+        <p align="justify">
+          Fungsi <code>calculateBalance</code> menerima dua parameter, yaitu total pemasukan dan total pengeluaran. Selanjutnya, fungsi mengurangi pemasukan dengan pengeluaran untuk memperoleh saldo bersih.
+        </p>
+        <p align="justify">
+          Pada aplikasi yang sebenarnya, nilai pemasukan dan pengeluaran sebaiknya diperoleh dari hasil pengolahan data transaksi di database agar saldo selalu sesuai dengan catatan yang tersedia.
+        </p>
+
+        <h5 class="fw-bold text-dark mt-4">2.4 Implementasi Penambahan Transaksi</h5>
+        <p align="justify">
+          Penambahan transaksi merupakan bagian dari operasi Create pada konsep CRUD (<em>Create, Read, Update, Delete</em>). Sebelum data disimpan, aplikasi perlu memvalidasi judul, nominal, kategori, dan jenis transaksi.
+        </p>
+        <p class="text-secondary mb-2">Contoh fungsi validasi transaksi:</p>
+        <pre><code>String? validateTransaction({
+  required String title,
+  required double? amount,
+  required String category,
+  required String type,
+}) {
+  if (title.trim().isEmpty) {
+    return 'Judul wajib diisi.';
+  }
+
+  if (amount == null ||
+      !amount.isFinite ||
+      amount <= 0) {
+    return 'Nominal harus lebih besar dari nol.';
+  }
+
+  if (category.trim().isEmpty) {
+    return 'Kategori wajib dipilih.';
+  }
+
+  if (type != 'Pemasukan' &&
+      type != 'Pengeluaran') {
+    return 'Jenis transaksi tidak valid.';
+  }
+
+  return null;
+}</code></pre>
+        <p class="fw-bold mb-2">Penjelasan kode:</p>
+        <p align="justify">
+          Validasi dilakukan untuk memastikan judul tidak kosong, nominal merupakan angka yang valid dan lebih besar dari nol, kategori telah dipilih, serta jenis transaksi sesuai pilihan yang diizinkan. Jika input tidak valid, aplikasi harus menampilkan pesan kesalahan dan menghentikan proses penyimpanan. Jika input valid, proses dapat dilanjutkan.
+        </p>
+        <p class="text-secondary mb-2">Contoh penyimpanan transaksi menggunakan SQLite:</p>
+        <pre><code>await db.insert('transactions', {
+  'title': titleController.text.trim(),
+  'amount': amount,
+  'category': selectedCategory,
+  'type': selectedType,
+  'date': DateTime.now().toIso8601String(),
+});</code></pre>
+        <p align="justify">
+          Kode tersebut memasukkan data transaksi ke tabel <code>transactions</code>. Penyimpanan ini hanya dilakukan setelah validasi berhasil dan variabel seperti <code>db</code>, <code>amount</code>, <code>titleController</code>, <code>selectedCategory</code>, serta <code>selectedType</code> telah disiapkan dalam program.
+        </p>
+        <p align="justify">
+          Validasi di sisi aplikasi membantu mengurangi kesalahan input. Untuk menjaga integritas data, database juga dapat menggunakan batasan tambahan seperti <code>CHECK</code> pada kolom nominal dan jenis transaksi.
+        </p>
+
+        <h5 class="fw-bold text-dark mt-4">2.5 Implementasi Riwayat dan Filter Transaksi</h5>
+        <p align="justify">
+          Halaman Riwayat digunakan untuk menampilkan transaksi yang telah tersimpan. Pengguna dapat menyaring data berdasarkan jenis transaksi.
+        </p>
+        <p class="text-secondary mb-2">Contoh kode pengambilan data pemasukan:</p>
+        <pre><code>final transactions = await db.query(
+  'transactions',
+  where: 'type = ?',
+  whereArgs: ['Pemasukan'],
+  orderBy: 'date DESC',
+);</code></pre>
+        <p class="fw-bold mb-2">Penjelasan kode:</p>
+        <ul>
+          <li><code>db.query()</code> digunakan untuk mengambil data dari tabel.</li>
+          <li><code>where</code> menentukan kondisi penyaringan.</li>
+          <li><code>whereArgs</code> memasukkan nilai parameter untuk kondisi tersebut.</li>
+          <li><code>orderBy: 'date DESC'</code> mengurutkan data berdasarkan tanggal secara menurun.</li>
+        </ul>
+        <p align="justify">
+          Pada contoh ini, hanya transaksi dengan tipe <code>Pemasukan</code> yang diambil. Untuk menampilkan pengeluaran, parameter filter dapat diganti menjadi <code>Pengeluaran</code>. Jika pengguna memilih Semua, kondisi penyaringan dapat dihilangkan. Dengan fitur ini, pengguna dapat meninjau aktivitas keuangan berdasarkan jenis transaksi secara lebih terstruktur.
+        </p>
+
+        <h5 class="fw-bold text-dark mt-4">2.6 Implementasi Profil dan Pengaturan</h5>
+        <p align="justify">
+          Halaman Profil digunakan untuk menampilkan informasi pengguna yang sedang aktif. Informasi yang ditampilkan dapat berupa nama dan email sesuai data akun atau sesi login.
+        </p>
+        <p align="justify">
+          Menu Pengaturan dapat digunakan untuk menampilkan preferensi aplikasi, seperti tema, notifikasi, dan opsi keamanan jika fitur tersebut telah diimplementasikan.
+        </p>
+        <p align="justify">
+          Menu Bantuan &amp; FAQ menyediakan informasi mengenai penggunaan aplikasi, sedangkan menu Tentang Aplikasi menampilkan informasi mengenai aplikasi dan pengembang.
+        </p>
+        <p align="justify">
+          Fitur logout digunakan untuk mengakhiri sesi pengguna dan mengarahkan pengguna kembali ke halaman login. Proses logout harus benar-benar membersihkan status autentikasi yang digunakan aplikasi.
+        </p>
+        <p class="text-muted small">
+          <em>*Catatan: Implementasi setiap fitur tersebut perlu disesuaikan dengan kode yang tersedia dalam project.*</em>
+        </p>
+
+        <!-- BAB III. PENGUJIAN PROGRAM -->
+        <h3 class="section-title">BAB III. PENGUJIAN PROGRAM</h3>
+
+        <h5 class="fw-bold text-dark mt-4">3.1 Pengujian Validasi Input</h5>
+        <p align="justify">
+          Pengujian dilakukan untuk memastikan sistem dapat mengenali input yang tidak memenuhi ketentuan.
+        </p>
+
+        <div class="table-responsive my-3">
+          <table class="table table-bordered table-striped align-middle">
+            <thead class="table-dark">
+              <tr>
+                <th style="width: 60px;" class="text-center">No.</th>
+                <th>Skenario Pengujian</th>
+                <th>Hasil yang Diharapkan</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-center">1</td>
+                <td>Email kosong</td>
+                <td>Sistem menampilkan pesan kesalahan</td>
+              </tr>
+              <tr>
+                <td class="text-center">2</td>
+                <td>Email tidak sesuai format</td>
+                <td>Registrasi ditolak</td>
+              </tr>
+              <tr>
+                <td class="text-center">3</td>
+                <td>Password kosong</td>
+                <td>Sistem menampilkan pesan kesalahan</td>
+              </tr>
+              <tr>
+                <td class="text-center">4</td>
+                <td>Konfirmasi password berbeda</td>
+                <td>Registrasi ditolak</td>
+              </tr>
+              <tr>
+                <td class="text-center">5</td>
+                <td>Judul transaksi kosong</td>
+                <td>Transaksi tidak disimpan</td>
+              </tr>
+              <tr>
+                <td class="text-center">6</td>
+                <td>Nominal bukan angka</td>
+                <td>Sistem menolak input</td>
+              </tr>
+              <tr>
+                <td class="text-center">7</td>
+                <td>Nominal nol atau negatif</td>
+                <td>Transaksi tidak disimpan</td>
+              </tr>
+              <tr>
+                <td class="text-center">8</td>
+                <td>Kategori belum dipilih</td>
+                <td>Sistem menampilkan pesan kesalahan</td>
+              </tr>
+              <tr>
+                <td class="text-center">9</td>
+                <td>Data transaksi valid</td>
+                <td>Transaksi dapat diproses untuk disimpan</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-muted small"><em>*Hasil aktual setiap pengujian harus dicatat setelah aplikasi benar-benar dijalankan.*</em></p>
+
+        <h5 class="fw-bold text-dark mt-4">3.2 Pengujian Fitur Transaksi</h5>
+        <div class="table-responsive my-3">
+          <table class="table table-bordered table-striped align-middle">
+            <thead class="table-dark">
+              <tr>
+                <th style="width: 60px;" class="text-center">No.</th>
+                <th style="width: 200px;">Fitur</th>
+                <th>Hasil yang Diharapkan</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-center">1</td>
+                <td>Registrasi</td>
+                <td>Akun dapat dibuat dengan input valid</td>
+              </tr>
+              <tr>
+                <td class="text-center">2</td>
+                <td>Login</td>
+                <td>Pengguna dapat masuk menggunakan kredensial yang benar</td>
+              </tr>
+              <tr>
+                <td class="text-center">3</td>
+                <td>Tambah transaksi</td>
+                <td>Data transaksi tersimpan</td>
+              </tr>
+              <tr>
+                <td class="text-center">4</td>
+                <td>Perhitungan saldo</td>
+                <td>Saldo sesuai total pemasukan dikurangi pengeluaran</td>
+              </tr>
+              <tr>
+                <td class="text-center">5</td>
+                <td>Riwayat transaksi</td>
+                <td>Data yang tersimpan dapat ditampilkan</td>
+              </tr>
+              <tr>
+                <td class="text-center">6</td>
+                <td>Filter transaksi</td>
+                <td>Data tampil sesuai jenis yang dipilih</td>
+              </tr>
+              <tr>
+                <td class="text-center">7</td>
+                <td>Detail transaksi</td>
+                <td>Informasi transaksi dapat diperiksa</td>
+              </tr>
+              <tr>
+                <td class="text-center">8</td>
+                <td>Logout</td>
+                <td>Sesi berakhir dan pengguna kembali ke halaman login</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-muted small"><em>*Tabel tersebut merupakan rencana pengujian. Status berhasil atau gagal perlu diisi berdasarkan hasil pengujian aktual, bukan diasumsikan berhasil.*</em></p>
+
+        <!-- BAB IV. KESIMPULAN -->
+        <h3 class="section-title">BAB IV. KESIMPULAN</h3>
+        <p align="justify">
+          Aplikasi E-Wallet &amp; Expense Tracker merupakan aplikasi manajemen keuangan berbasis mobile yang dikembangkan menggunakan Flutter dan SQLite sesuai rancangan implementasinya.
+        </p>
+        <p align="justify">
+          Aplikasi dirancang untuk membantu pengguna mencatat pemasukan dan pengeluaran, menghitung saldo, serta melihat riwayat transaksi. Penerapan database lokal memungkinkan data transaksi disimpan dan diakses kembali sesuai mekanisme penyimpanan yang digunakan.
+        </p>
+        <p align="justify">
+          Selain pengelolaan data, validasi input merupakan bagian penting dalam menjaga kualitas data. Pemeriksaan terhadap format email, kecocokan password, judul transaksi, nominal, kategori, dan jenis transaksi membantu mencegah data yang tidak sesuai ketentuan diproses lebih lanjut.
+        </p>
+        <p align="justify">
+          Melalui praktikum ini, konsep pengembangan antarmuka mobile, pengolahan data menggunakan SQLite, dan validasi input dapat dipelajari melalui implementasi aplikasi yang berorientasi pada kebutuhan pengguna.
+        </p>
+        <p align="justify">
+          Pengembangan selanjutnya dapat mencakup peningkatan keamanan autentikasi, pengujian yang lebih menyeluruh, serta penyempurnaan fitur transaksi dan pengaturan berdasarkan kebutuhan pengguna.
+        </p>
+
+      </div>
+
+      <div class="d-flex justify-content-center gap-3 mt-4 flex-wrap">
+        <a href="laporan.html" class="btn btn-secondary rounded-3 px-4 py-2">
+          <i class="bi bi-arrow-left me-2"></i> Kembali ke Halaman Laporan
+        </a>
+        <a href="laporan_appsmobile4.html" class="btn btn-outline-dark rounded-3 px-4 py-2">
+          <i class="bi bi-layers me-2"></i> Buka Laporan Modul 4
+        </a>
+        <a href="laporan_appsmobile6.html" class="btn btn-primary rounded-3 px-4 py-2">
+          <i class="bi bi-arrow-right me-2"></i> Buka Laporan Modul 6
+        </a>
+        <a href="https://drive.google.com/drive/folders/1VNv9vy74wGrKbV227kSCV0qe1khlnez9?hl=ID" target="_blank"
+          class="btn btn-danger rounded-3 px-4 py-2">
+          <i class="bi bi-play-circle-fill me-2"></i> Tonton Video Praktikum (Drive)
+        </a>
+        <a href="https://github.com/lalaayyey/PraktikumAplikasiMobile/tree/main" target="_blank"
+          class="btn btn-dark rounded-3 px-4 py-2">
+          <i class="bi bi-github me-2"></i> Lihat Repository GitHub
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+      <p class="mb-0">&copy; 2026 MyPortfolio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

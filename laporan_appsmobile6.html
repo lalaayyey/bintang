@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laporan Praktikum Aplikasi Mobile - Modul 6 | MyPortfolio</title>
+
+  <!-- BOOTSTRAP CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #212529;
+    }
+
+    .hero-section {
+      padding: 120px 0 80px;
+      text-align: center;
+      color: white;
+      background: linear-gradient(135deg, #000 20%, #333 100%);
+    }
+
+    .hero-section h1 {
+      font-size: 38px;
+      font-weight: 700;
+    }
+
+    .hero-section p {
+      font-size: 18px;
+      opacity: .85;
+    }
+
+    .laporan-card {
+      border: none;
+      border-radius: 15px;
+      transition: all .3s ease;
+      background: #ffffff;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    }
+
+    .laporan-img {
+      border-radius: 12px;
+      width: 100%;
+      max-width: 820px;
+      margin: 15px auto;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      display: block;
+      border: 1px solid #e9ecef;
+    }
+
+    pre {
+      background: #212529;
+      color: #f8f9fa;
+      padding: 18px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 13.5px;
+      line-height: 1.55;
+    }
+
+    code {
+      font-family: Consolas, "Courier New", monospace;
+    }
+
+    .section-title {
+      border-left: 5px solid #ffc107;
+      padding-left: 14px;
+      margin-top: 36px;
+      margin-bottom: 20px;
+      font-weight: 700;
+      color: #212529;
+    }
+
+    .badge-soft {
+      background-color: #e9ecef;
+      color: #495057;
+      font-weight: 600;
+    }
+
+    .table-check td, .table-check th {
+      vertical-align: middle;
+    }
+
+    footer {
+      margin-top: 80px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">
+        MyPortfolio <i class="bi bi-house fs-4 text-warning"></i>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link active fw-bold" href="laporan.html">Laporan</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-section">
+    <div class="container">
+      <h1>LAPORAN PRAKTIKUM APLIKASI MOBILE</h1>
+      <p class="mb-1"><strong>MODUL VI: State Management pada Aplikasi ResepKu (setState() dan Provider)</strong></p>
+      <p class="small text-warning">NIM: 2411533019 &bull; Adila Bintang &bull; Kelas: Praktikum Aplikasi Mobile</p>
+    </div>
+  </section>
+
+  <!-- KONTEN LAPORAN -->
+  <section class="py-5">
+    <div class="container">
+
+      <div class="card laporan-card p-4 p-md-5 mb-4">
+
+        <!-- HEADER KARTU LAPORAN -->
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4 pb-3 border-bottom">
+          <div class="d-flex align-items-center gap-2">
+            <span class="badge bg-dark fs-6 px-3 py-2">Flutter / State Management</span>
+            <span class="badge bg-warning text-dark fs-6 px-3 py-2">Modul 6</span>
+          </div>
+          <div class="d-flex gap-2">
+            <a href="https://github.com/lalaayyey/PraktikumAplikasiMobile/tree/main" target="_blank"
+              class="btn btn-dark rounded-pill px-3 py-1">
+              <i class="bi bi-github me-1"></i> Repository GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- ==================== BAGIAN 1: IDENTITAS ==================== -->
+        <h3 class="section-title">BAGIAN 1: IDENTITAS MAHASISWA &amp; MATA KULIAH</h3>
+        <div class="table-responsive mb-4">
+          <table class="table table-bordered align-middle">
+            <tbody>
+              <tr>
+                <th style="width: 28%;" class="bg-light text-secondary">Mata Kuliah</th>
+                <td class="fw-semibold">Praktikum Aplikasi Mobile (DIF61145) &mdash; 1 SKS, Semester V</td>
+              </tr>
+              <tr>
+                <th class="bg-light text-secondary">Modul Praktikum</th>
+                <td class="fw-semibold">Modul 6 &ndash; State Management: setState() dan Provider</td>
+              </tr>
+              <tr>
+                <th class="bg-light text-secondary">Mata Kuliah Teori</th>
+                <td>Aplikasi Mobile (DIF61144) &bull; Pertemuan 9 (LKM-09)</td>
+              </tr>
+              <tr>
+                <th class="bg-light text-secondary">Nama Mahasiswa</th>
+                <td class="fw-bold text-dark">Adila Bintang</td>
+              </tr>
+              <tr>
+                <th class="bg-light text-secondary">NIM</th>
+                <td class="fw-bold text-primary">2411533019</td>
+              </tr>
+              <tr>
+                <th class="bg-light text-secondary">Dosen Pengampu</th>
+                <td>Arifan Rahman, M.Kom. (<code>arifanrahman@it.unand.ac.id</code>)</td>
+              </tr>
+              <tr>
+                <th class="bg-light text-secondary">Program Studi / Fakultas</th>
+                <td>Departemen Informatika &mdash; Fakultas Teknologi Informasi, Universitas Andalas</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- ==================== BAGIAN 2: PENDAHULUAN & TEORI ==================== -->
+        <h3 class="section-title">BAGIAN 2: PENDAHULUAN &amp; LANDASAN TEORI</h3>
+        
+        <h5 class="fw-bold text-dark mt-3">2.1 Latar Belakang &amp; Capaian Praktikum</h5>
+        <p align="justify">
+          Pada aplikasi mobile modern, antarmuka pengguna bersifat reaktif terhadap perubahan data internal maupun interaksi pengguna yang dinyatakan dengan formula fundamental <code>UI = f(state)</code>. State adalah data yang dapat berubah selama siklus hidup aplikasi dan secara langsung menentukan bagaimana antarmuka ditampilkan ke layar.
+        </p>
+        <p align="justify">
+          Dalam modul praktikum ini, dibangun aplikasi <strong>ResepKu</strong> yang menjadi fondasi berkelanjutan hingga Modul 10. Praktikum ini bertujuan untuk mengeksplorasi dua spektrum manajemen state pada Flutter:
+        </p>
+        <ul>
+          <li><strong>Ephemeral / Local State (<code>setState()</code>):</strong> State lokal yang hanya dibutuhkan secara spesifik oleh satu widget atau satu halaman saja (contoh: kalkulasi porsi dan kalori pada halaman detail).</li>
+          <li><strong>App / Global State (<code>Provider</code>):</strong> State global yang perlu diakses dan dibagikan (<em>shared</em>) oleh banyak widget dan halaman yang tidak berada dalam hierarki hierarkis langsung (contoh: daftar resep favorit, badge counter di AppBar, serta tema aplikasi).</li>
+        </ul>
+
+        <h5 class="fw-bold text-dark mt-4">2.2 Perbandingan setState() vs Provider</h5>
+        <div class="table-responsive mb-4">
+          <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+              <tr>
+                <th style="width: 20%;">Aspek</th>
+                <th style="width: 40%;">setState()</th>
+                <th style="width: 40%;">Provider</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="fw-bold">Peruntukan</td>
+                <td>State lokal (<em>ephemeral</em>), dipakai oleh satu widget.</td>
+                <td>App state, dipakai bersama oleh banyak widget dan halaman.</td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Contoh di ResepKu</td>
+                <td>Jumlah porsi dan total kalori di halaman detail.</td>
+                <td>Daftar resep favorit, badge counter, tema gelap/terang.</td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Tempat Penyimpanan Data</td>
+                <td>Field di dalam class <code>State&lt;T&gt;</code>.</td>
+                <td>Class model yang meng-extend <code>ChangeNotifier</code>.</td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Notifikasi Pembaruan UI</td>
+                <td>Memanggil fungsi <code>setState(() { ... })</code>.</td>
+                <td>Memanggil method <code>notifyListeners()</code>.</td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Cara Membaca Data</td>
+                <td>Akses langsung variabel field di method <code>build()</code>.</td>
+                <td><code>context.watch&lt;T&gt;()</code> di <code>build()</code>, <code>context.read&lt;T&gt;()</code> di callback, atau widget <code>Consumer&lt;T&gt;</code>.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- ==================== BAGIAN 3: STRUKTUR PROYEK ==================== -->
+        <h3 class="section-title">BAGIAN 3: STRUKTUR ARSITEKTUR PROYEK</h3>
+        <p align="justify">
+          Proyek <code>resepku</code> dirancang secara modular dengan pemisahan tanggung jawab (<em>separation of concerns</em>) ke dalam direktori spesifik di dalam <code>lib/</code>:
+        </p>
+        <pre><code>lib/
+├── main.dart                          # Titik masuk utama &amp; konfigurasi MultiProvider
+├── models/
+│   └── recipe.dart                    # Data model resep dan getter totalTimeMinutes
+├── data/
+│   └── dummy_recipes.dart             # Kumpulan data resep dummy (ID 1-6 dari DummyJSON)
+├── providers/
+│   ├── favorite_provider.dart         # ChangeNotifier untuk state favorit aplikasi
+│   └── theme_provider.dart            # ChangeNotifier untuk pengaturan tema gelap/terang (Latihan 1)
+├── pages/
+│   ├── home_page.dart                 # Layar utama katalog daftar resep
+│   ├── detail_page.dart               # Layar detail resep (gabungan setState &amp; Provider)
+│   ├── favorite_page.dart             # Layar daftar resep favorit &amp; fitur hapus semua (Latihan 2)
+│   └── settings_page.dart             # Layar pengaturan tema (Latihan 1)
+└── widgets/
+    ├── identity_footer.dart           # Footer identitas wajib (NIM &amp; Nama) di semua halaman
+    ├── recipe_tile.dart               # Tile resep responsif terhadap status favorit
+    └── favorite_badge_button.dart     # Tombol AppBar ber-badge Material 3 reaktif</code></pre>
+
+        <!-- ==================== BAGIAN 4: CHECKPOINT 1 (SETSTATE) ==================== -->
+        <h3 class="section-title">BAGIAN 4: CHECKPOINT 1 (STATE LOKAL DENGAN SETSTATE)</h3>
+        
+        <h5 class="fw-bold text-dark mt-3">4.1 Deskripsi Implementasi</h5>
+        <p align="justify">
+          Pada langkah awal (Bagian A), fitur pengaturan porsi resep diimplementasikan di <code>DetailPage</code> menggunakan <code>StatefulWidget</code>. Jumlah porsi disimpan di variabel privat <code>int _servings</code>. Saat pengguna menekan tombol penambah (<code>+</code>) atau pengurang (<code>-</code>), perubahan dibungkus dengan <code>setState()</code> untuk memicu kalkulasi ulang <code>totalCalories = recipe.caloriesPerServing * _servings</code> serta merender ulang tampilan secara dinamis.
+        </p>
+
+        <h5 class="fw-bold text-dark mt-4">4.2 Tangkapan Layar Checkpoint 1</h5>
+        <div class="text-center my-3">
+          <img src="images/modul6_checkpoint1_detail_porsi.jpg" alt="Detail Classic Margherita Pizza (6 Porsi, 1800 kkal)" class="laporan-img">
+          <p class="text-secondary small mt-2"><strong>Gambar 4.1:</strong> Halaman Detail <em>Classic Margherita Pizza</em> dengan Porsi bernilai 6 dan Total Kalori 1800 kkal (6 &times; 300 kkal), lengkap dengan footer identitas <code>2411533019 &bull; Adila Bintang</code>.</p>
+        </div>
+
+        <h5 class="fw-bold text-dark mt-4">4.3 Jawaban Pertanyaan Checkpoint 1</h5>
+        <div class="alert alert-secondary">
+          <strong>Pertanyaan Modul:</strong> Tombol <code>-</code> tidak aktif ketika porsi bernilai 1. Tunjukkan baris kode yang menyebabkan hal tersebut dan jelaskan mekanismenya!
+        </div>
+        <p><strong>Potongan Kode (<code>lib/pages/detail_page.dart</code>):</strong></p>
+        <pre><code>IconButton.filledTonal(
+  onPressed: _servings &gt; 1 ? _removeServing : null,
+  icon: const Icon(Icons.remove),
+)</code></pre>
+        <p align="justify"><strong>Penjelasan Analisis:</strong><br>
+          Pada Flutter, properti <code>onPressed</code> pada komponen tombol (seperti <code>IconButton</code>, <code>ElevatedButton</code>) mengontrol interaktivitas widget tersebut. Kode di atas memanfaatkan ekspresi ternary <code>_servings &gt; 1 ? _removeServing : null</code>. Ketika nilai <code>_servings</code> berada di angka 1, kondisi <code>_servings &gt; 1</code> bernilai <code>false</code> sehingga nilai <code>null</code> diteruskan ke <code>onPressed</code>. Berdasarkan konvensi framework Flutter, memberikan nilai <code>null</code> pada callback interaksi secara otomatis menonaktifkan tombol (<em>disabled state</em>), mengubah warna tombol menjadi redup, dan mencegah pengguna mengurangi porsi hingga bernilai nol atau negatif.
+        </p>
+
+        <!-- ==================== BAGIAN 5: PENGAMATAN EKSPERIMEN ==================== -->
+        <h3 class="section-title">BAGIAN 5: PENGAMATAN EKSPERIMEN (BAGIAN B)</h3>
+        <p align="justify">
+          Pada Bagian B dilakukan eksperimen menyimpan status favorit secara lokal di dalam widget <code>RecipeTile</code> menggunakan <code>bool _isFavorite = false</code> dan <code>setState()</code>. Berdasarkan pengamatan eksperimen, berikut adalah jawaban atas pertanyaan evaluasi:
+        </p>
+
+        <div class="card p-4 mb-3 bg-light border-0">
+          <h6 class="fw-bold text-dark"><i class="bi bi-question-circle-fill text-warning me-2"></i>1. Apakah ikon hati berubah? Mengapa?</h6>
+          <p class="mb-0" align="justify">
+            <strong>Jawaban:</strong> Ya, ikon hati berhasil berubah bentuk dan warnanya (dari <code>Icons.favorite_border</code> abu-abu menjadi <code>Icons.favorite</code> merah) saat ditekan. Hal ini terjadi karena variabel <code>_isFavorite</code> tersimpan langsung sebagai field di dalam kelas <code>_RecipeTileState</code>. Pemanggilan <code>setState(() =&gt; _isFavorite = !_isFavorite)</code> memberitahu framework Flutter bahwa state internal tile tersebut telah berubah, memicu eksekusi ulang method <code>build()</code> pada instance tile bersangkutan dan menampilkan ikon baru.
+          </p>
+        </div>
+
+        <div class="card p-4 mb-3 bg-light border-0">
+          <h6 class="fw-bold text-dark"><i class="bi bi-question-circle-fill text-warning me-2"></i>2. Coba tampilkan jumlah resep favorit di judul AppBar HomePage. Apakah hal itu dapat dilakukan? Di class mana data _isFavorite berada, dan apakah HomePage dapat membacanya?</h6>
+          <p class="mb-0" align="justify">
+            <strong>Jawaban:</strong> Hal tersebut <strong>tidak dapat dilakukan</strong> secara langsung. Variabel <code>_isFavorite</code> terisolasi di dalam kelas <code>_RecipeTileState</code> yang posisinya berada di bawah (<em>child widget</em>) pada pohon hierarki widget. Di Flutter, aliran data bersifat <em>unidirectional</em> (turun ke bawah). <code>HomePage</code> sebagai <em>parent widget</em> tidak memiliki referensi maupun hak akses untuk membaca state internal privat yang terperangkap di dalam masing-masing instance <em>child</em>-nya.
+          </p>
+        </div>
+
+        <div class="card p-4 mb-3 bg-light border-0">
+          <h6 class="fw-bold text-dark"><i class="bi bi-question-circle-fill text-warning me-2"></i>3. Buka halaman detail dari resep yang sudah difavoritkan. Bagaimana halaman detail dapat mengetahui bahwa resep tersebut favorit?</h6>
+          <p class="mb-0" align="justify">
+            <strong>Jawaban:</strong> Halaman detail (<code>DetailPage</code>) <strong>sama sekali tidak dapat mengetahui</strong> status favorit resep tersebut. Ketika berpindah halaman menggunakan <code>Navigator.push()</code>, halaman detail di-push sebagai rute baru yang independen di atas navigator tree. Karena state favorit hanya hidup di memori instance <code>_RecipeTileState</code> dan tidak dibagikan (<em>shared</em>) ke rute lain, maka halaman detail tidak memiliki sarana untuk membaca status tersebut.
+          </p>
+        </div>
+
+        <div class="alert alert-info">
+          <strong>Kesimpulan Eksperimen:</strong> State lokal hanya mampu mengendalikan tampilan internal widget itu sendiri. Apabila suatu data diperlukan oleh banyak komponen lintas halaman (daftar resep, badge AppBar, halaman detail, dan halaman favorit), data tersebut harus diangkat (<em>lifted up</em>) menjadi App State menggunakan Provider.
+        </div>
+
+        <!-- ==================== BAGIAN 6: IMPLEMENTASI PROVIDER & PENGUJIAN ==================== -->
+        <h3 class="section-title">BAGIAN 6: IMPLEMENTASI PROVIDER &amp; PENGUJIAN (CHECKPOINT 2)</h3>
+
+        <h5 class="fw-bold text-dark mt-3">6.1 Implementasi FavoriteProvider</h5>
+        <p align="justify">
+          Package <code>provider</code> dipasang melalui perintah <code>flutter pub add provider</code>. Dibuat kelas <code>FavoriteProvider</code> yang meng-extend <code>ChangeNotifier</code>:
+        </p>
+        <pre><code>import 'package:flutter/foundation.dart';
+import 'package:resepku/models/recipe.dart';
+
+class FavoriteProvider extends ChangeNotifier {
+  final List&lt;Recipe&gt; _items = [];
+
+  List&lt;Recipe&gt; get items =&gt; List.unmodifiable(_items);
+  int get count =&gt; _items.length;
+
+  bool isFavorite(Recipe recipe) =&gt; _items.any((r) =&gt; r.id == recipe.id);
+
+  void toggle(Recipe recipe) {
+    if (isFavorite(recipe)) {
+      _items.removeWhere((r) =&gt; r.id == recipe.id);
+    } else {
+      _items.add(recipe);
+    }
+    notifyListeners(); // Memberi tahu seluruh widget listener untuk rebuild
+  }
+
+  void clear() {
+    _items.clear();
+    notifyListeners();
+  }
+}</code></pre>
+
+        <h5 class="fw-bold text-dark mt-4">6.2 Tabel Pengujian Aplikasi (Langkah C.7)</h5>
+        <p>Berdasarkan pengujian keenam skenario yang tercantum pada panduan modul, seluruh fungsionalitas berjalan dengan hasil valid dan konsisten:</p>
+        
+        <div class="table-responsive mb-4">
+          <table class="table table-bordered table-striped table-check">
+            <thead class="table-dark text-center">
+              <tr>
+                <th style="width: 7%;">No</th>
+                <th style="width: 40%;">Skenario Pengujian</th>
+                <th style="width: 43%;">Hasil yang Diharapkan</th>
+                <th style="width: 10%;">Sesuai?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-center fw-bold">1</td>
+                <td>Tap ikon hati pada Margherita dan Alfredo di Home</td>
+                <td>Ikon berwarna merah, badge menunjukkan angka 2</td>
+                <td class="text-center text-success fw-bold fs-5">✓</td>
+              </tr>
+              <tr>
+                <td class="text-center fw-bold">2</td>
+                <td>Buka detail Margherita</td>
+                <td>Ikon hati di AppBar terisi (aktif)</td>
+                <td class="text-center text-success fw-bold fs-5">✓</td>
+              </tr>
+              <tr>
+                <td class="text-center fw-bold">3</td>
+                <td>Di halaman detail, tap ikon hati, lalu kembali ke Home</td>
+                <td>Ikon Margherita kosong, badge menunjukkan angka 1</td>
+                <td class="text-center text-success fw-bold fs-5">✓</td>
+              </tr>
+              <tr>
+                <td class="text-center fw-bold">4</td>
+                <td>Tap badge di AppBar</td>
+                <td>Halaman Favorit hanya berisi Alfredo</td>
+                <td class="text-center text-success fw-bold fs-5">✓</td>
+              </tr>
+              <tr>
+                <td class="text-center fw-bold">5</td>
+                <td>Hapus Alfredo dari halaman Favorit, lalu kembali</td>
+                <td>Muncul pesan "Belum ada resep favorit", badge hilang</td>
+                <td class="text-center text-success fw-bold fs-5">✓</td>
+              </tr>
+              <tr>
+                <td class="text-center fw-bold">6</td>
+                <td>Ubah porsi menjadi 2, kembali ke Home, lalu buka lagi resep yang sama</td>
+                <td>Porsi kembali ke nilai awal, karena state lokal ikut dibuang ketika halaman ditutup</td>
+                <td class="text-center text-success fw-bold fs-5">✓</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h5 class="fw-bold text-dark mt-4">6.3 Tangkapan Layar Checkpoint 2</h5>
+        <div class="row g-4 my-2">
+          <div class="col-lg-6">
+            <p class="fw-semibold text-center mb-1">1. HomePage dengan Badge Favorit Bernilai 2</p>
+            <img src="images/modul6_checkpoint2_home_badge.jpg" alt="HomePage ResepKu Badge 2" class="laporan-img">
+            <p class="text-secondary small text-center">Menampilkan daftar resep di mana Margherita &amp; Stir-Fry difavoritkan, badge di AppBar bernilai 2.</p>
+          </div>
+          <div class="col-lg-6">
+            <p class="fw-semibold text-center mb-1">2. FavoritePage saat Daftar Favorit Kosong</p>
+            <img src="images/modul6_latihan2_favorit_kosong.jpg" alt="FavoritePage ResepKu" class="laporan-img">
+            <p class="text-secondary small text-center">Menampilkan halaman Favorit Saya dengan teks informasi dan tombol hapus semua dalam kondisi disabled.</p>
+          </div>
+        </div>
+
+        <!-- ==================== BAGIAN 7: PERTANYAAN ANALISIS ==================== -->
+        <h3 class="section-title">BAGIAN 7: PERTANYAAN ANALISIS MODUL</h3>
+
+        <h5 class="fw-bold text-dark mt-4">1. Rangkuman Pertanyaan Langkah B.2</h5>
+        <p align="justify">
+          State lokal (<code>setState()</code>) pada <code>RecipeTile</code> hanya mampu mengelola dan memperbarui tampilan internal dari widget bersangkutan. Data favorit terisolasi di dalam kelas state lokal sehingga <code>HomePage</code> tidak dapat menghitung total item untuk badge <code>AppBar</code>, dan <code>DetailPage</code> tidak dapat mendeteksi status favorit resep. Hal ini membuktikan bahwa state lokal tidak dapat digunakan untuk mengelola data yang perlu dibagikan (*shared data*) antar-widget atau antar-rute navigasi yang berdiri sendiri.
+        </p>
+
+        <h5 class="fw-bold text-dark mt-4">2. Alasan Porsi Menggunakan setState() dan Bukan Provider (Korelasi Skenario 6)</h5>
+        <p align="justify">
+          Jumlah porsi resep tetap dipertahankan menggunakan state lokal <code>setState()</code> karena data porsi bersifat <em>ephemeral</em> (sementara) dan ruang lingkup kebutuhannya terbatas hanya pada halaman detail resep yang sedang aktif dibuka. Berdasarkan pengujian pada Skenario 6, ketika pengguna meninggalkan rute <code>DetailPage</code> dan membukanya kembali, nilai porsi kembali ke nilai default bawaan data resep karena objek <code>State</code> tersebut ikut dimusnahkan (<em>disposed</em>) dari memori saat halaman ditutup. Menyimpan porsi ke dalam Provider global tidak disarankan karena akan membebani memori dengan data yang tidak dibutuhkan oleh halaman lain seperti <code>HomePage</code> atau <code>FavoritePage</code>.
+        </p>
+
+        <h5 class="fw-bold text-dark mt-4">3. Analisis Pemindahan ChangeNotifierProvider ke HomePage</h5>
+        <p align="justify">
+          Jika <code>ChangeNotifierProvider</code> dipindahkan dari fungsi <code>main()</code> ke dalam pohon widget <code>HomePage</code> (misalnya membungkus <code>Scaffold</code> di <code>HomePage</code>), maka ketika pengguna menavigasi ke <code>FavoritePage</code> melalui <code>Navigator.push()</code>, aplikasi akan mengalami crash fatal dengan pesan error <code>ProviderNotFoundException</code>. Hal ini terjadi karena rute baru yang dibuka via <code>Navigator.push()</code> ditempatkan di tingkat <em>root</em> di atas <code>MaterialApp</code>, sehingga posisi <code>FavoritePage</code> berada sejajar atau di luar cabang sub-pohon <code>HomePage</code>. Akibatnya, saat <code>FavoritePage</code> mencari instance <code>FavoriteProvider</code> ke atas hierarki pohon widget (<em>ancestor lookup</em>), provider tersebut tidak ditemukan.
+        </p>
+
+        <!-- ==================== BAGIAN 8: IMPLEMENTASI LATIHAN ==================== -->
+        <h3 class="section-title">BAGIAN 8: IMPLEMENTASI LATIHAN MANDIRI</h3>
+
+        <h5 class="fw-bold text-dark mt-4">8.1 Latihan 1: Tema Gelap dan Terang (Dark &amp; Light Mode)</h5>
+        <p align="justify">
+          Menambahkan kemampuan aplikasi untuk beralih antara mode terang dan mode gelap secara global melalui halaman Pengaturan (<code>SettingsPage</code>).
+        </p>
+
+        <p class="fw-semibold mb-1">a. Kode Provider Tema (<code>lib/providers/theme_provider.dart</code>):</p>
+        <pre><code>import 'package:flutter/material.dart';
+
+class ThemeProvider extends ChangeNotifier {
+  ThemeMode _themeMode = ThemeMode.light;
+
+  ThemeMode get themeMode =&gt; _themeMode;
+  bool get isDarkMode =&gt; _themeMode == ThemeMode.dark;
+
+  void toggleTheme(bool isDark) {
+    _themeMode = isDark ? ThemeMode.dark : ThemeMode.light;
+    notifyListeners();
+  }
+}</code></pre>
+
+        <p class="fw-semibold mb-1">b. Registrasi MultiProvider &amp; Konfigurasi MaterialApp (<code>lib/main.dart</code>):</p>
+        <pre><code>void main() {
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) =&gt; FavoriteProvider()),
+        ChangeNotifierProvider(create: (context) =&gt; ThemeProvider()),
+      ],
+      child: const ResepKuApp(),
+    ),
+  );
+}
+
+class ResepKuApp extends StatelessWidget {
+  const ResepKuApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'ResepKu',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(colorSchemeSeed: Colors.deepOrange),
+      darkTheme: ThemeData(
+        colorSchemeSeed: Colors.deepOrange,
+        brightness: Brightness.dark,
+      ),
+      themeMode: context.watch&lt;ThemeProvider&gt;().themeMode,
+      builder: (context, child) =&gt; IdentityFooter(child: child!),
+      home: const HomePage(),
+    );
+  }
+}</code></pre>
+
+        <p class="fw-semibold mb-1">c. Halaman Pengaturan (<code>lib/pages/settings_page.dart</code>):</p>
+        <pre><code>import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:resepku/providers/theme_provider.dart';
+
+class SettingsPage extends StatelessWidget {
+  const SettingsPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final themeProvider = context.watch&lt;ThemeProvider&gt;();
+    return Scaffold(
+      appBar: AppBar(title: const Text('Pengaturan')),
+      body: ListView(
+        children: [
+          SwitchListTile(
+            title: const Text('Mode Gelap'),
+            value: themeProvider.isDarkMode,
+            onChanged: (val) {
+              context.read&lt;ThemeProvider&gt;().toggleTheme(val);
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}</code></pre>
+
+        <div class="text-center my-4">
+          <img src="images/modul6_latihan1_darkmode.jpg" alt="Aplikasi ResepKu Mode Gelap" class="laporan-img">
+          <p class="text-secondary small mt-2"><strong>Gambar 8.1:</strong> Antarmuka Halaman Utama ResepKu saat Mode Gelap aktif (lengkap dengan ikon Pengaturan di AppBar dan footer identitas <code>2411533019 &bull; Adila Bintang</code>).</p>
+        </div>
+
+        <hr class="my-5">
+
+        <h5 class="fw-bold text-dark mt-4">8.2 Latihan 2: Menghapus Semua Favorit dengan Konfirmasi Dialog</h5>
+        <p align="justify">
+          Pada halaman <code>FavoritePage</code>, ditambahkan aksi pada AppBar berupa tombol <code>Icons.delete_sweep</code> untuk menghapus semua item favorit sekaligus. Tombol ini memiliki dialog konfirmasi (<code>AlertDialog</code>) sebelum aksi eksekusi pembersihan dilakukan, serta dinonaktifkan secara otomatis (disabled) ketika daftar favorit kosong.
+        </p>
+
+        <p class="fw-semibold mb-1">Implementasi AppBar FavoritePage (<code>lib/pages/favorite_page.dart</code>):</p>
+        <pre><code>AppBar(
+  title: const Text('Favorit Saya'),
+  actions: [
+    Consumer&lt;FavoriteProvider&gt;(
+      builder: (context, favorite, child) {
+        return IconButton(
+          tooltip: 'Hapus Semua Favorit',
+          icon: const Icon(Icons.delete_sweep),
+          onPressed: favorite.count == 0
+              ? null
+              : () {
+                  showDialog(
+                    context: context,
+                    builder: (ctx) =&gt; AlertDialog(
+                      title: const Text('Hapus Semua Favorit'),
+                      content: const Text(
+                        'Apakah Anda yakin ingin menghapus semua resep dari favorit?',
+                      ),
+                      actions: [
+                        TextButton(
+                          onPressed: () =&gt; Navigator.pop(ctx),
+                          child: const Text('Batal'),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            context.read&lt;FavoriteProvider&gt;().clear();
+                            Navigator.pop(ctx);
+                          },
+                          child: const Text('Hapus'),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+        );
+      },
+    ),
+  ],
+)</code></pre>
+
+        <div class="text-center my-4">
+          <img src="images/modul6_latihan2_favorit_kosong.jpg" alt="Halaman Favorit Kosong dan Tombol Disabled" class="laporan-img">
+          <p class="text-secondary small mt-2"><strong>Gambar 8.2:</strong> Tampilan Halaman Favorit Saya saat tidak ada resep favorit. Tombol <code>delete_sweep</code> di kanan atas dalam keadaan nonaktif (<em>disabled</em>) karena <code>favorite.count == 0</code>.</p>
+        </div>
+
+        <!-- ==================== BAGIAN 9: KESIMPULAN ==================== -->
+        <h3 class="section-title">BAGIAN 9: KESIMPULAN</h3>
+        <ol align="justify">
+          <li class="mb-2">
+            <strong>State Lokal (<code>setState()</code>)</strong> sangat ideal dan efisien digunakan untuk mengelola data sementara (<em>ephemeral state</em>) yang hanya relevan pada satu widget atau rute aktif, seperti fitur penyesuaian porsi dan kalori pada halaman detail.
+          </li>
+          <li class="mb-2">
+            <strong>State Global (<code>Provider</code>)</strong> merupakan solusi andal untuk menyelesaikan masalah <em>prop drilling</em> dan data terisolasi. Dengan mengabstraksikan state ke dalam kelas turunan <code>ChangeNotifier</code> dan menyediakannya di pucuk hierarki widget melalui <code>MultiProvider</code>, state dapat dibagikan secara konsisten ke seluruh rute (daftar resep, badge AppBar, detail resep, dan halaman favorit).
+          </li>
+          <li class="mb-2">
+            Pemilihan metode konsumsi state yang tepat&mdash;menggunakan <code>context.watch()</code> di dalam <code>build()</code> untuk mendengarkan perubahan, <code>context.read()</code> pada callback event interaktif, dan widget <code>Consumer</code> untuk optimasi selective rebuilding&mdash;menghasilkan aplikasi Flutter yang bersih, reaktif, dan berperforma tinggi.
+          </li>
+        </ol>
+
+      </div>
+
+      <!-- NAVIGATION BUTTONS -->
+      <div class="d-flex justify-content-center gap-3 mt-4 flex-wrap">
+        <a href="laporan.html" class="btn btn-secondary rounded-3 px-4 py-2">
+          <i class="bi bi-arrow-left me-2"></i> Kembali ke Halaman Laporan
+        </a>
+        <a href="laporan_appsmobile5.html" class="btn btn-outline-dark rounded-3 px-4 py-2">
+          <i class="bi bi-layers me-2"></i> Buka Laporan Modul 5
+        </a>
+        <a href="https://github.com/lalaayyey/PraktikumAplikasiMobile/tree/main" target="_blank"
+          class="btn btn-dark rounded-3 px-4 py-2">
+          <i class="bi bi-github me-2"></i> Lihat Repository GitHub
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+      <p class="mb-0">&copy; 2026 MyPortfolio &bull; Adila Bintang (2411533019). All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

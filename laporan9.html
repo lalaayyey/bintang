@@ -1,0 +1,509 @@
+Oalah, siap! Berarti ini untuk **Praktikum 9**, bukan Praktikum 8. Saya sesuaikan semua teks judul, heading, nama dokumen, dan informasi di dalam laporan agar konsisten menjadi **Praktikum 9 - Laravel Relationship CRUD**.
+
+Format penamaan dan urutan ke-14 foto tetap dipertahankan menggunakan nama `9.1 (1).png` sampai `9.1 (14).png`.
+
+Berikut adalah kode HTML utuh yang sudah diperbarui:
+
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Praktikum 9 Laravel Relationship CRUD</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <style>
+
+    body{
+      background-color:#f5f7fa;
+    }
+
+    .hero{
+      padding:120px 0 70px;
+      background:linear-gradient(135deg,#000,#444);
+      color:white;
+      text-align:center;
+    }
+
+    .laporan-card{
+      border:none;
+      border-radius:20px;
+    }
+
+    .laporan-img{
+      border-radius:15px;
+      width:100%;
+      margin-top:20px;
+      margin-bottom:20px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    pre{
+      background:#212529;
+      color:white;
+      padding:20px;
+      border-radius:10px;
+      overflow-x:auto;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="background-color:aliceblue;">
+  <div class="container">
+
+    <a class="navbar-brand fw-bold" href="index.html">
+      MyPortfolio <i class="bi bi-house fs-3"></i>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+      <ul class="navbar-nav ms-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="portfolio.html">Portfolio</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="laporan.html">Laporan</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+
+  <div class="container">
+
+    <h1>Praktikum 9 - Laravel Relationship CRUD</h1>
+
+    <p>
+      Migration, Seeding, Routing, Model, Controller, dan View Berbasis Relasi Database
+    </p>
+
+  </div>
+
+</section>
+
+<section class="py-5">
+
+  <div class="container">
+
+    <div class="card shadow laporan-card p-4">
+
+      <span class="badge bg-danger mb-3" style="width:fit-content;">
+        Laravel
+      </span>
+
+      <h2 class="fw-bold mb-4">
+        Pendahuluan
+      </h2>
+
+      <p align="justify">
+        Laravel merupakan framework PHP yang digunakan untuk membangun aplikasi web modern dengan konsep MVC (Model View Controller). Laravel menyediakan berbagai fitur yang mempermudah developer dalam proses pengembangan aplikasi web seperti migration, seeding, routing, model, controller, dan blade template.
+      </p>
+
+      <p align="justify">
+        Pada praktikum 9 ini dilakukan pembuatan aplikasi CRUD Mahasiswa menggunakan Laravel mulai dari konfigurasi database hingga menampilkan data relasional antartabel menggunakan view blade.
+      </p>
+
+      <h2 class="fw-bold mt-4">
+        Tujuan Praktikum
+      </h2>
+
+      <ul>
+        <li>Memahami konsep migration Laravel dan Foreign Key constraints.</li>
+        <li>Memahami penggunaan seeding database untuk mengisi data sampel otomatis.</li>
+        <li>Memahami routing resource Laravel.</li>
+        <li>Membuat model dan mendefinisikan Eloquent Relationship (One-to-Many & Many-to-Many).</li>
+        <li>Membuat controller untuk menangani logika sinkronisasi tabel pivot dengan method attach() dan sync().</li>
+        <li>Membuat view dinamis terintegrasi menggunakan blade template dan Bootstrap 5.</li>
+      </ul>
+
+      <h2 class="fw-bold mt-4">
+        Langkah-Langkah Praktikum
+      </h2>
+
+      <h4 class="fw-bold mt-4 text-primary">Tahap 1: Membuat Migration (Struktur Database)</h4>
+      <p align="justify">
+        Migration digunakan untuk membuat tabel-tabel di database lewat kode PHP. Kita akan membuat 4 tabel: majors, students, subjects, dan tabel pivot student_subject.
+      </p>
+
+      <h5 class="mt-3">Step 1.1: Migration Tabel majors</h5>
+      <p align="justify">Buka terminal di folder project Laravel Anda, lalu ketik perintah berikut:</p>
+<pre>
+php artisan make:migration create_majors_table
+</pre>
+      <p align="justify">Buka file migration tersebut di text editor Anda, lalu ubah fungsinya menjadi seperti ini:</p>
+<pre>
+public function up(){
+    Schema::create('majors', function (Blueprint $table) {
+        $table->id(); // Primary Key
+        $table->string('name');
+        $table->timestamps(); // create_at & updated_at
+    });
+}
+</pre>
+      <img src="images/9.1 (1).png" class="laporan-img">
+
+      <h5 class="mt-4">Step 1.2: Migration Tabel students</h5>
+      <p align="justify">Jalankan perintah di terminal:</p>
+<pre>
+php artisan make:migration create_students_table
+</pre>
+      <p align="justify">Buka file migration-nya dan isi dengan kode berikut:</p>
+<pre>
+public function up(){
+    Schema::create('students', function (Blueprint $table) {
+        $table->id();
+        $table->string('nim')->unique(); // Unique Key
+        $table->string('name');
+        $table->text('address');
+        // Foreign Key ke tabel majors.id, jika major dihapus, student ikut terhapus
+        $table->foreignId('major_id')->constrained('majors')->onDelete('cascade');
+        $table->timestamps();
+    });
+}
+</pre>
+      <img src="images/9.1 (2).png" class="laporan-img">
+
+      <h5 class="mt-4">Step 1.3: Migration Tabel subjects</h5>
+      <p align="justify">Jalankan perintah di terminal:</p>
+<pre>
+php artisan make:migration create_subjects_table
+</pre>
+      <p align="justify">Buka file migration-nya dan isi dengan kode berikut:</p>
+<pre>
+public function up(){
+    Schema::create('subjects', function (Blueprint $table) {
+        $table->id();
+        $table->string('name');
+        $table->integer('sks');
+        $table->timestamps();
+    });
+}
+</pre>
+      <img src="images/9.1 (3).png" class="laporan-img">
+
+      <h5 class="mt-4">Step 1.4: Migration Tabel Pivot student_subject</h5>
+      <p align="justify">Tabel ini digunakan untuk menghubungkan relasi Many-to-Many antara Student dan Subject. Jalankan perintah di terminal:</p>
+<pre>
+php artisan make:migration create_student_subject_table
+</pre>
+      <p align="justify">Buka file migration-nya dan pastikan kodenya ditulis di dalam Schema::create dengan benar:</p>
+<pre>
+public function up(){
+    Schema::create('student_subject', function (Blueprint $table) {
+        $table->id();
+        $table->foreignId('student_id')->constrained('students')->onDelete('cascade');
+        $table->foreignId('subject_id')->constrained('subjects')->onDelete('cascade');
+        $table->timestamps();
+
+        // Mencegah duplikasi kombinasi student_id dan subject_id
+        $table->unique(['student_id', 'subject_id']);
+    });
+}
+</pre>
+      <img src="images/9.1 (4).png" class="laporan-img">
+
+      <h5 class="mt-4">Step 1.5: Eksekusi Migration</h5>
+      <p align="justify">Sekarang kita kirim struktur di atas ke dalam database asli. Jalankan:</p>
+<pre>
+php artisan migrate
+</pre>
+      <img src="images/9.1 (5).png" class="laporan-img">
+
+
+      <h4 class="fw-bold mt-5 text-primary">Tahap 2: Membuat Model & Eloquent Relationship</h4>
+      <p align="justify">Model adalah representasi tabel database di dalam kode PHP kita. Di sini kita akan mendefinisikan hubungan antar tabel tersebut.</p>
+
+      <h5 class="mt-3">Step 2.1: Model Major</h5>
+      <p align="justify">Jalankan perintah di terminal:</p>
+<pre>
+php artisan make:model Major
+</pre>
+      <p align="justify">Buka app/Models/Major.php dan sesuaikan kodenya:</p>
+<pre>
+&lt;?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Major extends Model{
+    use HasFactory;
+
+    protected $fillable = ['name'];
+
+    // Relasi: Satu Jurusan punya banyak Mahasiswa (One-to-Many)
+    public function students()
+    {
+        return $this->hasMany(Student::class);
+    }
+}
+</pre>
+      <img src="images/9.1 (6).png" class="laporan-img">
+
+      <h5 class="mt-4">Step 2.2: Model Student</h5>
+      <p align="justify">Jalankan perintah di terminal:</p>
+<pre>
+php artisan make:model Student
+</pre>
+      <p align="justify">Buka app/Models/Student.php dan ubah kodenya:</p>
+<pre>
+&lt;?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Student extends Model{
+    use HasFactory;
+
+    protected $fillable = ['nim', 'name', 'address', 'major_id'];
+
+    // Relasi: Banyak Mahasiswa dimiliki oleh satu Jurusan (Many-to-One / BelongsTo)
+    public function major()
+    {
+        return $this->belongsTo(Major::class);
+    }
+
+    // Relasi: Banyak Mahasiswa mengambil banyak Mata Kuliah (Many-to-Many)
+    public function subjects()
+    {
+        return $this->belongsToMany(Subject::class);
+    }
+}
+</pre>
+      <img src="images/9.1 (7).png" class="laporan-img">
+
+      <h5 class="mt-4">Step 2.3: Model Subject</h5>
+      <p align="justify">Jalankan perintah di terminal:</p>
+<pre>
+php artisan make:model Subject
+</pre>
+      <p align="justify">Buka app/Models/Subject.php dan ganti kodenya:</p>
+<pre>
+&lt;?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Subject extends Model{
+    use HasFactory;
+
+    protected $fillable = ['name', 'sks'];
+
+    // Relasi: Banyak Mata Kuliah diambil oleh banyak Mahasiswa (Many-to-Many)
+    public function students()
+    {
+        return $this->belongsToMany(Student::class);
+    }
+}
+</pre>
+      <img src="images/9.1 (8).png" class="laporan-img">
+
+
+      <h4 class="fw-bold mt-5 text-primary">Tahap 3: Membuat Seeder (Data Sample Otomatis)</h4>
+      <p align="justify">Seeder dipakai untuk mengisi database dengan data dummy agar kita bisa menguji aplikasinya dengan cepat.</p>
+
+      <h5 class="mt-3">Step 3.1: MajorSeeder, SubjectSeeder, dan StudentSeeder</h5>
+      <p align="justify">Jalankan pembuatan seeder di terminal secara bergantian, lalu isi kodenya sesuai panduan relasi akademik.</p>
+<pre>
+php artisan make:seeder MajorSeeder
+php artisan make:seeder SubjectSeeder
+php artisan make:seeder StudentSeeder
+</pre>
+      <img src="images/9.1 (9).png" class="laporan-img">
+
+      <h5 class="mt-4">Step 3.4: Daftarkan dan Jalankan Seeder</h5>
+      <p align="justify">Buka file induk seeder di database/seeders/DatabaseSeeder.php, panggil seeder yang sudah dibuat, lalu eksekusi pengisian data lewat terminal:</p>
+<pre>
+php artisan db:seed
+</pre>
+      <img src="images/9.1 (10).png" class="laporan-img">
+
+
+      <h4 class="fw-bold mt-5 text-primary">Tahap 4: Membuat Controller (Logika Bisnis)</h4>
+      <p align="justify">Controller akan menjembatani antara data dari model untuk dilempar ke halaman web (View). Jalankan perintah di terminal:</p>
+<pre>
+php artisan make:controller StudentController
+</pre>
+      <p align="justify">Buka app/Http/Controllers/StudentController.php dan lengkapi logika CRUD beserta fungsi sinkronisasi relasinya:</p>
+<pre>
+&lt;?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Student;
+use App\Models\Major;
+use App\Models\Subject;
+use Illuminate\Http\Request;
+
+class StudentController extends Controller{
+    public function index()
+    {
+        $students = Student::with(['major', 'subjects'])->get();
+        return view('students.index', compact('students'));
+    }
+
+    public function create()
+    {
+        $majors = Major::all();
+        $subjects = Subject::all();
+        return view('students.create', compact('majors', 'subjects'));
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'nim' => 'required|unique:students',
+            'name' => 'required',
+            'address' => 'required',
+            'major_id' => 'required|exists:majors,id',
+            'subjects' => 'required|array',
+            'subjects.*' => 'exists:subjects,id',
+        ]);
+
+        $student = Student::create($request->only(['nim', 'name', 'address', 'major_id']));
+        $student->subjects()->attach($request->subjects);
+
+        return redirect()->route('students.index')->with('success', 'Student created successfully');
+    }
+
+    public function show($id)
+    {
+        $student = Student::with(['major', 'subjects'])->findOrFail($id);
+        return view('students.show', compact('student'));
+    }
+
+    public function edit($id)
+    {
+        $student = Student::with('subjects')->findOrFail($id);
+        $majors = Major::all();
+        $subjects = Subject::all();
+        return view('students.edit', compact('student', 'majors', 'subjects'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $student = Student::findOrFail($id);
+
+        $request->validate([
+            'nim' => 'required|unique:students,nim,' . $student->id,
+            'name' => 'required',
+            'address' => 'required',
+            'major_id' => 'required|exists:majors,id',
+            'subjects' => 'required|array',
+            'subjects.*' => 'exists:subjects,id',
+        ]);
+
+        $student->update($request->only(['nim', 'name', 'address', 'major_id']));
+        $student->subjects()->sync($request->subjects);
+
+        return redirect()->route('students.index')->with('success', 'Student updated successfully');
+    }
+
+    public function destroy($id)
+    {
+        $student = Student::findOrFail($id);
+        $student->subjects()->detach();
+        $student->delete();
+
+        return redirect()->route('students.index')->with('success', 'Student deleted successfully');
+    }
+}
+</pre>
+      <img src="images/9.1 (11).png" class="laporan-img">
+
+
+      <h4 class="fw-bold mt-5 text-primary">Tahap 5 & 6: Menghubungkan Route dan Membuat Front-End Views</h4>
+      <p align="justify">Mendaftarkan resource route di file routes/web.php dan membangun sistem antarmuka berbasis blade template menggunakan framework Bootstrap 5.</p>
+
+      <h5 class="mt-3">Step 6.1: Layout Utama (resources/views/layouts/app.blade.php)</h5>
+      <img src="images/9.1 (12).png" class="laporan-img">
+
+      <h5 class="mt-4">Step 6.2: Halaman Daftar (resources/views/students/index.blade.php)</h5>
+      <img src="images/9.1 (13).png" class="laporan-img">
+
+      <h5 class="mt-4">Step 6.3: Halaman Tambah (resources/views/students/create.blade.php)</h5>
+      <img src="images/9.1 (14).png" class="laporan-img">
+
+
+      <h2 class="fw-bold mt-5">
+        Hasil Praktikum
+      </h2>
+
+      <p align="justify">
+        Berdasarkan praktikum 9 yang telah dilakukan, aplikasi Laravel berhasil dijalankan dengan baik. Migration berhasil membuat tabel database beserta konstrain relasi kunci tamu (foreign key), seeding berhasil menambahkan data awal, routing berhasil menghubungkan URL, serta model, controller, dan view berhasil digunakan untuk mengolah data hubungan antartabel mahasiswa secara dinamis.
+      </p>
+
+      <h2 class="fw-bold mt-4">
+        Kesimpulan
+      </h2>
+
+      <p align="justify">
+        Berdasarkan praktikum yang telah dilakukan dapat disimpulkan bahwa Laravel mempermudah proses pengembangan aplikasi web menggunakan konsep MVC. Fitur migration, seeding, routing, model, controller, dan blade template membantu developer dalam membuat aplikasi CRUD data relasional (One-to-Many dan Many-to-Many) secara lebih terstruktur, rapi, aman, dan efisien.
+      </p>
+
+      <h2 class="fw-bold mt-4">
+        Link Github Project
+      </h2>
+
+      <p align="justify">
+        Source code project Laravel CRUD dapat diakses melalui link Github berikut:
+      </p>
+
+      <a href="https://github.com/lalaayyey/bintang" target="_blank" class="btn btn-dark">
+        <i class="bi bi-github"></i>
+        Github Project
+      </a>
+
+      <a href="laporan.html" class="btn btn-dark mt-4">
+        <i class="bi bi-arrow-left"></i>
+        Kembali
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+
+```
