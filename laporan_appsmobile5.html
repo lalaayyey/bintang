@@ -203,6 +203,20 @@
         <p align="justify">
           Fitur registrasi digunakan untuk menerima informasi pengguna baru, sedangkan fitur login digunakan untuk memverifikasi identitas pengguna sebelum mengakses halaman utama. Salah satu bagian penting dalam proses registrasi adalah validasi input.
         </p>
+        <p class="text-secondary mb-2">Tampilan halaman Login aplikasi Expense Tracker:</p>
+        <div class="d-flex flex-wrap justify-content-center gap-3 my-3">
+          <div class="text-center">
+            <img src="images/modul5_login_page.png" alt="Halaman Login Expense Tracker" class="laporan-img" style="max-width:280px;">
+            <p class="small text-muted mt-1">Gambar 1. Halaman Login (kondisi awal)</p>
+          </div>
+          <div class="text-center">
+            <img src="images/modul5_login_validasi.jpg" alt="Validasi Login - Email dan Password kosong" class="laporan-img" style="max-width:280px;">
+            <p class="small text-muted mt-1">Gambar 2. Validasi login — email &amp; password tidak boleh kosong</p>
+          </div>
+        </div>
+        <p align="justify">
+          Halaman Login menampilkan form input email dan password. Ketika pengguna menekan tombol <strong>Login</strong> tanpa mengisi kolom yang wajib, sistem menampilkan pesan kesalahan di bawah masing-masing kolom secara langsung (<em>inline validation</em>), yaitu <em>"Email tidak boleh kosong"</em> dan <em>"Password tidak boleh kosong"</em>.
+        </p>
         <p class="text-secondary mb-2">Contoh kode validasi:</p>
         <pre><code>String? validateRegistration({
   required String email,
@@ -243,6 +257,13 @@
         <p align="justify">
           Dashboard merupakan halaman utama yang menampilkan ringkasan kondisi keuangan pengguna, meliputi saldo, total pemasukan, dan total pengeluaran.
         </p>
+        <div class="text-center my-3">
+          <img src="images/modul5_dashboard.jpg" alt="Dashboard Keuangan Expense Tracker" class="laporan-img" style="max-width:300px;">
+          <p class="small text-muted mt-1">Gambar 3. Dashboard Keuangan — menampilkan saldo utama, ringkasan pemasukan &amp; pengeluaran, dan navigasi fitur</p>
+        </div>
+        <p align="justify">
+          Tampilan Dashboard menampilkan kartu <strong>Saldo Utama</strong> beserta keterangan saldo normal, ringkasan total <em>Pemasukan</em> dan <em>Pengeluaran</em>, serta tombol aksi cepat: Tambah, Riwayat, Terima, dan Tagihan. Di bagian bawah ditampilkan area <em>Transaksi Terakhir</em> yang akan memperlihatkan daftar transaksi terbaru. Navigasi bawah (bottom navigation) menyediakan akses ke halaman Beranda, Riwayat, dan Profil.
+        </p>
         <p class="text-secondary mb-2">Perhitungan saldo secara konseptual dapat dilakukan menggunakan fungsi berikut:</p>
         <pre><code>double calculateBalance({
   required double income,
@@ -269,6 +290,13 @@
         <h5 class="fw-bold text-dark mt-4">2.4 Implementasi Penambahan Transaksi</h5>
         <p align="justify">
           Penambahan transaksi merupakan bagian dari operasi Create pada konsep CRUD (<em>Create, Read, Update, Delete</em>). Sebelum data disimpan, aplikasi perlu memvalidasi judul, nominal, kategori, dan jenis transaksi.
+        </p>
+        <div class="text-center my-3">
+          <img src="images/modul5_catat_transaksi.png" alt="Form Catat Transaksi" class="laporan-img" style="max-width:300px;">
+          <p class="small text-muted mt-1">Gambar 4. Form Catat Transaksi — toggle Pengeluaran/Pemasukan, Judul, Nominal, Kategori, dan Tanggal</p>
+        </div>
+        <p align="justify">
+          Form pencatatan transaksi menyediakan toggle untuk memilih jenis transaksi (<strong>Pengeluaran</strong> atau <strong>Pemasukan</strong>), kolom Judul, Nominal, pilihan Kategori, serta Tanggal. Validasi input diterapkan untuk memastikan semua kolom wajib telah diisi sebelum data disimpan ke database SQLite.
         </p>
         <p class="text-secondary mb-2">Contoh fungsi validasi transaksi:</p>
         <pre><code>String? validateTransaction({
@@ -343,8 +371,18 @@
         <p align="justify">
           Halaman Profil digunakan untuk menampilkan informasi pengguna yang sedang aktif. Informasi yang ditampilkan dapat berupa nama dan email sesuai data akun atau sesi login.
         </p>
+        <div class="d-flex flex-wrap justify-content-center gap-3 my-3">
+          <div class="text-center">
+            <img src="images/modul5_profil_saya.jpg" alt="Halaman Profil Saya" class="laporan-img" style="max-width:280px;">
+            <p class="small text-muted mt-1">Gambar 5. Halaman Profil — info pengguna, menu Pengaturan &amp; Bantuan</p>
+          </div>
+          <div class="text-center">
+            <img src="images/modul5_profil_logout.jpg" alt="Profil - Tentang Aplikasi dan Logout" class="laporan-img" style="max-width:280px;">
+            <p class="small text-muted mt-1">Gambar 6. Profil — bagian Tentang Aplikasi dan tombol Logout</p>
+          </div>
+        </div>
         <p align="justify">
-          Menu Pengaturan dapat digunakan untuk menampilkan preferensi aplikasi, seperti tema, notifikasi, dan opsi keamanan jika fitur tersebut telah diimplementasikan.
+          Halaman Profil menampilkan kartu informasi pengguna (nama dan email akun yang sedang login). Di bawahnya terdapat menu navigasi: <strong>Pengaturan</strong> untuk preferensi aplikasi, <strong>Bantuan</strong> untuk panduan penggunaan, dan <strong>Tentang Aplikasi</strong> yang menampilkan informasi aplikasi beserta pengembang. Tombol <strong>Logout</strong> (berwarna merah) tersedia di bagian bawah halaman untuk mengakhiri sesi pengguna.
         </p>
         <p align="justify">
           Menu Bantuan &amp; FAQ menyediakan informasi mengenai penggunaan aplikasi, sedangkan menu Tentang Aplikasi menampilkan informasi mengenai aplikasi dan pengembang.
