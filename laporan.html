@@ -1408,6 +1408,9 @@ Route::resource('users', UserController::class);
                 <button class="nav-link" id="tab-btn-m6" onclick="openMobileLaporan('m6')">Praktikum 6</button>
               </li>
               <li class="nav-item">
+                <button class="nav-link" id="tab-btn-m7" onclick="openMobileLaporan('m7')">Praktikum 7</button>
+              </li>
+              <li class="nav-item">
                 <button class="nav-link btn-outline-secondary border" id="tab-btn-m-all"
                   onclick="openMobileLaporan('all')">Semua</button>
               </li>
@@ -2124,6 +2127,140 @@ Route::resource('users', UserController::class);
 
         </div>
 
+        <!-- CONTENT PRAKTIKUM 7 (MOBILE) -->
+        <div id="content-m7" class="laporan-pane d-none">
+
+          <span class="badge bg-dark mb-3 fs-6 px-3 py-2" style="width:fit-content;">Flutter / Mobile UI</span>
+          <span class="badge bg-warning text-dark mb-3 fs-6 px-3 py-2" style="width:fit-content;">Modul 7</span>
+
+          <h2 class="fw-bold mb-3">Praktikum 7 - List, Grid, Gambar, dan Asset pada ResepKu</h2>
+          <p class="text-secondary small mb-4"><strong>Tanggal Praktikum:</strong> November 2026 | <strong>Dosen Pengampu:</strong> Arifan Rahman, M.Kom. | <strong>NIM:</strong> 2411533019 - Adila Bintang</p>
+
+          <h4 class="fw-bold mt-4">1. Deskripsi Praktikum</h4>
+          <p align="justify">
+            Praktikum Modul 7 berfokus pada implementasi aset multimedia dan tata letak dinamis pada aplikasi <strong>ResepKu</strong>. Mahasiswa mempelajari cara mendaftarkan asset gambar lokal dan custom font Poppins di <code>pubspec.yaml</code>, mengabstraksikan pemuatan gambar internet yang hemat memori menggunakan widget <code>RecipeImage</code> dengan <code>loadingBuilder</code>, <code>errorBuilder</code>, dan <code>cacheWidth</code>, serta membuat alih tampilan responsif antara <code>ListView.builder</code> dan <code>GridView.builder</code> menggunakan state lokal (<code>setState</code>) tanpa mengganggu konsistensi status favorit di <code>Provider</code>.
+          </p>
+
+          <h4 class="fw-bold mt-4">2. Komparasi Image.asset vs Image.network</h4>
+          <div class="table-responsive my-3">
+            <table class="table table-bordered table-sm align-middle">
+              <thead class="table-dark">
+                <tr>
+                  <th>Aspek</th>
+                  <th>Image.asset</th>
+                  <th>Image.network</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Sumber Berkas</strong></td>
+                  <td>Lokal (ter-bundle ke file APK)</td>
+                  <td>URL di internet (CDN eksternal)</td>
+                </tr>
+                <tr>
+                  <td><strong>Ketersediaan</strong></td>
+                  <td>Instan / tanpa koneksi internet</td>
+                  <td>Asynchronous / memerlukan koneksi</td>
+                </tr>
+                <tr>
+                  <td><strong>Pendaftaran</strong></td>
+                  <td>Wajib di <code>pubspec.yaml</code></td>
+                  <td>Tidak perlu</td>
+                </tr>
+                <tr>
+                  <td><strong>Penanganan Error</strong></td>
+                  <td>Jarang diperlukan</td>
+                  <td>Wajib (loading &amp; error state)</td>
+                </tr>
+                <tr>
+                  <td><strong>Contoh di ResepKu</strong></td>
+                  <td>Logo aplikasi &amp; placeholder</td>
+                  <td>Foto resep masakan</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4 class="fw-bold mt-4">3. Hasil Perhitungan Ukuran Kartu Grid (Langkah C.3)</h4>
+          <p align="justify">Pada layar berlebar <strong>360 dp</strong> dengan padding horizontal 16 dp (8 dp kiri + 8 dp kanan) dan <code>crossAxisSpacing: 8 dp</code> untuk 2 kolom:</p>
+          <ul>
+            <li><strong>Lebar Kartu:</strong> (360 - 16 - 8) / 2 = <strong>168 dp</strong></li>
+            <li><strong>Tinggi Kartu:</strong> Lebar / childAspectRatio = 168 / (3 / 4) = <strong>224 dp</strong></li>
+          </ul>
+
+          <h4 class="fw-bold mt-4">4. Tabel Pengujian Skenario (Langkah D.2)</h4>
+          <div class="table-responsive my-3">
+            <table class="table table-bordered table-striped text-center align-middle">
+              <thead class="table-dark">
+                <tr>
+                  <th style="width: 50px;">No</th>
+                  <th>Skenario Pengujian</th>
+                  <th>Hasil yang Diharapkan</th>
+                  <th style="width: 100px;">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td class="text-start">Buka aplikasi</td>
+                  <td class="text-start">Logo di AppBar, font Poppins, thumbnail foto di setiap resep</td>
+                  <td class="text-success fw-bold">✓ Sesuai</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td class="text-start">Tekan tombol grid di AppBar</td>
+                  <td class="text-start">Resep tampil sebagai kartu dua kolom; ikon tombol berubah menjadi ikon list</td>
+                  <td class="text-success fw-bold">✓ Sesuai</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td class="text-start">Di mode grid, tap ikon hati pada Margherita</td>
+                  <td class="text-start">Ikon merah dan badge favorit di AppBar bertambah</td>
+                  <td class="text-success fw-bold">✓ Sesuai</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td class="text-start">Kembali ke mode list</td>
+                  <td class="text-start">Ikon hati Margherita tetap merah (data Provider sinkron)</td>
+                  <td class="text-success fw-bold">✓ Sesuai</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td class="text-start">Tap kartu Alfredo di mode grid</td>
+                  <td class="text-start">Halaman detail terbuka dengan foto besar berasio 16:9 di atas</td>
+                  <td class="text-success fw-bold">✓ Sesuai</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td class="text-start">Aktifkan mode pesawat, tutup dan buka aplikasi</td>
+                  <td class="text-start">Gambar placeholder tampil elegan tanpa error merah</td>
+                  <td class="text-success fw-bold">✓ Sesuai</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4 class="fw-bold mt-4">5. Implementasi Latihan Mandiri</h4>
+          <p><strong>Latihan 1: Filter Kategori Cuisine</strong></p>
+          <p align="justify">Dibuat deretan <code>ChoiceChip</code> horizontal di bawah AppBar untuk menyaring resep berdasarkan cuisine ("Semua", Italian, Asian, dll.) secara interaktif pada mode list maupun grid.</p>
+
+          <p><strong>Latihan 2: Halaman Favorit yang Lebih Rapi</strong></p>
+          <p align="justify">Halaman <code>FavoritePage</code> ditingkatkan dengan <code>ListView.separated</code>, thumbnail <code>RecipeImage</code>, interaksi swipe-to-delete dengan <code>Dismissible</code> dan notifikasi <code>SnackBar</code>, serta dialog konfirmasi hapus semua.</p>
+
+          <div class="d-flex flex-wrap gap-2 mt-4 pt-3 border-top justify-content-between align-items-center">
+            <a href="laporan_appsmobile7.html" class="btn btn-primary" style="width: fit-content;">
+              <i class="bi bi-box-arrow-up-right me-1"></i> Buka Halaman Penuh Modul 7
+            </a>
+            <div class="d-flex gap-2 flex-wrap">
+              <a href="https://github.com/lalaayyey/2411533019_Kelasb_AppMob_ResepKu" target="_blank"
+                class="btn btn-dark" style="width: fit-content;">
+                <i class="bi bi-github me-1"></i> Lihat Repository GitHub ResepKu
+              </a>
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </div>
   </section>
@@ -2189,7 +2326,7 @@ Route::resource('users', UserController::class);
       const mobileCard = document.getElementById('mobile-detail-card');
       mobileCard.classList.remove('d-none');
 
-      const tabs = ['m1', 'm2', 'm3', 'm4', 'm5', 'm6'];
+      const tabs = ['m1', 'm2', 'm3', 'm4', 'm5', 'm6', 'm7'];
       const targetTab = tabId || 'm1';
 
       if (targetTab === 'all') {
@@ -2213,7 +2350,8 @@ Route::resource('users', UserController::class);
           'm3': 'Praktikum 3 - Input Widgets & Forms (Menangkap Data, Dropdown, dan Validasi)',
           'm4': 'Praktikum 4 - Navigasi & Passing Data (Navigator, Konsep Stack, dan Constructor)',
           'm5': 'Praktikum 5 - E-Wallet & Expense Tracker (SQLite, Autentikasi, CRUD & Filter Transaksi)',
-          'm6': 'Praktikum 6 - State Management pada Aplikasi ResepKu (setState() dan Provider)'
+          'm6': 'Praktikum 6 - State Management pada Aplikasi ResepKu (setState() dan Provider)',
+          'm7': 'Praktikum 7 - List, Grid, Gambar, dan Asset pada ResepKu'
         };
         document.getElementById('mobile-detail-title').innerHTML = '<i class="bi bi-phone me-2"></i> ' + names[targetTab];
       }
